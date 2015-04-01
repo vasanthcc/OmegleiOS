@@ -10,6 +10,7 @@
 #import "AppMacros.h"
 #import "TTTAttributedLabel.h"
 #import "CCAlertView.h"
+#import "AppData.h"
 
 #define OFFSET_X 10
 #define OFFSET_Y 5
@@ -19,7 +20,7 @@
 @interface ChatHomeView()
 {
     UITableView *tableChat;
-    UISwitch *switchWelcomeMessage,*switchCommonLikes;
+    UISwitch *switchWelcomeMessage,*switchCommonLikes,*switchFBInterest;
     UITextField *txtWelcomeMessage,*txtCommonLikes;
     UITextField *txtMsg;
     UIPopoverController *popoverSettings;
@@ -52,7 +53,7 @@
     self = [super initWithFrame:frame withHeader:hasHeader withMenu:hasMenu];
     if (self)
     {
-        [self showHeaderWithRefresh:NO withSearch:NO andAdd:YES];
+        [self showHeaderWithRefresh:NO withSearch:YES andAdd:YES];
         [self createView];
     }
     return self;
@@ -105,7 +106,7 @@
     txtMsg.borderStyle=UITextBorderStyleRoundedRect;
     txtMsg.autocapitalizationType=UITextAutocapitalizationTypeNone;
     txtMsg.placeholder=@"type message";
-    [txtMsg addTarget:self action:@selector(doneWithTextField) forControlEvents:UIControlEventEditingDidEndOnExit];
+    [txtMsg addTarget:self action:@selector(doneWithTextField:) forControlEvents:UIControlEventEditingDidEndOnExit];
     [txtMsg addTarget:self action:@selector(gotFocus) forControlEvents:UIControlEventEditingDidBegin];
     [contentScrollView addSubview:txtMsg];
     
@@ -120,7 +121,7 @@
     [contentScrollView addSubview:btnSend];
     
     [self newChat];
-    //[self beginChat];
+    [self beginChat];
     [self createPopOverForSettings];
 }
 -(void)createPopOverForSettings
@@ -144,7 +145,7 @@
     txtWelcomeMessage.borderStyle=UITextBorderStyleNone;
     txtWelcomeMessage.autocapitalizationType=UITextAutocapitalizationTypeNone;
     txtWelcomeMessage.placeholder=@"   welcome message";
-    [txtWelcomeMessage addTarget:self action:@selector(doneWithTextField) forControlEvents:UIControlEventEditingDidEndOnExit];
+    [txtWelcomeMessage addTarget:self action:@selector(doneWithTextField:) forControlEvents:UIControlEventEditingDidEndOnExit];
     //[txtWelcomeMessage addTarget:self action:@selector(gotFocus) forControlEvents:UIControlEventEditingDidBegin];
     [viewSettings addSubview:txtWelcomeMessage];
     
@@ -164,35 +165,138 @@
     txtCommonLikes.borderStyle=UITextBorderStyleNone;
     txtCommonLikes.autocapitalizationType=UITextAutocapitalizationTypeNone;
     txtCommonLikes.placeholder=@"    find strangers with common likes";
-    [txtCommonLikes addTarget:self action:@selector(doneWithTextField) forControlEvents:UIControlEventEditingDidEndOnExit];
+    [txtCommonLikes addTarget:self action:@selector(doneWithTextField:) forControlEvents:UIControlEventEditingDidEndOnExit];
     //[txtCommonLikes addTarget:self action:@selector(gotFocus) forControlEvents:UIControlEventEditingDidBegin];
     [viewSettings addSubview:txtCommonLikes];
     
+    
+    switchFBInterest = [[UISwitch alloc]initWithFrame:CGRectMake(switchCommonLikes.frame.origin.x,switchCommonLikes.frame.origin.y+switchCommonLikes.frame.size.height+40,10,10)];
+    [switchFBInterest addTarget:self action:@selector(setState:) forControlEvents:UIControlEventValueChanged];
+    [viewSettings addSubview:switchFBInterest];
+    
+    UILabel *lbl_Msg =[[UILabel alloc] initWithFrame:CGRectMake(switchFBInterest.frame.origin.x+switchFBInterest.frame.size.width+5,switchFBInterest.frame.origin.y,viewSettings.frame.size.width-60, 30)];
+    lbl_Msg.textColor=[UIColor blackColor];
+    lbl_Msg.backgroundColor=[UIColor whiteColor];
+    lbl_Msg.font=[UIFont fontWithName:@"Helvetica" size:15];
+    lbl_Msg.text=@"Add my Facebook interest as Likes";
+    lbl_Msg.textAlignment = NSTextAlignmentLeft;
+    [viewSettings addSubview:lbl_Msg];
+    
+    UIButton *saveBtn=[[UIButton alloc] initWithFrame:CGRectMake(viewSettings.frame.size.width/3, viewSettings.frame.size.height-30, viewSettings.frame.size.width/3, 25)];
+    saveBtn.backgroundColor=UIColorFromRGB(0x313131);
+    [saveBtn setTitle:@"Save" forState:UIControlStateNormal];
+    [saveBtn setTitle:@"Save" forState:UIControlStateSelected];
+    [saveBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
+    [saveBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    saveBtn.layer.borderColor=UIColorFromRGB(0x3A3D41).CGColor;
+    saveBtn.layer.borderWidth=1;
+    [saveBtn.titleLabel setFont:[UIFont fontWithName:@"Helvetica" size:12]];
+    [saveBtn addTarget:self action:@selector(saveSettingsClicked) forControlEvents:UIControlEventTouchUpInside];
+    [viewSettings addSubview:saveBtn];
     
     
     if(settingsAlertView == nil)
         settingsAlertView=[[CCAlertView alloc] initWithTitle:@"Omegle Chat" withButtontitle:nil withContentView:viewSettings withDelegate:self];
     
-    [self showSettingsAlertView];
-    
 }
 -(void)showSettingsAlertView
 {
+    [self setDBStatus];
     [settingsAlertView showInView:self];
+}
+-(void)setDBStatus
+{
+    [switchCommonLikes setOn:[AppData getAppData].isLikesOn animated:YES];
+    [switchFBInterest setOn:[AppData getAppData].isFacebookOn animated:YES];
+    [switchWelcomeMessage setOn:[AppData getAppData].isWelcomeMessageOn animated:YES];
+}
+-(void)saveSettingsClicked
+{
+    if(switchWelcomeMessage.isOn)
+    {
+        if([txtWelcomeMessage.text isEqualToString:@""])
+        {
+            [self showErrorAlertWithMessage:@"Welcome Message field should not be empty"];
+            [txtWelcomeMessage resignFirstResponder];
+            return;
+        }
+        else
+        {
+            [[AppData getAppData] saveWelcomeMessage:txtWelcomeMessage.text];
+        }
+        
+    [[AppData getAppData].userDefaults setObject:@"ON" forKey:ON_OFF_WELCOME_MSG];
+        
+    }
+    else
+    {
+         [[AppData getAppData].userDefaults setObject:@"OFF" forKey:ON_OFF_WELCOME_MSG];
+    }
+    
+    if(switchFBInterest.isOn)
+    {
+        [[AppData getAppData].userDefaults setObject:@"ON" forKey:ON_OFF_FACEBOOK];
+    }
+    else
+    {
+        [[AppData getAppData].userDefaults setObject:@"OFF" forKey:ON_OFF_FACEBOOK];
+    }
+    
+    if(switchCommonLikes.isOn)
+    {
+        if([txtCommonLikes.text isEqualToString:@""])
+        {
+            [self showErrorAlertWithMessage:@"Likes field should not be empty"];
+            [txtCommonLikes resignFirstResponder];
+            return;
+        }
+        else
+        {
+            [[AppData getAppData] saveWelcomeMessage:txtCommonLikes.text];
+            
+        }
+ 
+        [[AppData getAppData].userDefaults setObject:@"ON" forKey:ON_OFF_LIKES];
+    }
+    else
+    {
+        [[AppData getAppData].userDefaults setObject:@"OFF" forKey:ON_OFF_LIKES];
+    }
+    
+    [[AppData getAppData].userDefaults synchronize];
+    [settingsAlertView hideView];
 }
 - (void)setState:(id)checkBox
 {
     
 }
--(void)doneWithTextField
+-(void)sendMessageIfWelcomeMessageOn
 {
-    [self addChatMessage:[NSString stringWithFormat:@"%@|%@",txtMsg.text,ALIGNMENT_RIGHT]];
-    [self sendMessage:txtMsg.text];
-    [txtMsg resignFirstResponder];
+   if([AppData getAppData].isWelcomeMessageOn && [[AppData getAppData] getWelcomeMessage] != nil && ![[[AppData getAppData] getWelcomeMessage] isEqualToString:@""])
+   {
+       NSLog(@"WElcome Message from DB ::: %@",[[AppData getAppData] getWelcomeMessage]);
+       [self AddChatAndSendMessage:[[AppData getAppData] getWelcomeMessage]];
+   }
+}
+-(void)doneWithTextField:(UITextField*)sender
+{
+    if(sender ==txtMsg)
+    {
+        [self AddChatAndSendMessage:txtMsg.text];
     txtMsg.text=@"";
-    
     [contentScrollView setContentOffset:CGPointZero animated:YES];
     [tableChat setScrollsToTop:YES];
+    }
+    else
+    {
+        
+    }
+    [sender resignFirstResponder];
+}
+-(void)AddChatAndSendMessage:(NSString*)strInputMsg
+{
+    [self addChatMessage:[NSString stringWithFormat:@"%@|%@",strInputMsg,ALIGNMENT_RIGHT]];
+    [self sendMessage:strInputMsg];
 }
 -(void)doDoubleTap
 {
@@ -211,7 +315,7 @@
 }
 -(void)clickSend
 {
-    [self doneWithTextField];
+    [self doneWithTextField:txtMsg];
 }
 -(void)clickGetTemplate
 {
@@ -395,10 +499,11 @@
                 
                 NSLog(@"GOT_MESSAGE: %@", chatMessage);
             }
-            if ([[[response objectAtIndex: array] objectAtIndex:0] isEqualToString:@"connected"]) {
-                [self showLiveStatus:@"stranger connected"];
+            if ([[[response objectAtIndex: array] objectAtIndex:0] isEqualToString:@"connected"])
+            {
+            [self showLiveStatus:@"stranger connected"];
                 NSLog(@"USER_CONNECTED");
-                
+                [self sendMessageIfWelcomeMessageOn];
             }
             if ([[[response objectAtIndex: array] objectAtIndex:0] isEqualToString:@"waiting"]) {
                 
@@ -655,5 +760,13 @@
 -(void)ccAlertView:(CCAlertView *)alertView clickedButton:(UIButton *)button
 {
     [alertView hideView];
+}
+-(void)searchBtnClicked
+{
+    
+}
+-(void)addBtnClicked
+{
+    [self showSettingsAlertView];
 }
 @end

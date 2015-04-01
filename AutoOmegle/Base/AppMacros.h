@@ -26,6 +26,11 @@
 #pragma Common Keys
 #define KEY_SPAM_MSG @"keyspammessage"
 #define KEY_WELCOME_MSG @"keywelcomemessage"
+#define KEY_FACEBOOK_SESSION @"keyfacebooksession"
+
+#define ON_OFF_WELCOME_MSG @"welcomeMsgOnOFF"
+#define ON_OFF_LIKES @"likesOnOFF"
+#define ON_OFF_FACEBOOK @"facebookOnOFF"
 
 #define UIColorFromRGB(rgbValue) [UIColor \
 colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
