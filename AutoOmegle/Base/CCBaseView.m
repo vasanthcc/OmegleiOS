@@ -90,7 +90,7 @@
             
             
             
-            lbl=[[UILabel alloc] initWithFrame:CGRectMake(back_Img.size.width+menuImg.size.width+10,(iOS7orAbove?StatusBarHeight:0),headerContainer.frame.size.width-menuImg.size.width-10,headerContainer.frame.size.height-((iOS7orAbove?StatusBarHeight:0)))];
+            lbl=[[UILabel alloc] initWithFrame:CGRectMake(menuImg.size.width+20,(iOS7orAbove?StatusBarHeight:0),headerContainer.frame.size.width-menuImg.size.width-20,headerContainer.frame.size.height-((iOS7orAbove?StatusBarHeight:0)))];
             lbl.backgroundColor=[UIColor clearColor];
             lbl.textColor=[UIColor whiteColor];
             lbl.textAlignment=NSTextAlignmentLeft;
@@ -395,7 +395,25 @@
 {
     
 }
--(CCBaseViewController *) getViewControllerToNavigate
+-(void)gotoThisViewController:(NSString*)strViewController
+{
+    CCBaseViewController *controllerToNavigate=[(CCBaseViewController*)self.viewControllerDelegate isPresentInNavigationStack:strViewController];
+    
+    if(!controllerToNavigate)
+    {
+        controllerToNavigate=[[NSClassFromString(strViewController) alloc] init];
+        controllerToNavigate.navigationType=NAVIGATION_OTHERSCREEN;
+        
+        [((CCBaseViewController*)self.viewControllerDelegate).navigationController pushViewController:controllerToNavigate animated:NO];
+    }
+    else
+    {
+        [controllerToNavigate clearData];
+        controllerToNavigate.navigationType=NAVIGATION_OTHERSCREEN;
+        [((CCBaseViewController*)self.viewControllerDelegate).navigationController popToViewController:controllerToNavigate animated:NO];
+    }
+}
+-(CCBaseViewController *)getViewControllerToNavigate
 {
     if([self respondsToSelector:@selector(getAssociatedMainController)])
     {

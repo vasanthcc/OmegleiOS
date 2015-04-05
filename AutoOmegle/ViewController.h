@@ -1,9 +1,9 @@
 //
 //  ViewController.h
-//  AutoOmegle
+//  dsadasd
 //
-//  Created by Vasanth Ravichandran on 30/03/15.
-//  Copyright (c) 2015 cc. All rights reserved.
+//  Created by Vasanth Ravichandran on 05/04/15.
+//  Copyright (c) 2015 msf. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

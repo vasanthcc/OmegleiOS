@@ -34,6 +34,7 @@
 -(void) showHeaderWithRefresh:(BOOL) hasRefresh withSearch:(BOOL) hasSearch andAdd:(BOOL) hasAdd allowsBack:(BOOL) hasBack;
 -(void) logOutRequest;
 -(void) setMenuViewIdentifier:(NSString*)identifier;
+-(void)gotoThisViewController:(NSString*)strViewController;
 -(void) createMenu;
 -(void) hideMenu;
 @end
