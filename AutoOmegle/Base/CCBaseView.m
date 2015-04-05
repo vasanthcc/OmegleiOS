@@ -37,6 +37,7 @@
     BOOL showMenu;
     NSString *menuViewIdentifier;
         NSMutableDictionary *dictSector,*dictBroker;
+        UIPopoverController *popupActivityController;
 }
 @property UIButton* mail;
 @property UIButton* message;
@@ -412,6 +413,18 @@
         controllerToNavigate.navigationType=NAVIGATION_OTHERSCREEN;
         [((CCBaseViewController*)self.viewControllerDelegate).navigationController popToViewController:controllerToNavigate animated:NO];
     }
+}
+-(void)shareApp
+{
+    NSArray * shareItems = @[@"Auto Omegle",[UIImage imageNamed:IMG_MENU]];
+    
+    UIActivityViewController * avc = [[UIActivityViewController alloc] initWithActivityItems:shareItems applicationActivities:nil];
+    
+//    popupActivityController = [[UIPopoverController alloc] initWithContentViewController:avc];
+//    [popupActivityController presentPopoverFromRect:CGRectMake(0, self.contentContainer.frame.size.height, self.contentContainer.frame.size.width, 80) inView:self.contentContainer permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    
+    [(CCBaseViewController*)self.viewControllerDelegate presentViewController:avc animated:YES completion:nil];
+
 }
 -(CCBaseViewController *)getViewControllerToNavigate
 {

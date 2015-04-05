@@ -28,5 +28,6 @@
 {
     [self setTitle:@"Share to Friends"];
     [self setBackgroundColor:[UIColor orangeColor]];
+    [self shareApp];
 }
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "CCBaseView.h"
-
-@interface SuggestionView : CCBaseView
+#import <MessageUI/MessageUI.h>
+@interface SuggestionView : CCBaseView<MFMailComposeViewControllerDelegate,UITextFieldDelegate>
 
 @end

@@ -36,7 +36,7 @@ static AppData *appData;
 }
 -(NSMutableArray*)getSpamArray
 {
-   return (NSMutableArray*)[self.userDefaults objectForKey:KEY_SPAM_MSG];
+   return [(NSMutableArray*)[self.userDefaults objectForKey:KEY_SPAM_MSG] mutableCopy];
 }
 -(NSString*)getWelcomeMessage
 {
@@ -52,7 +52,7 @@ static AppData *appData;
 }
 -(NSMutableArray*)getTemplateItems
 {
-  return (NSMutableArray*)[self.userDefaults objectForKey:KEY_TEMPLATE_ITEMS];
+  return (NSMutableArray*)[[self.userDefaults objectForKey:KEY_TEMPLATE_ITEMS] mutableCopy];
 }
 
 

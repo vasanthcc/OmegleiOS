@@ -36,8 +36,8 @@
     [self setTitle:@"Edit Templates"];
     [self setBackgroundColor:[UIColor orangeColor]];
     
-    lbl_Msg =[[UILabel alloc] initWithFrame:CGRectMake(30,200,self.contentContainer.frame.size.width-60,80)];
-    lbl_Msg.textColor=[UIColor blackColor];
+    lbl_Msg =[[UILabel alloc] initWithFrame:CGRectMake(30,150,self.contentContainer.frame.size.width-60,80)];
+    lbl_Msg.textColor=[UIColor darkGrayColor];
     lbl_Msg.backgroundColor=[UIColor whiteColor];
     lbl_Msg.text=@"No template messages available right now.Kindly create it for sending message from this list at the time of conversation with your stranger";
     lbl_Msg.numberOfLines=0;
@@ -226,6 +226,7 @@ if(arrayTemplateItems == nil)
     
     if ([arrayTemplateItems count] != 0)
     {
+        NSLog(@"indexPath.row : %ld",(long)indexPath.row);
         [arrayTemplateItems removeObjectAtIndex:indexPath.row];
         [tableTemplateItems reloadData];
         [self doSynchWithDB];
