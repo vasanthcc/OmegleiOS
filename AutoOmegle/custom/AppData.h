@@ -9,8 +9,23 @@
 #import <Foundation/Foundation.h>
 
 @interface AppData : NSObject
+
 @property (strong) NSUserDefaults *userDefaults;
+
+@property (strong) NSMutableArray *arrayKeySpamMsg;
+@property (strong) NSString *strWelcomeMsg;
+@property (strong) NSString *strFBSession;
+@property (strong) NSString *strCommonLikes;
+@property (strong) NSMutableArray *arrayTemplateItems;
+@property BOOL boolWelcomeMsg_ON_OFF;
+@property BOOL boolLikes_ON_OFF;
+@property BOOL boolFacebook_ON_OFF;
+@property BOOL boolReconnect_ON_OFF;
+
 +(AppData*)getAppData;
+
+-(void)saveDatabaseBeforeExit;
+-(void)synchDatabaseOnEnter;
 
 -(NSMutableArray*)getSpamArray;
 -(NSString*)getWelcomeMessage;
