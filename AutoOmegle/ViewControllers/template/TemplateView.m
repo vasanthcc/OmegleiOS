@@ -80,7 +80,7 @@
 if(arrayTemplateItems == nil)
     arrayTemplateItems = [[NSMutableArray alloc]init];
     
-    arrayTemplateItems = [AppData getAppData].getTemplateItems;
+    arrayTemplateItems = [AppData getAppData].arrayTemplateItems;
     
     if(arrayTemplateItems !=nil && [arrayTemplateItems count]!=0)
     {
@@ -178,8 +178,10 @@ if(arrayTemplateItems == nil)
 }
 -(void)doSynchWithDB
 {
-    if(arrayTemplateItems != nil)
-    [[AppData getAppData] saveTemplateItems:arrayTemplateItems];
+
+//    [[AppData getAppData] saveTemplateItems:arrayTemplateItems];
+        if(arrayTemplateItems != nil)
+        [AppData getAppData].arrayTemplateItems =[[NSMutableArray alloc] initWithArray:arrayTemplateItems];
 }
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath;
 {

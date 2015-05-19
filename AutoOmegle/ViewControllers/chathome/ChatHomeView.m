@@ -218,15 +218,21 @@
 }
 -(void)setDBStatus
 {
-    [switchCommonLikes setOn:[AppData getAppData].isLikesOn animated:YES];
-    [switchFBInterest setOn:[AppData getAppData].isFacebookOn animated:YES];
-    [switchWelcomeMessage setOn:[AppData getAppData].isWelcomeMessageOn animated:YES];
+    [switchCommonLikes setOn:[AppData getAppData].boolLikes_ON_OFF animated:YES];
+    [switchFBInterest setOn:[AppData getAppData].boolFacebook_ON_OFF animated:YES];
+    [switchWelcomeMessage setOn:[AppData getAppData].boolWelcomeMsg_ON_OFF animated:YES];
     
-    if(![[AppData getAppData].getWelcomeMessage isEqualToString:@""] && [AppData getAppData].getWelcomeMessage != nil)
-        txtWelcomeMessage.text =[AppData getAppData].getWelcomeMessage;
+//    if(![[AppData getAppData].getWelcomeMessage isEqualToString:@""] && [AppData getAppData].getWelcomeMessage != nil)
+//        txtWelcomeMessage.text =[AppData getAppData].getWelcomeMessage;
+//    
+//    if(![[AppData getAppData].getCommonLikes isEqualToString:@""] && [AppData getAppData].getCommonLikes != nil)
+//        txtCommonLikes.text =[AppData getAppData].getCommonLikes;
     
-    if(![[AppData getAppData].getCommonLikes isEqualToString:@""] && [AppData getAppData].getCommonLikes != nil)
-        txtCommonLikes.text =[AppData getAppData].getCommonLikes;
+    if(![[AppData getAppData].strWelcomeMsg isEqualToString:@""] && [AppData getAppData].strWelcomeMsg != nil)
+        txtWelcomeMessage.text =[AppData getAppData].strWelcomeMsg;
+    
+    if(![[AppData getAppData].strCommonLikes isEqualToString:@""] && [AppData getAppData].strCommonLikes != nil)
+        txtCommonLikes.text =[AppData getAppData].strCommonLikes;
     
     
 }
@@ -242,7 +248,8 @@
         }
         else
         {
-            [[AppData getAppData] saveWelcomeMessage:txtWelcomeMessage.text];
+            //[[AppData getAppData] saveWelcomeMessage:txtWelcomeMessage.text];
+            [AppData getAppData].strWelcomeMsg = txtWelcomeMessage.text;
         }
         
     [[AppData getAppData].userDefaults setObject:@"ON" forKey:ON_OFF_WELCOME_MSG];
@@ -264,7 +271,8 @@
         }
         else
         {
-            [[AppData getAppData] saveCommonLikes:txtCommonLikes.text];
+            //[[AppData getAppData] saveCommonLikes:txtCommonLikes.text];
+            [AppData getAppData].strCommonLikes = txtCommonLikes.text;
             
         }
  
@@ -316,7 +324,8 @@
         if(switchFBInterest.isOn)
         {
             [[AppData getAppData].userDefaults setObject:@"ON" forKey:ON_OFF_FACEBOOK];
-            if([AppData getAppData].getFacebookSession ==nil || [[AppData getAppData].getFacebookSession isEqualToString:@""])
+            //if([AppData getAppData].getFacebookSession ==nil || [[AppData getAppData].getFacebookSession isEqualToString:@""])
+            if([AppData getAppData].strFBSession ==nil || [[AppData getAppData].strFBSession isEqualToString:@""])
             {
                 UIAlertView *fbAlert=[[UIAlertView alloc] initWithTitle:@"RHB OSK" message:@"You are not logged into facebook.Do you want to login now?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
                 
@@ -351,9 +360,10 @@
 }
 -(void)sendMessageIfWelcomeMessageOn
 {
-   if([AppData getAppData].isWelcomeMessageOn && [[AppData getAppData] getWelcomeMessage] != nil && ![[[AppData getAppData] getWelcomeMessage] isEqualToString:@""])
+   //if([AppData getAppData].isWelcomeMessageOn && [[AppData getAppData] getWelcomeMessage] != nil && ![[[AppData getAppData] getWelcomeMessage] isEqualToString:@""])
+    if([AppData getAppData].boolWelcomeMsg_ON_OFF && [[AppData getAppData] strWelcomeMsg] != nil && ![[[AppData getAppData] strWelcomeMsg] isEqualToString:@""])
    {
-       [self AddChatAndSendMessage:[[AppData getAppData] getWelcomeMessage]];
+       [self AddChatAndSendMessage:[AppData getAppData].strWelcomeMsg];//[[AppData getAppData] getWelcomeMessage]];
    }
 }
 -(void)doneWithTextField:(OmegleTextBox*)sender
@@ -397,7 +407,7 @@
 }
 -(void)clickGetTemplate
 {
-    if([AppData getAppData].getTemplateItems==nil || [[AppData getAppData].getTemplateItems count] ==0)
+    if([AppData getAppData].arrayTemplateItems==nil || [[AppData getAppData].arrayTemplateItems count] ==0)
     {
         UIAlertView *templateAlert=[[UIAlertView alloc] initWithTitle:@"RHB OSK" message:@"Do you want to create or edit template message now? This will disconnect your current chat.Click ok to proceed." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
         
@@ -414,7 +424,7 @@
     {
        popupTemplate = [[UIActionSheet alloc] initWithTitle:@"Select to send a message:" delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil];
         
-        for( NSString *title in [AppData getAppData].getTemplateItems)
+        for( NSString *title in [AppData getAppData].arrayTemplateItems)
             [popupTemplate addButtonWithTitle:title];
     }
     [popupTemplate showInView:[UIApplication sharedApplication].keyWindow];
@@ -879,7 +889,7 @@
 - (void)actionSheet:(UIActionSheet *)popup clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if(buttonIndex !=-1)
-    [self AddChatAndSendMessage:[[AppData getAppData].getTemplateItems objectAtIndex:buttonIndex]];
+    [self AddChatAndSendMessage:[[AppData getAppData].arrayTemplateItems objectAtIndex:buttonIndex]];
 }
 -(void)searchBtnClicked
 {

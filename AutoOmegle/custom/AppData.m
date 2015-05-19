@@ -118,7 +118,7 @@ static AppData *appData;
     //return [[self.userDefaults objectForKey:ON_OFF_RECONNECT] isEqualToString:@"ON"]?TRUE:FALSE;
 }
 
--(void)saveDatabaseBeforeExit
+-(void)synchUserDefaultWithAppDataBeforeExit
 {
     [[NSUserDefaults standardUserDefaults] setObject:self.arrayKeySpamMsg forKey:KEY_SPAM_MSG];
     [[NSUserDefaults standardUserDefaults] setObject:self.strWelcomeMsg forKey:KEY_WELCOME_MSG];
@@ -133,7 +133,7 @@ static AppData *appData;
     
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
--(void)synchDatabaseOnEnter
+-(void)synchAppDataWithUserDefaultOnEnter
 {
     self.arrayKeySpamMsg=(NSMutableArray*)[self.userDefaults objectForKey:KEY_SPAM_MSG];
     self.strWelcomeMsg=(NSString*)[self.userDefaults objectForKey:KEY_WELCOME_MSG];

@@ -10,7 +10,7 @@
 #import "AppMacros.h"
 @interface SettingsView()
 {
-    UISwitch *switchAutoReconnect,*switchDisconnectByRules,*switchScreenON,*switchDoubleTapON,*switchConfirmationON;
+    UISwitch *switchScreenON,*switchDoubleTapON,*switchConfirmationON;//switchDisconnectByRules
     
     UISwitch *switchMessageWithCondition;
 }
@@ -31,39 +31,27 @@
 -(void)createView
 {
     int lblWidth=self.contentContainer.frame.size.width-75;
-    
-    switchAutoReconnect = [[UISwitch alloc]initWithFrame:CGRectMake(10,20,10,10)];
-    [switchAutoReconnect addTarget:self action:@selector(setState:) forControlEvents:UIControlEventValueChanged];
-    [self.contentContainer addSubview:switchAutoReconnect];
-    
-    UILabel *lbl_AutoReconnect =[[UILabel alloc] initWithFrame:CGRectMake(switchAutoReconnect.frame.origin.x+switchAutoReconnect.frame.size.width+5,switchAutoReconnect.frame.origin.y,lblWidth, 40)];
-    lbl_AutoReconnect.textColor=[UIColor blackColor];
-    lbl_AutoReconnect.backgroundColor=[UIColor yellowColor];
-    lbl_AutoReconnect.font=[UIFont fontWithName:@"Helvetica" size:13];
-    lbl_AutoReconnect.text=@"Auto Reconnect";
-    lbl_AutoReconnect.numberOfLines=0;
-    lbl_AutoReconnect.textAlignment = NSTextAlignmentLeft;
-    [self.contentContainer addSubview:lbl_AutoReconnect];
+
     
     
-    switchDisconnectByRules = [[UISwitch alloc]initWithFrame:CGRectMake(switchAutoReconnect.frame.origin.x,switchAutoReconnect.frame.origin.y+switchAutoReconnect.frame.size.height+40,10,10)];
-    [switchDisconnectByRules addTarget:self action:@selector(setState:) forControlEvents:UIControlEventValueChanged];
-    [self.contentContainer addSubview:switchDisconnectByRules];
+//    switchDisconnectByRules = [[UISwitch alloc]initWithFrame:CGRectMake(10,20,10,10)];
+//    [switchDisconnectByRules addTarget:self action:@selector(setState:) forControlEvents:UIControlEventValueChanged];
+//    [self.contentContainer addSubview:switchDisconnectByRules];
+//    
+//    UILabel *lbl_DisconnectByRules =[[UILabel alloc] initWithFrame:CGRectMake(switchDisconnectByRules.frame.origin.x+switchDisconnectByRules.frame.size.width+5,switchDisconnectByRules.frame.origin.y-5,lblWidth, 40)];
+//    lbl_DisconnectByRules.textColor=[UIColor blackColor];
+//    lbl_DisconnectByRules.backgroundColor=[UIColor whiteColor];
+//    lbl_DisconnectByRules.font=[UIFont fontWithName:@"Helvetica" size:13];
+//    lbl_DisconnectByRules.text=@"Disconnect by rules";
+//    lbl_DisconnectByRules.numberOfLines=0;
+//    lbl_DisconnectByRules.textAlignment = NSTextAlignmentLeft;
+//    [self.contentContainer addSubview:lbl_DisconnectByRules];
     
-    UILabel *lbl_DisconnectByRules =[[UILabel alloc] initWithFrame:CGRectMake(switchDisconnectByRules.frame.origin.x+switchDisconnectByRules.frame.size.width+5,switchDisconnectByRules.frame.origin.y,lblWidth, 40)];
-    lbl_DisconnectByRules.textColor=[UIColor blackColor];
-    lbl_DisconnectByRules.backgroundColor=[UIColor whiteColor];
-    lbl_DisconnectByRules.font=[UIFont fontWithName:@"Helvetica" size:13];
-    lbl_DisconnectByRules.text=@"Disconnect by rules";
-    lbl_DisconnectByRules.numberOfLines=0;
-    lbl_DisconnectByRules.textAlignment = NSTextAlignmentLeft;
-    [self.contentContainer addSubview:lbl_DisconnectByRules];
-    
-    switchScreenON = [[UISwitch alloc]initWithFrame:CGRectMake(switchDisconnectByRules.frame.origin.x,switchDisconnectByRules.frame.origin.y+switchDisconnectByRules.frame.size.height+40,10,10)];
+    switchScreenON = [[UISwitch alloc]initWithFrame:CGRectMake(10,20,10,10)];
     [switchScreenON addTarget:self action:@selector(setState:) forControlEvents:UIControlEventValueChanged];
     [self.contentContainer addSubview:switchScreenON];
     
-    UILabel *lbl_ScreenON =[[UILabel alloc] initWithFrame:CGRectMake(switchScreenON.frame.origin.x+switchScreenON.frame.size.width+5,switchScreenON.frame.origin.y,lblWidth, 40)];
+    UILabel *lbl_ScreenON =[[UILabel alloc] initWithFrame:CGRectMake(switchScreenON.frame.origin.x+switchScreenON.frame.size.width+5,switchScreenON.frame.origin.y-5,lblWidth, 40)];
     lbl_ScreenON.textColor=[UIColor blackColor];
     lbl_ScreenON.backgroundColor=[UIColor whiteColor];
     lbl_ScreenON.font=[UIFont fontWithName:@"Helvetica" size:13];
@@ -76,7 +64,7 @@
     [switchDoubleTapON addTarget:self action:@selector(setState:) forControlEvents:UIControlEventValueChanged];
     [self.contentContainer addSubview:switchDoubleTapON];
     
-    UILabel *lbl_DoubleTapON =[[UILabel alloc] initWithFrame:CGRectMake(switchDoubleTapON.frame.origin.x+switchDoubleTapON.frame.size.width+5,switchDoubleTapON.frame.origin.y,lblWidth, 40)];
+    UILabel *lbl_DoubleTapON =[[UILabel alloc] initWithFrame:CGRectMake(switchDoubleTapON.frame.origin.x+switchDoubleTapON.frame.size.width+5,switchDoubleTapON.frame.origin.y-5,lblWidth, 40)];
     lbl_DoubleTapON.textColor=[UIColor blackColor];
     lbl_DoubleTapON.backgroundColor=[UIColor whiteColor];
     lbl_DoubleTapON.font=[UIFont fontWithName:@"Helvetica" size:13];
@@ -89,7 +77,7 @@
     [switchConfirmationON addTarget:self action:@selector(setState:) forControlEvents:UIControlEventValueChanged];
     [self.contentContainer addSubview:switchConfirmationON];
     
-    UILabel *lbl_Confirmation =[[UILabel alloc] initWithFrame:CGRectMake(switchConfirmationON.frame.origin.x+switchConfirmationON.frame.size.width+5,switchConfirmationON.frame.origin.y,lblWidth, 40)];
+    UILabel *lbl_Confirmation =[[UILabel alloc] initWithFrame:CGRectMake(switchConfirmationON.frame.origin.x+switchConfirmationON.frame.size.width+5,switchConfirmationON.frame.origin.y-5,lblWidth, 40)];
     lbl_Confirmation.textColor=[UIColor blackColor];
     lbl_Confirmation.backgroundColor=[UIColor whiteColor];
     lbl_Confirmation.font=[UIFont fontWithName:@"Helvetica" size:13];
@@ -102,7 +90,7 @@
     [switchMessageWithCondition addTarget:self action:@selector(setState:) forControlEvents:UIControlEventValueChanged];
     [self.contentContainer addSubview:switchMessageWithCondition];
     
-    UILabel *lbl_MsgCondition =[[UILabel alloc] initWithFrame:CGRectMake(switchMessageWithCondition.frame.origin.x+switchMessageWithCondition.frame.size.width+5,switchMessageWithCondition.frame.origin.y,lblWidth, 40)];
+    UILabel *lbl_MsgCondition =[[UILabel alloc] initWithFrame:CGRectMake(switchMessageWithCondition.frame.origin.x+switchMessageWithCondition.frame.size.width+5,switchMessageWithCondition.frame.origin.y-5,lblWidth, 40)];
     lbl_MsgCondition.textColor=[UIColor blackColor];
     lbl_MsgCondition.backgroundColor=[UIColor whiteColor];
     lbl_MsgCondition.font=[UIFont fontWithName:@"Helvetica" size:13];
@@ -140,15 +128,7 @@
 }
 -(void)saveSettingsClicked
 {
-    if(switchAutoReconnect.isOn)
-    {
-        
-    }
-    else if(switchDisconnectByRules.isOn)
-    {
-        
-    }
-    else if(switchScreenON.isOn)
+  if(switchScreenON.isOn)
     {
         
     }
