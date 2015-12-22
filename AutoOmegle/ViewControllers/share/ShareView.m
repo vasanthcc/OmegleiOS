@@ -19,7 +19,7 @@
     self = [super initWithFrame:frame withHeader:hasHeader withMenu:hasMenu];
     if (self)
     {
-        [self showHeaderWithRefresh:NO withSearch:NO andAdd:YES];
+        [self showHeaderWithSave:NO withSettings:NO andSend:NO];
         [self createView];
     }
     return self;
@@ -27,7 +27,6 @@
 -(void)createView
 {
     [self setTitle:@"Share to Friends"];
-    [self setBackgroundColor:[UIColor orangeColor]];
 }
 -(void)showing
 {

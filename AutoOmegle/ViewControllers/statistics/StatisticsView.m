@@ -20,10 +20,22 @@
     self = [super initWithFrame:frame withHeader:hasHeader withMenu:hasMenu];
     if (self)
     {
-        [self showHeaderWithRefresh:NO withSearch:NO andAdd:NO];
-        [self createView];
+        [self showHeaderWithSave:NO withSettings:NO andSend:NO];
+        [self showUnderDevelopmentLabel];
     }
     return self;
+}
+-(void)showUnderDevelopmentLabel
+{
+    UILabel *lblUnderDevelopment=[[UILabel alloc] initWithFrame:CGRectMake(10,0,self.contentContainer.frame.size.width-20,self.contentContainer.frame.size.height)];
+    lblUnderDevelopment.backgroundColor=[UIColor clearColor];
+    lblUnderDevelopment.textColor=BLUE_COLOR_THEME;
+    lblUnderDevelopment.textAlignment=NSTextAlignmentCenter;
+    lblUnderDevelopment.font=[UIFont fontWithName:FONT_STATUS_BOLD size:18];
+    lblUnderDevelopment.numberOfLines=0;
+    lblUnderDevelopment.text=@"Hopefully You can get this feature in the next updates";
+    [self.contentContainer addSubview:lblUnderDevelopment];
+    [self setTitle:@"Current Statistics"];
 }
 -(void)createView
 {
@@ -52,7 +64,7 @@
 }
 -(void)clickReset
 {
-    UIAlertView *resetAlert=[[UIAlertView alloc] initWithTitle:@"RHB OSK" message:@"Statistics count will not be undone.It will start from zero.Do you want to continue?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+    UIAlertView *resetAlert=[[UIAlertView alloc] initWithTitle:HEADER_MSGBOX message:@"Statistics count will not be undone.It will start from zero.Do you want to continue?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
     
     resetAlert.tag = 32;
     

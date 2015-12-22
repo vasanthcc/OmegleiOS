@@ -56,7 +56,7 @@
 -(void) showErrorAlert:(NSString *) message buttonTitle:(NSString *) btnTitle
 {
     [self ready];
-    UIAlertView *alertView=[[UIAlertView alloc] initWithTitle:@"Auto Omegle" message:message delegate:self cancelButtonTitle:btnTitle otherButtonTitles: nil];
+    UIAlertView *alertView=[[UIAlertView alloc] initWithTitle:HEADER_MSGBOX message:message delegate:self cancelButtonTitle:btnTitle otherButtonTitles: nil];
     alertView.center=CGPointMake(baseContentView.center.x,baseContentView.center.y);
     alertView.tag=kErrorAlertTag;
     [alertView show];

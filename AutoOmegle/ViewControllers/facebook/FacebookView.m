@@ -19,14 +19,26 @@
     self = [super initWithFrame:frame withHeader:hasHeader withMenu:hasMenu];
     if (self)
     {
-        [self showHeaderWithRefresh:NO withSearch:NO andAdd:YES];
-        [self createView];
+        [self showHeaderWithSave:NO withSettings:NO andSend:NO];
+        [self showUnderDevelopmentLabel];
     }
     return self;
 }
+-(void)showUnderDevelopmentLabel
+{
+    UILabel *lblUnderDevelopment=[[UILabel alloc] initWithFrame:CGRectMake(10,0,self.contentContainer.frame.size.width-20,self.contentContainer.frame.size.height)];
+    lblUnderDevelopment.backgroundColor=[UIColor clearColor];
+    lblUnderDevelopment.textColor=BLUE_COLOR_THEME;
+    lblUnderDevelopment.textAlignment=NSTextAlignmentCenter;
+    lblUnderDevelopment.font=[UIFont fontWithName:FONT_STATUS_BOLD size:18];
+    lblUnderDevelopment.numberOfLines=0;
+    lblUnderDevelopment.text=@"Hopefully You can get this feature in the next updates";
+    [self.contentContainer addSubview:lblUnderDevelopment];
+    [self setTitle:@"Facebook Login"];
+}
 -(void)createView
 {
-        [self setTitle:@"Login to Facebook"];
+        [self setTitle:@"Facebook Login"];
     [self setBackgroundColor:[UIColor orangeColor]];
 }
 //FBLoginView *loginView=[[FBLoginView alloc] initWithReadPermissions:[NSArray arrayWithObjects:@"user_friends",@"basic_info",@"email", nil] ];

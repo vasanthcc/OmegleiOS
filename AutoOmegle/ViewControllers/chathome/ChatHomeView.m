@@ -40,13 +40,15 @@
     NSTimer *eventsTimer;
     NSURLConnection *sendConnection;
     NSURLConnection *disconnectConnection;
+    NSURLConnection *stoplookingforcommonlikes;
     NSURLConnection *robotConnection;
     
     // Typing, BLECH.
     NSURLConnection *startTypingConnection;
     NSURLConnection *stoppedTypingConnection;
-    
+    UILabel *lblChatStatus;
     int frequency,users;
+    BOOL connectionON;
 }
 @end
 @implementation ChatHomeView
@@ -56,14 +58,21 @@
     self = [super initWithFrame:frame withHeader:hasHeader withMenu:hasMenu];
     if (self)
     {
-        [self showHeaderWithRefresh:NO withSearch:YES andAdd:YES];
+        [self showHeaderWithSave:NO withSettings:NO andSend:NO];
         [self createView];
     }
     return self;
 }
 -(void)createView
 {
-    [self setTitle:@"TALK TO STRANGERS"];
+    [self setTitle:@""];
+    
+    lblChatStatus=[[UILabel alloc] initWithFrame:CGRectMake(40,StatusBarHeight,self.headerContainer.frame.size.width-80,self.headerContainer.frame.size.height-StatusBarHeight)];
+    lblChatStatus.backgroundColor=[UIColor clearColor];
+    lblChatStatus.textColor=[UIColor whiteColor];
+    lblChatStatus.textAlignment=NSTextAlignmentCenter;
+    lblChatStatus.font=[UIFont fontWithName:FONT_Helvetica size:16];
+    [self.headerContainer addSubview:lblChatStatus];
     
     contentScrollView=[[UIScrollView alloc] initWithFrame:CGRectMake(0,0,self.contentContainer.frame.size.width,self.contentContainer.frame.size.height)];
     contentScrollView.backgroundColor=[UIColor whiteColor];
@@ -82,7 +91,7 @@
                                           initWithTarget:self action:@selector(handleLongPress:)];
     lpgr.minimumPressDuration = 2.0; //seconds
     lpgr.delegate = self;
-    [tableChat addGestureRecognizer:lpgr];
+    //[tableChat addGestureRecognizer:lpgr];For Further updates
     
     
     
@@ -108,6 +117,7 @@
     txtMsg.delegate=self;
     txtMsg.borderStyle=UITextBorderStyleNone;
     txtMsg.autocapitalizationType=UITextAutocapitalizationTypeNone;
+    txtMsg.autocorrectionType = UITextAutocorrectionTypeNo;
     txtMsg.placeholder=@"type message";
     [txtMsg addTarget:self action:@selector(doneWithTextField:) forControlEvents:UIControlEventEditingDidEndOnExit];
     [txtMsg addTarget:self action:@selector(gotFocus) forControlEvents:UIControlEventEditingDidBegin];
@@ -123,13 +133,26 @@
     [btnSend setBackgroundImage:[UIImage imageNamed:@"icn_send"] forState:UIControlStateSelected];
     [contentScrollView addSubview:btnSend];
     
+    UIButton *btnSettings = [[UIButton alloc] init];
+    btnSettings = [UIButton buttonWithType:UIButtonTypeCustom];
+    btnSettings.backgroundColor=[UIColor clearColor];
+    btnSettings.layer.cornerRadius = 15;
+    btnSettings.layer.borderWidth = 1;
+    btnSettings.layer.borderColor = [UIColor clearColor].CGColor;
+    btnSettings.frame = CGRectMake(self.headerContainer.frame.size.width-35,20,30,self.headerContainer.frame.size.height-20);
+    //[btnClear setTitle:@"Clear" forState:UIControlStateNormal];
+    [btnSettings setBackgroundImage:[UIImage imageNamed:@"settings"] forState:UIControlStateNormal];
+    [btnSettings addTarget:self action:@selector(clickSettings) forControlEvents:UIControlEventTouchUpInside];
+    [self.headerContainer addSubview:btnSettings];
+    
+    
     [self newChat];
     [self beginChat];
     [self createPopOverForSettings];
 }
 -(void)createPopOverForSettings
 {
-    UIView *viewSettings = [[UIView alloc]initWithFrame:CGRectMake(20, 0,self.baseContentView.frame.size.width-40,300)];
+    UIView *viewSettings = [[UIView alloc]initWithFrame:CGRectMake(20, 0,self.baseContentView.frame.size.width-40,330)];
     viewSettings.backgroundColor=[UIColor whiteColor];
     
     switchWelcomeMessage = [[UISwitch alloc]initWithFrame:CGRectMake(10,20,10,10)];
@@ -159,7 +182,7 @@
     txtCommonLikes.backgroundColor = [UIColor whiteColor];
     txtCommonLikes.font=[UIFont fontWithName:@"Helvetica" size:12];
     txtCommonLikes.contentVerticalAlignment=UIControlContentVerticalAlignmentCenter;
-        txtCommonLikes.contentHorizontalAlignment=UIControlContentVerticalAlignmentCenter;
+    txtCommonLikes.contentHorizontalAlignment=UIControlContentVerticalAlignmentCenter;
     txtCommonLikes.delegate=self;
     txtCommonLikes.borderStyle=UITextBorderStyleNone;
     txtCommonLikes.autocapitalizationType=UITextAutocapitalizationTypeNone;
@@ -168,6 +191,7 @@
     //[txtCommonLikes addTarget:self action:@selector(gotFocus) forControlEvents:UIControlEventEditingDidBegin];
     [viewSettings addSubview:txtCommonLikes];
     
+    txtCommonLikes.text =@"friend,love";
     
     switchFBInterest = [[UISwitch alloc]initWithFrame:CGRectMake(switchCommonLikes.frame.origin.x,switchCommonLikes.frame.origin.y+switchCommonLikes.frame.size.height+40,10,10)];
     [switchFBInterest addTarget:self action:@selector(setState:) forControlEvents:UIControlEventValueChanged];
@@ -194,21 +218,21 @@
     lbl_Reconnect.textAlignment = NSTextAlignmentLeft;
     [viewSettings addSubview:lbl_Reconnect];
     
-    UIButton *saveBtn=[[UIButton alloc] initWithFrame:CGRectMake(viewSettings.frame.size.width/3, viewSettings.frame.size.height-40, viewSettings.frame.size.width/2, 25)];
-    saveBtn.backgroundColor=BLUE_COLOR_THEME;
-    [saveBtn setTitle:@"SAVE" forState:UIControlStateNormal];
-    [saveBtn setTitle:@"SAVE" forState:UIControlStateSelected];
-    [saveBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
-    [saveBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    saveBtn.layer.borderColor=UIColorFromRGB(0x3A3D41).CGColor;
-    saveBtn.layer.borderWidth=1;
-    [saveBtn.titleLabel setFont:[UIFont fontWithName:@"Helvetica" size:12]];
-    [saveBtn addTarget:self action:@selector(saveSettingsClicked) forControlEvents:UIControlEventTouchUpInside];
-    [viewSettings addSubview:saveBtn];
+    //    UIButton *saveBtn=[[UIButton alloc] initWithFrame:CGRectMake(viewSettings.frame.size.width/3, viewSettings.frame.size.height-40, viewSettings.frame.size.width/2, 25)];
+    //    saveBtn.backgroundColor=BLUE_COLOR_THEME;
+    //    [saveBtn setTitle:@"SAVE" forState:UIControlStateNormal];
+    //    [saveBtn setTitle:@"SAVE" forState:UIControlStateSelected];
+    //    [saveBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
+    //    [saveBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    //    saveBtn.layer.borderColor=UIColorFromRGB(0x3A3D41).CGColor;
+    //    saveBtn.layer.borderWidth=1;
+    //    [saveBtn.titleLabel setFont:[UIFont fontWithName:@"Helvetica" size:12]];
+    //    [saveBtn addTarget:self action:@selector(saveSettingsClicked) forControlEvents:UIControlEventTouchUpInside];
+    //    [viewSettings addSubview:saveBtn];
     
     
     if(settingsAlertView == nil)
-        settingsAlertView=[[CCAlertView alloc] initWithTitle:@"Omegle Chat" withButtontitle:nil withContentView:viewSettings withDelegate:self];
+        settingsAlertView=[[CCAlertView alloc] initWithTitle:@"Omegle Chat" withButtontitle:@"save" withContentView:viewSettings withDelegate:self];
     
 }
 -(void)showSettingsAlertView
@@ -222,11 +246,11 @@
     [switchFBInterest setOn:[AppData getAppData].boolFacebook_ON_OFF animated:YES];
     [switchWelcomeMessage setOn:[AppData getAppData].boolWelcomeMsg_ON_OFF animated:YES];
     
-//    if(![[AppData getAppData].getWelcomeMessage isEqualToString:@""] && [AppData getAppData].getWelcomeMessage != nil)
-//        txtWelcomeMessage.text =[AppData getAppData].getWelcomeMessage;
-//    
-//    if(![[AppData getAppData].getCommonLikes isEqualToString:@""] && [AppData getAppData].getCommonLikes != nil)
-//        txtCommonLikes.text =[AppData getAppData].getCommonLikes;
+    //    if(![[AppData getAppData].getWelcomeMessage isEqualToString:@""] && [AppData getAppData].getWelcomeMessage != nil)
+    //        txtWelcomeMessage.text =[AppData getAppData].getWelcomeMessage;
+    //
+    //    if(![[AppData getAppData].getCommonLikes isEqualToString:@""] && [AppData getAppData].getCommonLikes != nil)
+    //        txtCommonLikes.text =[AppData getAppData].getCommonLikes;
     
     if(![[AppData getAppData].strWelcomeMsg isEqualToString:@""] && [AppData getAppData].strWelcomeMsg != nil)
         txtWelcomeMessage.text =[AppData getAppData].strWelcomeMsg;
@@ -240,6 +264,8 @@
 {
     if(switchWelcomeMessage.isOn)
     {
+        [AppData getAppData].boolWelcomeMsg_ON_OFF = NO;
+        
         if([txtWelcomeMessage.text isEqualToString:@""])
         {
             [self showErrorAlertWithMessage:@"Welcome Message field should not be empty"];
@@ -249,20 +275,20 @@
         else
         {
             //[[AppData getAppData] saveWelcomeMessage:txtWelcomeMessage.text];
+            [AppData getAppData].boolWelcomeMsg_ON_OFF = YES;
             [AppData getAppData].strWelcomeMsg = txtWelcomeMessage.text;
         }
-        
-    [[AppData getAppData].userDefaults setObject:@"ON" forKey:ON_OFF_WELCOME_MSG];
-        
     }
     else
     {
-         [[AppData getAppData].userDefaults setObject:@"OFF" forKey:ON_OFF_WELCOME_MSG];
+        [AppData getAppData].boolWelcomeMsg_ON_OFF = NO;
     }
     
     
     if(switchCommonLikes.isOn)
     {
+        [AppData getAppData].boolLikes_ON_OFF = NO;
+        
         if([txtCommonLikes.text isEqualToString:@""])
         {
             [self showErrorAlertWithMessage:@"Likes field should not be empty"];
@@ -271,29 +297,28 @@
         }
         else
         {
-            //[[AppData getAppData] saveCommonLikes:txtCommonLikes.text];
-            [AppData getAppData].strCommonLikes = txtCommonLikes.text;
-            
+            txtCommonLikes.text = [txtCommonLikes.text stringByTrimmingCharactersInSet:
+                                   [NSCharacterSet whitespaceCharacterSet]];
+            [AppData getAppData].boolLikes_ON_OFF = YES;
         }
- 
-        [[AppData getAppData].userDefaults setObject:@"ON" forKey:ON_OFF_LIKES];
+        
     }
     else
     {
-        [[AppData getAppData].userDefaults setObject:@"OFF" forKey:ON_OFF_LIKES];
+        [AppData getAppData].boolLikes_ON_OFF = NO;
     }
     
-    [[AppData getAppData].userDefaults synchronize];
     [settingsAlertView hideView];
 }
 -(void)showing
 {
     [super showing];
     
+    //    if(![self isNetworkON])
+    //        [self showLiveStatus:@"check internet connection"];
     //For refreshing template items when we navigated from template screen
     if(popupTemplate !=nil)
         popupTemplate=nil;
-    
 }
 - (void)setState:(id)checkBox
 {
@@ -323,11 +348,11 @@
     {
         if(switchFBInterest.isOn)
         {
-            [[AppData getAppData].userDefaults setObject:@"ON" forKey:ON_OFF_FACEBOOK];
+            [AppData getAppData].boolFacebook_ON_OFF = YES;
             //if([AppData getAppData].getFacebookSession ==nil || [[AppData getAppData].getFacebookSession isEqualToString:@""])
             if([AppData getAppData].strFBSession ==nil || [[AppData getAppData].strFBSession isEqualToString:@""])
             {
-                UIAlertView *fbAlert=[[UIAlertView alloc] initWithTitle:@"RHB OSK" message:@"You are not logged into facebook.Do you want to login now?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+                UIAlertView *fbAlert=[[UIAlertView alloc] initWithTitle:HEADER_MSGBOX message:@"You are not logged into facebook.Do you want to login now?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
                 
                 fbAlert.tag = 12;
                 
@@ -342,42 +367,49 @@
         }
         else
         {
-            [[AppData getAppData].userDefaults setObject:@"OFF" forKey:ON_OFF_FACEBOOK];
+            [AppData getAppData].boolFacebook_ON_OFF = NO;
         }
     }
-   else if(checkBox == switchReconnect)
-   {
-       if(switchReconnect.isOn)
-       {
-           [[AppData getAppData].userDefaults setObject:@"ON" forKey:ON_OFF_RECONNECT];
-       }
-       else
-       {
-           [[AppData getAppData].userDefaults setObject:@"OFF" forKey:ON_OFF_RECONNECT];
-       }
-   }
+    else if(checkBox == switchReconnect)
+    {
+        if(switchReconnect.isOn)
+        {
+            [AppData getAppData].boolReconnect_ON_OFF = YES;
+        }
+        else
+        {
+            [AppData getAppData].boolReconnect_ON_OFF = NO;
+        }
+    }
     
 }
 -(void)sendMessageIfWelcomeMessageOn
 {
-   //if([AppData getAppData].isWelcomeMessageOn && [[AppData getAppData] getWelcomeMessage] != nil && ![[[AppData getAppData] getWelcomeMessage] isEqualToString:@""])
+    //if([AppData getAppData].isWelcomeMessageOn && [[AppData getAppData] getWelcomeMessage] != nil && ![[[AppData getAppData] getWelcomeMessage] isEqualToString:@""])
     if([AppData getAppData].boolWelcomeMsg_ON_OFF && [[AppData getAppData] strWelcomeMsg] != nil && ![[[AppData getAppData] strWelcomeMsg] isEqualToString:@""])
-   {
-       [self AddChatAndSendMessage:[AppData getAppData].strWelcomeMsg];//[[AppData getAppData] getWelcomeMessage]];
-   }
+    {
+        [self AddChatAndSendMessage:[AppData getAppData].strWelcomeMsg];//[[AppData getAppData] getWelcomeMessage]];
+    }
 }
 -(void)doneWithTextField:(OmegleTextBox*)sender
 {
-    if(sender ==txtMsg)
+    if(sender ==txtMsg && connectionON)
     {
+        if(![txtMsg.text isEqualToString:@""])
+        {
         [self AddChatAndSendMessage:txtMsg.text];
-    txtMsg.text=@"";
-    [contentScrollView setContentOffset:CGPointZero animated:YES];
-    [tableChat setScrollsToTop:YES];
+        txtMsg.text=@"";
+        [contentScrollView setContentOffset:CGPointZero animated:YES];
+        [tableChat setScrollsToTop:YES];
+        }
+        else
+        {
+            [self showToast:@"Message field should not be empty."];
+        }
     }
     else
     {
-        
+        [self showToast:@"Please connect with stranger."];
     }
     [sender resignFirstResponder];
 }
@@ -388,6 +420,7 @@
 }
 -(void)doDoubleTap
 {
+    //if([AppData getAppData].boolDoubleTap_ON_OFF)
     [self clickDoConnect];
 }
 -(void)gotFocus
@@ -399,7 +432,21 @@
     if(chatName==nil)
         [self startChat];
     else
-        [self disconnectChat];
+    {
+        if([AppData getAppData].boolDisconnectConfirmation_ON_OFF)
+        {
+            UIAlertView *confirmationAlert=[[UIAlertView alloc] initWithTitle:HEADER_MSGBOX message:@"Are you sure you want to disconnect?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+            
+            confirmationAlert.tag = 32;
+            
+            confirmationAlert.delegate=self;
+            
+            [confirmationAlert show];
+        }
+        else
+            [self disconnectChat];
+    }
+    
 }
 -(void)clickSend
 {
@@ -409,7 +456,7 @@
 {
     if([AppData getAppData].arrayTemplateItems==nil || [[AppData getAppData].arrayTemplateItems count] ==0)
     {
-        UIAlertView *templateAlert=[[UIAlertView alloc] initWithTitle:@"RHB OSK" message:@"Do you want to create or edit template message now? This will disconnect your current chat.Click ok to proceed." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+        UIAlertView *templateAlert=[[UIAlertView alloc] initWithTitle:HEADER_MSGBOX message:@"Do you want to create or edit template message now? This will disconnect your current chat.Click Ok to proceed." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Ok", nil];
         
         templateAlert.tag = 22;
         
@@ -419,10 +466,10 @@
         
         return;
     }
-        
+    
     if(popupTemplate==nil)
     {
-       popupTemplate = [[UIActionSheet alloc] initWithTitle:@"Select to send a message:" delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil];
+        popupTemplate = [[UIActionSheet alloc] initWithTitle:@"Select to send a message:" delegate:self cancelButtonTitle:@"cancel" destructiveButtonTitle:nil otherButtonTitles:nil];
         
         for( NSString *title in [AppData getAppData].arrayTemplateItems)
             [popupTemplate addButtonWithTitle:title];
@@ -440,7 +487,7 @@
     {
         //NSLog(@"long press on table view at row %ld", (long)indexPath.row);
         NSLog(@"Selected Item %@",[arrayChat objectAtIndex:indexPath.row]);
-        [self showLongPressPopup];
+        //[self showLongPressPopup];
     }
     else {
         //NSLog(@"gestureRecognizer.state = %ld", gestureRecognizer.state);
@@ -463,7 +510,7 @@
         self.contentContainer.clipsToBounds = YES;
         
         UIView *viewStrip = [[UIView alloc]initWithFrame:CGRectMake(3, 10, 3, cell.frame.size.height-20)];
-
+        
         viewStrip.tag = 2;
         [cell addSubview:viewStrip];
         
@@ -571,8 +618,12 @@
     {
         [self newChat];
         [self showLiveStatus:@"you disconnected the chat."];
-        NSLog(@"Chat Disconnected");
+        connectionON = NO;
+        
+        if([AppData getAppData].boolReconnect_ON_OFF)
+            [self clickDoConnect];
     }
+    //else if(connection == stoplookingforcommonlikes)
     else {
         //        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0ul), ^{
         //                    });
@@ -581,7 +632,18 @@
     }
     [self checkEvents];
 }
-
+//waiting
+//connected
+//gotMessage
+//strangerDisconnected
+//typing
+//stoppedTyping
+//recaptchaRequired
+//recaptchaRejected
+//statusInfo
+//question
+//antinudeBanned
+//error
 -(void)eventsDidReceiveData:(NSString *)dat
 {
     if (![dat isEqualToString:@"null"])
@@ -591,17 +653,22 @@
         __block int start = 1;
         __block int array = 0;
         
-        
+        //else if
         while (total >= start)
         {
             if ([[[response objectAtIndex: array] objectAtIndex:0] isEqualToString:@"strangerDisconnected"])
             {
                 [self showLiveStatus:@"stranger disconnected the chat."];
-                [self newChat];
+                //[self newChat];
+                connectionON = NO;
                 [eventsTimer invalidate];
                 
+                if([AppData getAppData].boolReconnect_ON_OFF)
+                    [self clickDoConnect];
+                
             }
-            if ([[[response objectAtIndex: array] objectAtIndex:0] isEqualToString:@"gotMessage"]) {
+            if ([[[response objectAtIndex: array] objectAtIndex:0] isEqualToString:@"gotMessage"])
+            {
                 NSString *chatMessage = [[response objectAtIndex:array] objectAtIndex:1];
                 
                 [self addChatMessage:[NSString stringWithFormat:@"%@|%@",chatMessage,ALIGNMENT_LEFT]];
@@ -610,36 +677,62 @@
             }
             if ([[[response objectAtIndex: array] objectAtIndex:0] isEqualToString:@"connected"])
             {
-            [self showLiveStatus:@"stranger connected"];
+                [self showLiveStatus:@"stranger connected"];
                 NSLog(@"USER_CONNECTED");
                 [self sendMessageIfWelcomeMessageOn];
             }
-            if ([[[response objectAtIndex: array] objectAtIndex:0] isEqualToString:@"waiting"]) {
+            if ([[[response objectAtIndex: array] objectAtIndex:0] isEqualToString:@"waiting"])
+            {
                 
                 [self showLiveStatus:@"waiting..."];
                 NSLog(@"WAITING");
             }
-            if ([[[response objectAtIndex: array] objectAtIndex:0] isEqualToString:@"count"]) {
+            if ([[[response objectAtIndex: array] objectAtIndex:0] isEqualToString:@"count"])
+            {
                 
                 users = [[[response objectAtIndex:array] objectAtIndex:1] intValue];
                 NSLog(@"USER_COUNT: %d", users);
             }
-            if ([[[response objectAtIndex: array] objectAtIndex:0] isEqualToString:@"typing"]) {
+            if ([[[response objectAtIndex: array] objectAtIndex:0] isEqualToString:@"typing"])
+            {
                 NSLog(@"USER_TYPING");
                 [self showLiveStatus:@"typing..."];
             }
-            if ([[[response objectAtIndex: array] objectAtIndex:0] isEqualToString:@"stoppedTyping"]) {
+            if ([[[response objectAtIndex: array] objectAtIndex:0] isEqualToString:@"stoppedTyping"])
+            {
                 NSLog(@"STOPPED_TYPING");
                 [self showLiveStatus:@"stopped typing..."];
+            }
+            if ([[[response objectAtIndex: array] objectAtIndex:0] isEqualToString:@"recaptchaRequired"])
+            {
+                NSLog(@"recaptchaRequired");
+                [self showLiveStatus:@"You need to prove your a real person. Use omegle in your web browser and fill out the capacha to continue chatting."];
+            }
+            if ([[[response objectAtIndex: array] objectAtIndex:0] isEqualToString:@"recaptchaRejected"])
+            {
+                NSLog(@"recaptchaRejected");
+            }
+            if ([[[response objectAtIndex: array] objectAtIndex:0] isEqualToString:@"statusInfo"])
+            {
+                NSLog(@"statusInfo");
+            }
+            if ([[[response objectAtIndex: array] objectAtIndex:0] isEqualToString:@"question"])
+            {
+                NSLog(@"question");
+            }
+            if ([[[response objectAtIndex: array] objectAtIndex:0] isEqualToString:@"antinudeBanned"])
+            {
+                NSLog(@"antinudeBanned");
+            }
+            if ([[[response objectAtIndex: array] objectAtIndex:0] isEqualToString:@"error"])
+            {
+                NSLog(@"error");
             }
             start++;
             array++;
         }
         
     }
-    
-    
-    
 }
 -(void)getResponseFromRobot:(NSString *)message {
     
@@ -647,7 +740,8 @@
 }
 -(void)showLiveStatus:(NSString*)strLiveMsg
 {
-    [self setTitle:strLiveMsg];
+    //[self setTitle:strLiveMsg];
+    lblChatStatus.text = strLiveMsg;
 }
 -(void)addChatMessage:(NSString*)strMessage
 {
@@ -677,23 +771,48 @@
 -(void)getBaseURL
 {
     [self showLiveStatus:@"connecting to server"];
-    NSURL *url = [NSURL URLWithString:@"http://omegle.com"];
+    NSURL *url = [NSURL URLWithString:@"http://front2.omegle.com"];
     NSURLRequest *req = [NSURLRequest requestWithURL:url];
     baseURLConnection = [[NSURLConnection alloc] initWithRequest:req delegate:self];
 }
 -(void)startChat
 {
+    [self startChatWithLikes];
+    return;
+    
     [self showLiveStatus:@"looking for strangers"];
-    // yay now we actually start the chat.
     NSString *complete = [NSString stringWithFormat:@"%@start",baseChatURL];
-    // NSLog(@"connection to: %@, starting chat.", complete);
     NSURL *url = [NSURL URLWithString:complete];
     NSURLRequest *req = [NSURLRequest requestWithURL:url];
-    
     startConnection = [[NSURLConnection alloc] initWithRequest:req delegate:self];
+}
+-(void)startChatWithLikes
+{
+//    vars.put("rcs", "1"); vars.put("firstevents", firstEvents ? "1" : "0"); if(topics!=null){ System.out.println("Topics: "+topics); vars.put("topics", topics); } vars.put("m","1"); if(language!=null){ vars.put("lang",language);
+    
+        
+    [self showLiveStatus:@"looking for strangers"];
+    // yay now we actually start the chat.
+    NSString *events = [NSString stringWithFormat:@"%@start",baseChatURL];
+    // NSLog(@"connection to: %@, starting chat.", complete);
+    NSMutableURLRequest *eventsRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:events]];
+    [eventsRequest setHTTPMethod:@"POST"];
+        
+    [eventsRequest setHTTPBody:[@"rcs=1" dataUsingEncoding:NSUTF8StringEncoding]];
+    [eventsRequest setHTTPBody:[@"firstevents=1" dataUsingEncoding:NSUTF8StringEncoding]];
+    [eventsRequest setHTTPBody:[@"m=1" dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    if([AppData getAppData].boolLikes_ON_OFF)
+    {
+        NSString *strLikes = [@"topics=" stringByAppendingString:[self getLikes]];
+        [eventsRequest setHTTPBody:[strLikes dataUsingEncoding:NSUTF8StringEncoding]];
+    }
+    NSLog(@"eventsRequest: %@", eventsRequest);
+    startConnection = [[NSURLConnection alloc] initWithRequest:eventsRequest delegate:self];
 }
 -(void)disconnectChat
 {
+    [self showLiveStatus:@"disconnecting"];
     [eventsTimer invalidate];
     NSString *events =@"/disconnect";
     events = [NSString stringWithFormat:@"%@disconnect", baseChatURL];
@@ -701,8 +820,23 @@
     NSMutableURLRequest *eventsRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:events]];
     [eventsRequest setHTTPMethod:@"POST"];
     NSString *postString = [@"id=" stringByAppendingString:chatName];
+    [eventsRequest setHTTPBody:[postString dataUsingEncoding:NSUTF8StringEncoding]];
+    NSLog(@"eventsRequest: %@", eventsRequest);
+    disconnectConnection = [[NSURLConnection alloc] initWithRequest:eventsRequest delegate:self];
+    
+}
+-(void)stopLookingForCommonLikes
+{
+    [eventsTimer invalidate];
+    NSString *events =@"/stoplookingforcommonlikes";
+    events = [NSString stringWithFormat:@"%@stoplookingforcommonlikes", baseChatURL];
+    //NSLog(@"URL: %@", events);
+    NSMutableURLRequest *eventsRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:events]];
+    [eventsRequest setHTTPMethod:@"POST"];
+    NSString *postString = [@"id=" stringByAppendingString:chatName];
     //NSLog(@"Post Data: %@", postString);
     [eventsRequest setHTTPBody:[postString dataUsingEncoding:NSUTF8StringEncoding]];
+    NSLog(@"eventsRequest: %@", eventsRequest);
     disconnectConnection = [[NSURLConnection alloc] initWithRequest:eventsRequest delegate:self];
 }
 -(void)startTyping
@@ -756,9 +890,14 @@
         sendConnection = [[NSURLConnection alloc] initWithRequest:eventsRequest delegate:self];
     }
 }
+-(NSString*)getLikes
+{
+    NSString *strLikes =[NSString stringWithFormat:@"[\"%@\"]",txtCommonLikes.text];
+    return [strLikes stringByReplacingOccurrencesOfString:@"," withString:@"\",\""];
+}
 -(void)baseURLDidReceiveData:(NSString *)data
 {
-    baseChatURL=@"http://omegle.com/";
+    baseChatURL=@"http://front2.omegle.com/";
     [self startChat];
 }
 -(void)chatBeganWithID:(NSString *)chatID
@@ -766,13 +905,12 @@
     chatID = [chatID stringByReplacingOccurrencesOfString:@"\"" withString:@""];
     chatName = chatID;
     initiated = true;
+    connectionON = YES;
     [self checkEvents];
     
     //eventsTimer = [NSTimer scheduledTimerWithTimeInterval: self.frequency target:self selector:@selector(checkEvents) userInfo:nil repeats: YES];
     
     NSLog(@"Chat start");
-    
-    
 }
 -(void)checkEvents
 {
@@ -824,51 +962,51 @@
     UITapGestureRecognizer *lblCopyTapGestureRecognizer=[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickCopy)];
     [lblCopy addGestureRecognizer:lblCopyTapGestureRecognizer];
     
-    
-    TTTAttributedLabel *lblSpam=[[TTTAttributedLabel alloc] initWithFrame:CGRectMake(0,lblCopy.frame.origin.y+lblCopy.frame.size.height,viewContainer.frame.size.width,40)];
-    NSString *textlblSpam= @"Add to Spam";
-    
-    lblSpam.textAlignment=NSTextAlignmentCenter;
-    lblSpam.backgroundColor=[UIColor whiteColor];
-    
-    lblSpam.font=[UIFont fontWithName:@"Helvetica" size:16];
-    [lblSpam setText:textlblSpam afterInheritingLabelAttributesAndConfiguringWithBlock:
-     ^ NSMutableAttributedString *(NSMutableAttributedString *mutableAttributedString) {
-         
-         NSRange normalRange=NSMakeRange(0,[textlblSpam length]);
-         
-         [mutableAttributedString addAttribute:(NSString*)kCTUnderlineStyleAttributeName value:
-          [NSNumber numberWithInt:kCTUnderlineStyleSingle] range:normalRange];
-         
-         [mutableAttributedString addAttribute:(NSString *)kCTForegroundColorAttributeName value:BLUE_COLOR_THEME range:normalRange];
-         
-         
-         return mutableAttributedString; }];
-    
-    
-    
-    [viewContainer addSubview:lblSpam];
-    //    [bottomContainer bringSubviewToFront:footerLbl];
-    UITapGestureRecognizer *lblIndonesiaTapGestureRecognizer=[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickSpam)];
-    [lblSpam addGestureRecognizer:lblIndonesiaTapGestureRecognizer];
+    //hide spam message
+    //    TTTAttributedLabel *lblSpam=[[TTTAttributedLabel alloc] initWithFrame:CGRectMake(0,lblCopy.frame.origin.y+lblCopy.frame.size.height,viewContainer.frame.size.width,40)];
+    //    NSString *textlblSpam= @"Add to Spam";
+    //
+    //    lblSpam.textAlignment=NSTextAlignmentCenter;
+    //    lblSpam.backgroundColor=[UIColor whiteColor];
+    //
+    //    lblSpam.font=[UIFont fontWithName:@"Helvetica" size:16];
+    //    [lblSpam setText:textlblSpam afterInheritingLabelAttributesAndConfiguringWithBlock:
+    //     ^ NSMutableAttributedString *(NSMutableAttributedString *mutableAttributedString) {
+    //
+    //         NSRange normalRange=NSMakeRange(0,[textlblSpam length]);
+    //
+    //         [mutableAttributedString addAttribute:(NSString*)kCTUnderlineStyleAttributeName value:
+    //          [NSNumber numberWithInt:kCTUnderlineStyleSingle] range:normalRange];
+    //
+    //         [mutableAttributedString addAttribute:(NSString *)kCTForegroundColorAttributeName value:BLUE_COLOR_THEME range:normalRange];
+    //
+    //
+    //         return mutableAttributedString; }];
+    //
+    //
+    //
+    //    [viewContainer addSubview:lblSpam];
+    //    //    [bottomContainer bringSubviewToFront:footerLbl];
+    //    UITapGestureRecognizer *lblIndonesiaTapGestureRecognizer=[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickSpam)];
+    //    [lblSpam addGestureRecognizer:lblIndonesiaTapGestureRecognizer];
     
     if(longPressAlertView == nil)
-    longPressAlertView=[[CCAlertView alloc] initWithTitle:@"Omegle Chat" withButtontitle:nil withContentView:viewContainer withDelegate:self];
+        longPressAlertView=[[CCAlertView alloc] initWithTitle:@"Omegle Chat" withButtontitle:nil withContentView:viewContainer withDelegate:self];
     
     [longPressAlertView showInView:self];
     
 }
 -(void)clickCopy
 {
-[UIPasteboard generalPasteboard].string=@"";
+    [UIPasteboard generalPasteboard].string=@"";
 }
 -(void)clickSpam
 {
-
+    
 }
 -(void)ccAlertView:(CCAlertView *)alertView clickedButton:(UIButton *)button
 {
-    [alertView hideView];
+    [self saveSettingsClicked];
 }
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
@@ -879,25 +1017,43 @@
             [self gotoThisViewController:@"FacebookViewController"];
         }
         else
-        [switchFBInterest setOn:FALSE];
+            [switchFBInterest setOn:FALSE];
     }
-    if(alertView.tag==22 && buttonIndex==1)
+    else if(alertView.tag==22 && buttonIndex==1)
     {
         [self gotoThisViewController:@"TemplateViewController"];
+    }
+    if(alertView.tag==32 && buttonIndex==1)
+    {
+        [self disconnectChat];
     }
 }
 - (void)actionSheet:(UIActionSheet *)popup clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if(buttonIndex !=-1)
-    [self AddChatAndSendMessage:[[AppData getAppData].arrayTemplateItems objectAtIndex:buttonIndex]];
+    if(buttonIndex !=-1 && buttonIndex !=0)
+        [self AddChatAndSendMessage:[[AppData getAppData].arrayTemplateItems objectAtIndex:buttonIndex]];
 }
--(void)searchBtnClicked
-{
-    
-}
--(void)addBtnClicked
+-(void)clickSettings
 {
     [self showSettingsAlertView];
 }
-
+//DO
+//Welcome Msg ---***---
+//
+//BEFORE
+//Common Likes
+//Add my FB interest as likes ---***--- Further
+//
+//AFTER
+//Reconnect to stranger every time ---***---
+//Confirm msg before disconnect ---***---
+//
+//App State
+//Screen Always ON ---***---
+//Double tap to connect  and reconnect ---***---
 @end
+
+
+//if (resp == null || resp.equals("null")) { failCount++; if(event!=null && event==OmegleEvent.waiting && failCount>=WAIT_CONNECT_TIME){ //	System.out.println("Connection timedout, stop common likes"); fireEvent(OmegleEvent.stopCommonLikes,null); failCount=0; }else if (failCount >= AutoOmegleApplication.NORESPONSE_TIMEOUT) { //	System.out.println("Connection timedout, no response from stranger "+AutoOmegleApplication.NORESPONSE_TIMEOUT); fireEvent(OmegleEvent.noresponse, null); omegle.removeSession(this); } return; }else{ failCount=0; }
+
+//Map<String, Object> vars = new HashMap<String, Object>(); vars.put("rcs", "1"); vars.put("firstevents", firstEvents ? "1" : "0"); if(topics!=null){ System.out.println("Topics: "+topics); vars.put("topics", topics); } vars.put("m","1"); if(language!=null){ vars.put("lang",language); }

@@ -22,7 +22,7 @@
     self = [super initWithFrame:frame withHeader:hasHeader withMenu:hasMenu];
     if (self)
     {
-        [self showHeaderWithRefresh:NO withSearch:NO andAdd:YES];
+        [self showHeaderWithSave:NO withSettings:NO andSend:YES];
         [self createView];
     }
     return self;

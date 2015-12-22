@@ -23,6 +23,13 @@
 #define StatusBarOffset 25
 #define HEADER_HEIGHT 40
 
+#define HEADER_MSGBOX @"AUTO OMEGLE"
+
+#pragma FONT
+#define FONT_Helvetica @"Helvetica"
+#define FONT_STATUS @"Avenir"
+#define FONT_STATUS_BOLD @"Avenir-Bold"
+#define FONT_MARION @"Marion"
 #pragma Common Keys
 #define KEY_SPAM_MSG @"keyspammessage"
 #define KEY_WELCOME_MSG @"keywelcomemessage"
@@ -34,6 +41,7 @@
 #define ON_OFF_LIKES @"likesOnOFF"
 #define ON_OFF_FACEBOOK @"facebookOnOFF"
 #define ON_OFF_RECONNECT @"reconnectOnOFF"
+#define ON_OFF_DOUBLETAP @"doubletapOnOFF"
 
 #define UIColorFromRGB(rgbValue) [UIColor \
 colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \

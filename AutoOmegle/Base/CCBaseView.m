@@ -11,12 +11,14 @@
 #import "MenuView.h"
 #import "AppMacros.h"
 #import "AppDelegate.h"
+#import "Reachability.h"
 #import <mach/mach.h>
 #import <mach/mach_host.h>
+#import "iToast.h"
 
-#define IMG_REFRESH @"refresh"
-#define IMG_SEARCH @"search"
-#define IMG_ADD @"add"
+#define IMG_SAVE @"refresh"
+#define IMG_SETTINGS @"search"
+#define IMG_SEND @"add"
 #define IMG_BACK @"back"
 #define IMG_MENU @"menu"
 
@@ -29,9 +31,9 @@
 @interface CCBaseView ()
 {
     MenuView *menuView;
-    UIButton *refreshBtn;
-    UIButton *searchBtn;
-    UIButton *addBtn;
+    UIButton *saveBtn;
+    UIButton *settingsBtn;
+    UIButton *sendBtn;
     UIButton *backBtn;
     UIButton *menuBtn;
     BOOL showMenu;
@@ -89,12 +91,10 @@
             headerContainer.layer.masksToBounds=NO;
             [self.baseContentView addSubview:headerContainer];
             
-            
-            
-            lbl=[[UILabel alloc] initWithFrame:CGRectMake(menuImg.size.width+20,(iOS7orAbove?StatusBarHeight:0),headerContainer.frame.size.width-menuImg.size.width-20,headerContainer.frame.size.height-((iOS7orAbove?StatusBarHeight:0)))];
+            lbl=[[UILabel alloc] initWithFrame:CGRectMake(0,StatusBarHeight,headerContainer.frame.size.width,headerContainer.frame.size.height-StatusBarHeight)];
             lbl.backgroundColor=[UIColor clearColor];
             lbl.textColor=[UIColor whiteColor];
-            lbl.textAlignment=NSTextAlignmentLeft;
+            lbl.textAlignment=NSTextAlignmentCenter;
             lbl.font=[UIFont fontWithName:@"Helvetica" size:15];
             [headerContainer addSubview:lbl];
             
@@ -106,7 +106,6 @@
             
             if(hasMenu)
                 [self createMenu];
-
             
             contentContainer=[[UIView alloc] initWithFrame:CGRectMake(0, headerContainer.frame.size.height, self.baseContentView.frame.size.width, self.baseContentView.frame.size.height-headerContainer.frame.size.height)];
             contentContainer.backgroundColor=[UIColor whiteColor];
@@ -123,16 +122,17 @@
 #pragma mark showing & hiding
 -(void)showing
 {
-    // [self clearMemory];
     [super showing];
     NAVIGATION_SCENARIOS navigationType=[(CCBaseViewController*)self.viewControllerDelegate navigationType] ;
-    if([self respondsToSelector:@selector(reloadData:)]&& ((navigationType!=NAVIGATION_BACK) && navigationType!=NAVIGATION_APPBECOMEACTIVE))
-    {
-        [self reloadData:NO];
-        
-    }
+//    if([self respondsToSelector:@selector(reloadData:)]&& ((navigationType!=NAVIGATION_BACK) && navigationType!=NAVIGATION_APPBECOMEACTIVE))
+//    {
+//        [self reloadData:NO];
+//        
+//    }
     if(showMenu && navigationType!=NAVIGATION_APPBECOMEACTIVE)
-        [self setMenuView];
+    {
+       [self setMenuView];
+    }
     
 }
 -(void) setMenuViewIdentifier:(NSString *)menuViewIdentifierToSet
@@ -204,74 +204,74 @@
     
 }
 
--(void) showHeaderWithRefresh:(BOOL) hasRefresh withSearch:(BOOL) hasSearch andAdd:(BOOL) hasAdd
+-(void) showHeaderWithSave:(BOOL) hasSave withSettings:(BOOL) hasSettings andSend:(BOOL) hasSend
 {
-    [self showHeaderWithRefresh:hasRefresh withSearch:hasSearch andAdd:hasAdd allowsBack:NO];
+    [self showHeaderWithSave:hasSave withSettings:hasSettings andSend:hasSend allowsBack:NO];
 }
 
--(void) showHeaderWithRefresh:(BOOL) hasRefresh withSearch:(BOOL) hasSearch andAdd:(BOOL) hasAdd allowsBack:(BOOL) hasBack
+-(void) showHeaderWithSave:(BOOL) hasSave withSettings:(BOOL) hasSettings andSend:(BOOL) hasSend allowsBack:(BOOL) hasBack
 {
     CGFloat x=self.frame.size.width;
     CGFloat y=(iOS7orAbove? StatusBarHeight: 0);
-    if(hasRefresh)
+    if(hasSave)
     {
-        UIImage *refresh_Img=[UIImage imageNamed:IMG_REFRESH];
+        UIImage *refresh_Img=[UIImage imageNamed:IMG_SAVE];
         x=self.frame.size.width-(refresh_Img.size.width+5);
-        if(!refreshBtn)
+        if(!saveBtn)
         {
-            refreshBtn=[[UIButton alloc] initWithFrame:CGRectMake(x,(iOS7orAbove? StatusBarHeight: 0)+(HEADER_HEIGHT-30)/2, refresh_Img.size.width,30)];
-            [refreshBtn addTarget:self action:@selector(refresh) forControlEvents:UIControlEventTouchUpInside];
+            saveBtn=[[UIButton alloc] initWithFrame:CGRectMake(x,(iOS7orAbove? StatusBarHeight: 0)+(HEADER_HEIGHT-30)/2, refresh_Img.size.width,30)];
+            [saveBtn addTarget:self action:@selector(saveBtnClicked) forControlEvents:UIControlEventTouchUpInside];
             
-            refreshBtn.showsTouchWhenHighlighted=YES;
-            [refreshBtn setBackgroundImage:refresh_Img forState:UIControlStateNormal];
-            [refreshBtn setBackgroundImage:refresh_Img forState:UIControlStateSelected];
+            saveBtn.showsTouchWhenHighlighted=YES;
+            [saveBtn setBackgroundImage:refresh_Img forState:UIControlStateNormal];
+            [saveBtn setBackgroundImage:refresh_Img forState:UIControlStateSelected];
             
-            [headerContainer addSubview: refreshBtn];
+            [headerContainer addSubview: saveBtn];
         }
         else
         {
-            refreshBtn.frame=CGRectMake(x,(iOS7orAbove? StatusBarHeight: 0)+(HEADER_HEIGHT-30)/2, refresh_Img.size.width,30) ;
+            saveBtn.frame=CGRectMake(x,(iOS7orAbove? StatusBarHeight: 0)+(HEADER_HEIGHT-30)/2, refresh_Img.size.width,30) ;
         }
         
     }
-    if(hasSearch)
+    if(hasSettings)
     {
         
-        UIImage *info_Src=[UIImage imageNamed:IMG_SEARCH];
+        UIImage *info_Src=[UIImage imageNamed:IMG_SETTINGS];
         x-=info_Src.size.width+5;
-        if(!searchBtn)
+        if(!settingsBtn)
         {
-            searchBtn=[[UIButton alloc] initWithFrame:CGRectMake(x, y, info_Src.size.width, headerContainer.frame.size.height-y)];
-            [searchBtn addTarget:self action:@selector(searchBtnClicked) forControlEvents:UIControlEventTouchUpInside];
+            settingsBtn=[[UIButton alloc] initWithFrame:CGRectMake(x, y, info_Src.size.width, headerContainer.frame.size.height-y)];
+            [settingsBtn addTarget:self action:@selector(settingsBtnClicked) forControlEvents:UIControlEventTouchUpInside];
             
             menuBtn.showsTouchWhenHighlighted=YES;
-            [searchBtn setBackgroundImage:info_Src forState:UIControlStateNormal];
-            [searchBtn setBackgroundImage:info_Src forState:UIControlStateSelected];
-            [headerContainer addSubview: searchBtn];
+            [settingsBtn setBackgroundImage:info_Src forState:UIControlStateNormal];
+            [settingsBtn setBackgroundImage:info_Src forState:UIControlStateSelected];
+            [headerContainer addSubview: settingsBtn];
         }
         else
         {
-            searchBtn.frame=CGRectMake(x, y, info_Src.size.width, headerContainer.frame.size.height-y);
+            settingsBtn.frame=CGRectMake(x, y, info_Src.size.width, headerContainer.frame.size.height-y);
         }
         
     }
-    if(hasAdd)
+    if(hasSend)
     {
-        UIImage *add_Img=[UIImage imageNamed:IMG_ADD];
+        UIImage *add_Img=[UIImage imageNamed:IMG_SEND];
         x-=add_Img.size.width+5;
-        if(!addBtn)
+        if(!sendBtn)
         {
-            addBtn=[[UIButton alloc] initWithFrame:CGRectMake(x, y, add_Img.size.width, headerContainer.frame.size.height-y)];
-            [addBtn addTarget:self action:@selector(addBtnClicked) forControlEvents:UIControlEventTouchUpInside];
+            sendBtn=[[UIButton alloc] initWithFrame:CGRectMake(x, y, add_Img.size.width, headerContainer.frame.size.height-y)];
+            [sendBtn addTarget:self action:@selector(addBtnClicked) forControlEvents:UIControlEventTouchUpInside];
 
-            addBtn.showsTouchWhenHighlighted=YES;
-            [addBtn setBackgroundImage:add_Img forState:UIControlStateNormal];
-            [addBtn setBackgroundImage:add_Img forState:UIControlStateSelected];
-            [headerContainer addSubview: addBtn];
+            sendBtn.showsTouchWhenHighlighted=YES;
+            [sendBtn setBackgroundImage:add_Img forState:UIControlStateNormal];
+            [sendBtn setBackgroundImage:add_Img forState:UIControlStateSelected];
+            [headerContainer addSubview: sendBtn];
         }
         else
         {
-            addBtn.frame=CGRectMake(x, y, add_Img.size.width, headerContainer.frame.size.height-y);
+            sendBtn.frame=CGRectMake(x, y, add_Img.size.width, headerContainer.frame.size.height-y);
         }
     }
     
@@ -295,9 +295,9 @@
     }
     
     
-    refreshBtn.hidden=!hasRefresh;
-    addBtn.hidden=!hasAdd;
-    searchBtn.hidden=!hasSearch;
+    saveBtn.hidden=!hasSave;
+    sendBtn.hidden=!hasSend;
+    settingsBtn.hidden=!hasSettings;
     backBtn.hidden=!hasBack;
     loadingView.center=CGPointMake(x-15,(headerContainer.frame.size.height+(iOS7orAbove?20:0))/2);
 }
@@ -373,7 +373,7 @@
 }
 -(void) ready
 {
-    [refreshBtn.layer removeAllAnimations];
+    [saveBtn.layer removeAllAnimations];
     if(loadingView.isAnimating)
     {
         [loadingView stopAnimating];
@@ -382,13 +382,12 @@
         [super ready];
 }
 
-#pragma mark info, add & refresh
+#pragma mark info, add & Save
 
--(void) refresh
+-(void)saveBtnClicked
 {
-    [self reloadData:NO];
 }
--(void) searchBtnClicked
+-(void)settingsBtnClicked
 {
     
 }
@@ -420,11 +419,33 @@
     
     UIActivityViewController * avc = [[UIActivityViewController alloc] initWithActivityItems:shareItems applicationActivities:nil];
     
-//    popupActivityController = [[UIPopoverController alloc] initWithContentViewController:avc];
-//    [popupActivityController presentPopoverFromRect:CGRectMake(0, self.contentContainer.frame.size.height, self.contentContainer.frame.size.width, 80) inView:self.contentContainer permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    //[(CCBaseViewController*)self.viewControllerDelegate presentViewController:avc animated:YES completion:nil];
     
-    [(CCBaseViewController*)self.viewControllerDelegate presentViewController:avc animated:YES completion:nil];
+    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:avc];
+    nav.view.backgroundColor=[UIColor whiteColor];
+    nav.view.frame = CGRectMake(0, 0, self.contentContainer.frame.size.width,self.contentContainer.frame.size.height/2);
+    [nav setNavigationBarHidden:TRUE];
+    
+    UIButton *btnDone=[UIButton buttonWithType:UIButtonTypeCustom];
+    btnDone.frame=CGRectMake(0,nav.view.frame.size.height-40,nav.view.frame.size.width,40);
+    [btnDone setTitle:@"BACK" forState:UIControlStateNormal];
+    [btnDone setTitle:@"BACK" forState:UIControlStateSelected];
+    [btnDone addTarget:self action:@selector(backPress) forControlEvents:UIControlEventTouchUpInside];
+    [btnDone setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    btnDone.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+    btnDone.backgroundColor=BLUE_COLOR_THEME;
+    btnDone.titleLabel.font=[UIFont fontWithName:@"Helvetica" size:13];
+    btnDone.titleLabel.backgroundColor=[UIColor clearColor];
+    btnDone.imageView.backgroundColor=[UIColor clearColor];
+    
+    [nav.view addSubview:btnDone];
+    
+    [[(BaseViewController*)self.viewControllerDelegate navigationController] presentViewController:nav animated:YES completion:nil];
 
+}
+-(void)backPress
+{
+    [[(BaseViewController*)self.viewControllerDelegate navigationController] dismissViewControllerAnimated:YES completion:nil];
 }
 -(CCBaseViewController *)getViewControllerToNavigate
 {
@@ -434,5 +455,14 @@
     }
     return self.viewControllerDelegate;
 }
-
+-(BOOL)isNetworkON
+{
+    Reachability *reachability = [Reachability reachabilityForInternetConnection];
+    NetworkStatus networkStatus = [reachability currentReachabilityStatus];
+    return networkStatus != NotReachable;
+}
+-(void)showToast:(NSString*)message
+{
+    [iToast toastWithText:message];
+}
 @end

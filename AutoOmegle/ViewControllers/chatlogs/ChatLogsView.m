@@ -22,10 +22,22 @@
     self = [super initWithFrame:frame withHeader:hasHeader withMenu:hasMenu];
     if (self)
     {
-        [self showHeaderWithRefresh:NO withSearch:NO andAdd:NO];
-        [self createView];
+        [self showHeaderWithSave:NO withSettings:NO andSend:NO];
+        [self showUnderDevelopmentLabel];
     }
     return self;
+}
+-(void)showUnderDevelopmentLabel
+{
+    UILabel *lblUnderDevelopment=[[UILabel alloc] initWithFrame:CGRectMake(10,0,self.contentContainer.frame.size.width-20,self.contentContainer.frame.size.height)];
+    lblUnderDevelopment.backgroundColor=[UIColor clearColor];
+    lblUnderDevelopment.textColor=BLUE_COLOR_THEME;
+    lblUnderDevelopment.textAlignment=NSTextAlignmentCenter;
+    lblUnderDevelopment.font=[UIFont fontWithName:FONT_STATUS_BOLD size:18];
+    lblUnderDevelopment.numberOfLines=0;
+    lblUnderDevelopment.text=@"Hopefully You can get this feature in the next updates";
+    [self.contentContainer addSubview:lblUnderDevelopment];
+    [self setTitle:@"Saved/Public Logs"];
 }
 -(void)createView
 {
@@ -35,7 +47,7 @@
     [segmentLogs setSelectedSegmentIndex:0];
     [segmentLogs setBackgroundColor:[UIColor whiteColor]];
     [segmentLogs addTarget:self action:@selector(changeTab) forControlEvents: UIControlEventValueChanged];
-    [self.contentContainer addSubview:segmentLogs];
+    //[self.contentContainer addSubview:segmentLogs];
     
     [[UISegmentedControl appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName :[UIColor grayColor]}forState:UIControlStateNormal];
     
@@ -46,9 +58,9 @@
     tableSavedLogs.dataSource=self;
     tableSavedLogs.separatorStyle=UITableViewCellSeparatorStyleNone;
     tableSavedLogs.delegate=self;
-    [self.contentContainer addSubview:tableSavedLogs];
+    //[self.contentContainer addSubview:tableSavedLogs];
 
-    [self changeTab];
+    //[self changeTab];
 }
 -(void)changeTab
 {

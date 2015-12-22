@@ -26,7 +26,7 @@
     self = [super initWithFrame:frame withHeader:hasHeader withMenu:hasMenu];
     if (self)
     {
-        [self showHeaderWithRefresh:NO withSearch:NO andAdd:NO];
+        [self showHeaderWithSave:NO withSettings:NO andSend:NO];
         [self createView];
     }
     return self;
@@ -178,8 +178,6 @@ if(arrayTemplateItems == nil)
 }
 -(void)doSynchWithDB
 {
-
-//    [[AppData getAppData] saveTemplateItems:arrayTemplateItems];
         if(arrayTemplateItems != nil)
         [AppData getAppData].arrayTemplateItems =[[NSMutableArray alloc] initWithArray:arrayTemplateItems];
 }

@@ -238,9 +238,9 @@ static MenuView *menuView;
         [menuTable selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionTop];
 }
 
--(void) showErrorAlert:(NSString *) message buttonTitle:(NSString *) btnTitle
+-(void)showErrorAlert:(NSString *) message buttonTitle:(NSString *) btnTitle
 {
-    UIAlertView *alertView=[[UIAlertView alloc] initWithTitle:@"Auto Omegle" message:message delegate:self cancelButtonTitle:btnTitle otherButtonTitles: nil];
+    UIAlertView *alertView=[[UIAlertView alloc] initWithTitle:HEADER_MSGBOX message:message delegate:self cancelButtonTitle:btnTitle otherButtonTitles: nil];
     [alertView show];
     
 }

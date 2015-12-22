@@ -117,7 +117,10 @@ static AppData *appData;
     return self.boolReconnect_ON_OFF;
     //return [[self.userDefaults objectForKey:ON_OFF_RECONNECT] isEqualToString:@"ON"]?TRUE:FALSE;
 }
-
+-(BOOL)isDoubleTapON
+{
+    return self.boolDoubleTap_ON_OFF;
+}
 -(void)synchUserDefaultWithAppDataBeforeExit
 {
     [[NSUserDefaults standardUserDefaults] setObject:self.arrayKeySpamMsg forKey:KEY_SPAM_MSG];
@@ -130,6 +133,7 @@ static AppData *appData;
     [[NSUserDefaults standardUserDefaults] setObject:self.boolLikes_ON_OFF?@"ON":@"OFF" forKey:ON_OFF_LIKES];
     [[NSUserDefaults standardUserDefaults] setObject:self.boolFacebook_ON_OFF?@"ON":@"OFF" forKey:ON_OFF_FACEBOOK];
     [[NSUserDefaults standardUserDefaults] setObject:self.boolReconnect_ON_OFF?@"ON":@"OFF" forKey:ON_OFF_RECONNECT];
+    [[NSUserDefaults standardUserDefaults] setObject:self.boolDoubleTap_ON_OFF?@"ON":@"OFF" forKey:ON_OFF_DOUBLETAP];
     
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
@@ -145,5 +149,6 @@ static AppData *appData;
     self.boolLikes_ON_OFF=[[self.userDefaults objectForKey:ON_OFF_LIKES] isEqualToString:@"ON"]?TRUE:FALSE;
     self.boolFacebook_ON_OFF=[[self.userDefaults objectForKey:ON_OFF_FACEBOOK] isEqualToString:@"ON"]?TRUE:FALSE;
     self.boolReconnect_ON_OFF=[[self.userDefaults objectForKey:ON_OFF_RECONNECT] isEqualToString:@"ON"]?TRUE:FALSE;
+    
 }
 @end

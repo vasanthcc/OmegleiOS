@@ -22,20 +22,20 @@
 - (id)initWithFrame:(CGRect)frame withHeader:(BOOL) hasHeader withMenu:(BOOL) hasMenu;
 -(void) setTitle :(NSString *) title;
 -(void) asyncBusy;
--(void) refresh;
--(void) reloadData:(BOOL) alwaysFetchFromServer;
--(void) addBtnClicked;
--(void) searchBtnClicked;
+-(void) save;
+-(void) sendBtnClicked;
+-(void) settingsBtnClicked;
 -(void) backBtnClicked:(BOOL) animated;
 -(void) showToast:(NSString*) message;
 -(void) showing;
 -(void) showOrHideMenuView;
--(void) showHeaderWithRefresh:(BOOL) hasRefresh withSearch:(BOOL) hasSearch andAdd:(BOOL) hasAdd;
--(void) showHeaderWithRefresh:(BOOL) hasRefresh withSearch:(BOOL) hasSearch andAdd:(BOOL) hasAdd allowsBack:(BOOL) hasBack;
+-(void) showHeaderWithSave:(BOOL) hasSave withSettings:(BOOL) hasSettings andSend:(BOOL) hasSend;
+-(void) showHeaderWithSave:(BOOL) hasSave withSettings:(BOOL) hasSettings andSend:(BOOL) hasSend allowsBack:(BOOL) hasBack;
 -(void) logOutRequest;
 -(void) setMenuViewIdentifier:(NSString*)identifier;
 -(void)gotoThisViewController:(NSString*)strViewController;
 -(void)shareApp;
 -(void) createMenu;
 -(void) hideMenu;
+-(BOOL)isNetworkON;
 @end
