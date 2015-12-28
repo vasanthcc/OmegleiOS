@@ -13,8 +13,9 @@
 
 #pragma Colors
 #define BLUE_COLOR_THEME UIColorFromRGB(0x288AFF)
-#define RED_COLOR_THEME UIColorFromRGB(0xE92834)
-#define GREEN_COLOR_THEME UIColorFromRGB(0x158B04)
+//#define RED_COLOR_THEME UIColorFromRGB(0xE92834)
+//#define GREEN_COLOR_THEME UIColorFromRGB(0x158B04)
+#define ORANGE_COLOR_THEME UIColorFromRGB(0x222222)
 
 #pragma  mark Common Size Keys
 #define SCREEN_FRAME [[UIScreen mainScreen] bounds]

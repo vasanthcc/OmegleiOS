@@ -50,7 +50,7 @@
         if(content.frame.size.height>0)
         {
         CGFloat height=content.frame.size.height+41;
-        contentContainer.frame=CGRectMake((self.frame.size.width-CONTENT_WIDTH)/2,(self.frame.size.height-height)/2 , CONTENT_WIDTH, height);
+        contentContainer.frame=CGRectMake((self.frame.size.width-CONTENT_WIDTH)/2,((self.frame.size.height-height)/2)-60 , CONTENT_WIDTH, height);//width-60 for overall txtbox keyboard
         }
         if(lbl_header)
         {

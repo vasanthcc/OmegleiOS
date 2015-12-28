@@ -27,9 +27,28 @@
 -(void)createView
 {
     [self setTitle:@"Share to Friends"];
+    
+    UIButton *btnDone=[UIButton buttonWithType:UIButtonTypeCustom];
+    btnDone.frame=CGRectMake(0,self.contentContainer.frame.size.height-40,self.contentContainer.frame.size.width,40);
+    [btnDone setTitle:@"SHARE" forState:UIControlStateNormal];
+    [btnDone setTitle:@"SHARE" forState:UIControlStateSelected];
+    [btnDone addTarget:self action:@selector(sharePress) forControlEvents:UIControlEventTouchUpInside];
+    [btnDone setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    btnDone.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+    btnDone.backgroundColor=BLUE_COLOR_THEME;
+    btnDone.titleLabel.font=[UIFont fontWithName:@"Helvetica" size:13];
+    btnDone.titleLabel.backgroundColor=[UIColor clearColor];
+    btnDone.imageView.backgroundColor=[UIColor clearColor];
+
+    [self.contentContainer addSubview:btnDone];
 }
 -(void)showing
 {
-  [self shareApp];
+    [super showing];
 }
+-(void)sharePress
+{
+    [self shareApp];
+}
+
 @end

@@ -93,15 +93,15 @@ static MenuView *menuView;
 {
     
     MenuList *mainMenuList=[[MenuList alloc] init];
-    mainMenuList.menuItems=[[NSMutableArray alloc] initWithObjects:@"Chat Room",@"Edit Templates",@"Chat Settings",@"FB likes as Interest",@"Statistics",@"Chat Logs",@"Share to Friends",@"Issues/Suggestions",nil];
+    mainMenuList.menuItems=[[NSMutableArray alloc] initWithObjects:@"Chat",@"Edit Templates",@"Chat Settings",@"Boring",@"Statistics",@"Chat Logs",@"Share to Friends",@"Issues/Suggestions",nil];
     
-    mainMenuList.menuImages=[[NSMutableArray alloc] initWithObjects:@"mnu_topstocks",@"mnu_settings",@"mnu_portfolio",@"mnu_orderpad",@"mnu_orderstatus",@"mnu_research",@"mnu_livetrade",@"mnu_news",nil];
+    mainMenuList.menuImages=[[NSMutableArray alloc] initWithObjects:@"chatting",@"edittemplate",@"chatsettings",@"fb",@"statistics",@"chatlogs",@"sharing",@"mailing",nil];
     
-    mainMenuList.viewControllers=[[NSMutableArray alloc] initWithObjects:@"ChatHomeViewController",@"TemplateViewController",@"SettingsViewController",@"FacebookViewController",@"StatisticsViewController",@"ChatLogsViewController",@"ShareViewController",@"SuggestionViewController",nil];
+    mainMenuList.viewControllers=[[NSMutableArray alloc] initWithObjects:@"ChatHomeViewController",@"TemplateViewController",@"SettingsViewController",@"BoringViewController",@"StatisticsViewController",@"ChatLogsViewController",@"ShareViewController",@"SuggestionViewController",nil];
     
     mainMenuList.title=@"MainMenu";
     
-    mainMenuList.viewKeys=[[NSMutableArray alloc] initWithObjects:@"ChatHomeView",@"TemplateView",@"SettingsView",@"FacebookView",@"StatisticsView",@"ChatLogsView",@"ShareView",@"SuggestionView",nil];
+    mainMenuList.viewKeys=[[NSMutableArray alloc] initWithObjects:@"ChatHomeView",@"TemplateView",@"SettingsView",@"BoringView",@"StatisticsView",@"ChatLogsView",@"ShareView",@"SuggestionView",nil];
     
     [self.items addObject:mainMenuList];
 }
@@ -124,7 +124,7 @@ static MenuView *menuView;
         
         UILabel *sectionHeaderLbl=[[UILabel alloc] initWithFrame:CGRectMake(0,0,tableView.frame.size.width,40)];
         sectionHeaderLbl.text=[NSString stringWithFormat:@" %@",menuList.title];
-        sectionHeaderLbl.backgroundColor=UIColorFromRGB(0x222222);
+        sectionHeaderLbl.backgroundColor=ORANGE_COLOR_THEME;//UIColorFromRGB(0x222222);
         sectionHeaderLbl.textColor=[UIColor whiteColor];
         sectionHeaderLbl.font=[UIFont fontWithName:@"Helvetica" size:14];
         
@@ -136,7 +136,7 @@ static MenuView *menuView;
 {
     if(section!=0)
     {
-        return 40;
+        return 50;
     }
     return 0;
 }

@@ -143,7 +143,7 @@ if(arrayTemplateItems == nil)
     [containerPopUp addSubview:btnSubmit];
     
     alertAddItems=[[CCAlertView alloc] initWithTitle:@"Add Item" withButtontitle:nil withContentView:containerPopUp withDelegate:self];
-
+alertAddItems.contentSize =CGSizeMake(self.contentContainer.frame.size.width,self.contentContainer.frame.size.height/4);
     [alertAddItems showInView:self];
         [txtItem becomeFirstResponder];
 }

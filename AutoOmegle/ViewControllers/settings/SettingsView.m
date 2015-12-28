@@ -63,18 +63,19 @@
     
     switchDoubleTapON = [[UISwitch alloc]initWithFrame:CGRectMake(switchScreenON.frame.origin.x,switchScreenON.frame.origin.y+switchScreenON.frame.size.height+40,10,10)];
     //[switchDoubleTapON addTarget:self action:@selector(setState:) forControlEvents:UIControlEventValueChanged];
-    [self.contentContainer addSubview:switchDoubleTapON];
+    switchDoubleTapON.userInteractionEnabled=NO;
+    //[self.contentContainer addSubview:switchDoubleTapON];
     
     UILabel *lbl_DoubleTapON =[[UILabel alloc] initWithFrame:CGRectMake(switchDoubleTapON.frame.origin.x+switchDoubleTapON.frame.size.width+5,switchDoubleTapON.frame.origin.y-5,lblWidth, 40)];
     lbl_DoubleTapON.textColor=[UIColor blackColor];
     lbl_DoubleTapON.backgroundColor=[UIColor whiteColor];
     lbl_DoubleTapON.font=[UIFont fontWithName:@"Helvetica" size:13];
-    lbl_DoubleTapON.text=@"Double tap to connect and Reconnect";
+    lbl_DoubleTapON.text=@"Double tap to connect / disconnect";
     lbl_DoubleTapON.numberOfLines=0;
     lbl_DoubleTapON.textAlignment = NSTextAlignmentLeft;
-    [self.contentContainer addSubview:lbl_DoubleTapON];
+    //[self.contentContainer addSubview:lbl_DoubleTapON];
     
-    switchConfirmationON = [[UISwitch alloc]initWithFrame:CGRectMake(switchDoubleTapON.frame.origin.x,switchDoubleTapON.frame.origin.y+switchDoubleTapON.frame.size.height+40,10,10)];
+    switchConfirmationON = [[UISwitch alloc]initWithFrame:CGRectMake(switchScreenON.frame.origin.x,switchScreenON.frame.origin.y+switchScreenON.frame.size.height+40,10,10)];
     //[switchConfirmationON addTarget:self action:@selector(setState:) forControlEvents:UIControlEventValueChanged];
     [self.contentContainer addSubview:switchConfirmationON];
     
@@ -82,7 +83,7 @@
     lbl_Confirmation.textColor=[UIColor blackColor];
     lbl_Confirmation.backgroundColor=[UIColor whiteColor];
     lbl_Confirmation.font=[UIFont fontWithName:@"Helvetica" size:13];
-    lbl_Confirmation.text=@"Confirmation message before disconnect the stranger";
+    lbl_Confirmation.text=@"Confirm before disconnect";
     lbl_Confirmation.numberOfLines=0;
     lbl_Confirmation.textAlignment = NSTextAlignmentLeft;
     [self.contentContainer addSubview:lbl_Confirmation];
@@ -116,12 +117,12 @@
 -(void)showing
 {
     [super showing];
-    //[self loadState];
+    [self loadState];
 }
 -(void)hiding
 {
     [super hiding];
-    //[self saveData];
+    [self saveData];
 }
 -(void)loadState
 {

@@ -22,7 +22,7 @@
     self = [super initWithFrame:frame withHeader:hasHeader withMenu:hasMenu];
     if (self)
     {
-        [self showHeaderWithSave:NO withSettings:NO andSend:YES];
+        [self showHeaderWithSave:NO withSettings:NO andSend:NO];
         [self createView];
     }
     return self;
@@ -91,18 +91,32 @@
     lbl_Result.textAlignment = NSTextAlignmentCenter;
     [self.contentContainer addSubview:lbl_Result];
     
-    UIButton *sendBtn=[[UIButton alloc] initWithFrame:CGRectMake((self.contentContainer.frame.size.width/3), self.contentContainer.frame.size.height-80, 150, 40)];
-    sendBtn.backgroundColor=BLUE_COLOR_THEME;
-    [sendBtn setTitle:@"Send Mail" forState:UIControlStateNormal];
-    [sendBtn setTitle:@"Send Mail" forState:UIControlStateSelected];
-    [sendBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
-    [sendBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    sendBtn.layer.borderColor=UIColorFromRGB(0x3A3D41).CGColor;
-    sendBtn.layer.borderWidth=1;
-    [sendBtn.titleLabel setFont:[UIFont fontWithName:@"Helvetica" size:13]];
-    [sendBtn addTarget:self action:@selector(sendMail) forControlEvents:UIControlEventTouchUpInside];
-    [self.contentContainer addSubview:sendBtn];
+//    UIButton *sendBtn=[[UIButton alloc] initWithFrame:CGRectMake((self.contentContainer.frame.size.width/3), self.contentContainer.frame.size.height-80, 150, 40)];
+//    sendBtn.backgroundColor=BLUE_COLOR_THEME;
+//    [sendBtn setTitle:@"Send Mail" forState:UIControlStateNormal];
+//    [sendBtn setTitle:@"Send Mail" forState:UIControlStateSelected];
+//    [sendBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
+//    [sendBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+//    sendBtn.layer.borderColor=UIColorFromRGB(0x3A3D41).CGColor;
+//    sendBtn.layer.borderWidth=1;
+//    [sendBtn.titleLabel setFont:[UIFont fontWithName:@"Helvetica" size:13]];
+//    [sendBtn addTarget:self action:@selector(sendMail) forControlEvents:UIControlEventTouchUpInside];
+//    [self.contentContainer addSubview:sendBtn];
     
+    
+    UIButton *btnDone=[UIButton buttonWithType:UIButtonTypeCustom];
+    btnDone.frame=CGRectMake(0,self.contentContainer.frame.size.height-40,self.contentContainer.frame.size.width,40);
+    [btnDone setTitle:@"Send Mail" forState:UIControlStateNormal];
+    [btnDone setTitle:@"Send Mail" forState:UIControlStateSelected];
+    [btnDone addTarget:self action:@selector(sendMail) forControlEvents:UIControlEventTouchUpInside];
+    [btnDone setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    btnDone.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+    btnDone.backgroundColor=BLUE_COLOR_THEME;
+    btnDone.titleLabel.font=[UIFont fontWithName:@"Helvetica" size:13];
+    btnDone.titleLabel.backgroundColor=[UIColor clearColor];
+    btnDone.imageView.backgroundColor=[UIColor clearColor];
+    
+    [self.contentContainer addSubview:btnDone];
 }
 -(void)showing
 {

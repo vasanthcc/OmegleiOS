@@ -150,5 +150,7 @@ static AppData *appData;
     self.boolFacebook_ON_OFF=[[self.userDefaults objectForKey:ON_OFF_FACEBOOK] isEqualToString:@"ON"]?TRUE:FALSE;
     self.boolReconnect_ON_OFF=[[self.userDefaults objectForKey:ON_OFF_RECONNECT] isEqualToString:@"ON"]?TRUE:FALSE;
     
+    self.boolDoubleTap_ON_OFF = TRUE;
+    
 }
 @end

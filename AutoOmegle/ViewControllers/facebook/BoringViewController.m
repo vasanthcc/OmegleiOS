@@ -1,19 +1,19 @@
 //
-//  FacebookViewController.m
+//  BoringViewController.m
 //  AutoOmegle
 //
 //  Created by Vasanth Ravichandran on 03/04/15.
 //  Copyright (c) 2015 cc. All rights reserved.
 //
 
-#import "FacebookViewController.h"
-#import "FacebookView.h"
+#import "BoringViewController.h"
+#import "BoringView.h"
 #import "AppMacros.h"
-@interface FacebookViewController()
+@interface BoringViewController()
 
 @end
 
-@implementation FacebookViewController
+@implementation BoringViewController
 
 -(id) init
 {
@@ -28,7 +28,7 @@
 
 - (void)onCreate
 {
-    self.view=[[FacebookView alloc] initWithFrame:SCREEN_FRAME withHeader:YES withMenu:YES];
+    self.view=[[BoringView alloc] initWithFrame:SCREEN_FRAME withHeader:YES withMenu:YES];
 }
 - (void)didReceiveMemoryWarning
 {
@@ -37,7 +37,7 @@
 }
 - (NSString*)identifier
 {
-    return @"FacebookVC";
+    return @"BoringVC";
 }
 /*
  #pragma mark - Navigation

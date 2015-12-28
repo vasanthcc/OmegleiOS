@@ -1,13 +1,13 @@
 //
-//  FacebookViewController.h
+//  BoringView.h
 //  AutoOmegle
 //
 //  Created by Vasanth Ravichandran on 03/04/15.
 //  Copyright (c) 2015 cc. All rights reserved.
 //
 
-#import "CCBaseViewController.h"
+#import "CCBaseView.h"
 
-@interface FacebookViewController : CCBaseViewController
+@interface BoringView : CCBaseView
 
 @end

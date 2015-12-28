@@ -67,6 +67,19 @@
 		6A7932531AC999C0006E6345 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A7932451AC999C0006E6345 /* MainViewController.m */; };
 		6A7932551AC999C0006E6345 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A79324A1AC999C0006E6345 /* Reachability.m */; };
 		6A7932561AC999C0006E6345 /* TTTAttributedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A79324C1AC999C0006E6345 /* TTTAttributedLabel.m */; };
+		6A8DC91B1C2E2C3600E120C7 /* sendBold.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A8DC9171C2E2C3600E120C7 /* sendBold.png */; };
+		6A8DC91C1C2E2C3600E120C7 /* sendLight.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A8DC9181C2E2C3600E120C7 /* sendLight.png */; };
+		6A8DC91D1C2E2C3600E120C7 /* templateBold.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A8DC9191C2E2C3600E120C7 /* templateBold.png */; };
+		6A8DC91E1C2E2C3600E120C7 /* templateLight.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A8DC91A1C2E2C3600E120C7 /* templateLight.png */; };
+		6A8DC9201C2E2F4100E120C7 /* list.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A8DC91F1C2E2F4100E120C7 /* list.png */; };
+		6A8DC9291C2E426B00E120C7 /* chatlogs.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A8DC9211C2E426B00E120C7 /* chatlogs.png */; };
+		6A8DC92A1C2E426B00E120C7 /* chatsettings.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A8DC9221C2E426B00E120C7 /* chatsettings.png */; };
+		6A8DC92B1C2E426B00E120C7 /* chatting.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A8DC9231C2E426B00E120C7 /* chatting.png */; };
+		6A8DC92C1C2E426B00E120C7 /* edittemplate.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A8DC9241C2E426B00E120C7 /* edittemplate.png */; };
+		6A8DC92D1C2E426B00E120C7 /* fb.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A8DC9251C2E426B00E120C7 /* fb.png */; };
+		6A8DC92E1C2E426B00E120C7 /* mailing.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A8DC9261C2E426B00E120C7 /* mailing.png */; };
+		6A8DC92F1C2E426B00E120C7 /* sharing.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A8DC9271C2E426B00E120C7 /* sharing.png */; };
+		6A8DC9301C2E426B00E120C7 /* statistics.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A8DC9281C2E426B00E120C7 /* statistics.png */; };
 		6ACB41E81AD14FCD00A917D6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ACB41E71AD14FCD00A917D6 /* QuartzCore.framework */; };
 		6ACB41F41AD1501B00A917D6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ACB41F31AD1501B00A917D6 /* UIKit.framework */; };
 		6ACB422B1AD1521100A917D6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ACB422A1AD1521100A917D6 /* ViewController.m */; };
@@ -283,8 +296,8 @@
 		6AF31F4E1ACE8D9E00035887 /* ChatHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF31E5F1ACE8D9E00035887 /* ChatHomeViewController.m */; };
 		6AF31F4F1ACE8D9E00035887 /* ChatLogsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF31E621ACE8D9E00035887 /* ChatLogsView.m */; };
 		6AF31F501ACE8D9E00035887 /* ChatLogsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF31E641ACE8D9E00035887 /* ChatLogsViewController.m */; };
-		6AF31F511ACE8D9E00035887 /* FacebookView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF31E671ACE8D9E00035887 /* FacebookView.m */; };
-		6AF31F521ACE8D9E00035887 /* FacebookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF31E691ACE8D9E00035887 /* FacebookViewController.m */; };
+		6AF31F511ACE8D9E00035887 /* BoringView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF31E671ACE8D9E00035887 /* BoringView.m */; };
+		6AF31F521ACE8D9E00035887 /* BoringViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF31E691ACE8D9E00035887 /* BoringViewController.m */; };
 		6AF31F531ACE8D9E00035887 /* SettingsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF31E6C1ACE8D9E00035887 /* SettingsView.m */; };
 		6AF31F541ACE8D9E00035887 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF31E6E1ACE8D9E00035887 /* SettingsViewController.m */; };
 		6AF31F551ACE8D9E00035887 /* ShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF31E711ACE8D9E00035887 /* ShareView.m */; };
@@ -384,6 +397,19 @@
 		6A79324A1AC999C0006E6345 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		6A79324B1AC999C0006E6345 /* TTTAttributedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTAttributedLabel.h; sourceTree = "<group>"; };
 		6A79324C1AC999C0006E6345 /* TTTAttributedLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTAttributedLabel.m; sourceTree = "<group>"; };
+		6A8DC9171C2E2C3600E120C7 /* sendBold.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sendBold.png; sourceTree = "<group>"; };
+		6A8DC9181C2E2C3600E120C7 /* sendLight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sendLight.png; sourceTree = "<group>"; };
+		6A8DC9191C2E2C3600E120C7 /* templateBold.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = templateBold.png; sourceTree = "<group>"; };
+		6A8DC91A1C2E2C3600E120C7 /* templateLight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = templateLight.png; sourceTree = "<group>"; };
+		6A8DC91F1C2E2F4100E120C7 /* list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = list.png; sourceTree = "<group>"; };
+		6A8DC9211C2E426B00E120C7 /* chatlogs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chatlogs.png; sourceTree = "<group>"; };
+		6A8DC9221C2E426B00E120C7 /* chatsettings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chatsettings.png; sourceTree = "<group>"; };
+		6A8DC9231C2E426B00E120C7 /* chatting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chatting.png; sourceTree = "<group>"; };
+		6A8DC9241C2E426B00E120C7 /* edittemplate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = edittemplate.png; sourceTree = "<group>"; };
+		6A8DC9251C2E426B00E120C7 /* fb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fb.png; sourceTree = "<group>"; };
+		6A8DC9261C2E426B00E120C7 /* mailing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mailing.png; sourceTree = "<group>"; };
+		6A8DC9271C2E426B00E120C7 /* sharing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sharing.png; sourceTree = "<group>"; };
+		6A8DC9281C2E426B00E120C7 /* statistics.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = statistics.png; sourceTree = "<group>"; };
 		6ACB41D11AD14DC700A917D6 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		6ACB41D31AD14E2200A917D6 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		6ACB41DF1AD14FA000A917D6 /* libstdc++.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.dylib"; path = "usr/lib/libstdc++.6.dylib"; sourceTree = SDKROOT; };
@@ -621,10 +647,10 @@
 		6AF31E621ACE8D9E00035887 /* ChatLogsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatLogsView.m; sourceTree = "<group>"; };
 		6AF31E631ACE8D9E00035887 /* ChatLogsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatLogsViewController.h; sourceTree = "<group>"; };
 		6AF31E641ACE8D9E00035887 /* ChatLogsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatLogsViewController.m; sourceTree = "<group>"; };
-		6AF31E661ACE8D9E00035887 /* FacebookView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookView.h; sourceTree = "<group>"; };
-		6AF31E671ACE8D9E00035887 /* FacebookView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookView.m; sourceTree = "<group>"; };
-		6AF31E681ACE8D9E00035887 /* FacebookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookViewController.h; sourceTree = "<group>"; };
-		6AF31E691ACE8D9E00035887 /* FacebookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookViewController.m; sourceTree = "<group>"; };
+		6AF31E661ACE8D9E00035887 /* BoringView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoringView.h; sourceTree = "<group>"; };
+		6AF31E671ACE8D9E00035887 /* BoringView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoringView.m; sourceTree = "<group>"; };
+		6AF31E681ACE8D9E00035887 /* BoringViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoringViewController.h; sourceTree = "<group>"; };
+		6AF31E691ACE8D9E00035887 /* BoringViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoringViewController.m; sourceTree = "<group>"; };
 		6AF31E6B1ACE8D9E00035887 /* SettingsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsView.h; sourceTree = "<group>"; };
 		6AF31E6C1ACE8D9E00035887 /* SettingsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsView.m; sourceTree = "<group>"; };
 		6AF31E6D1ACE8D9E00035887 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
@@ -868,6 +894,26 @@
 			path = NetworkHelpers;
 			sourceTree = "<group>";
 		};
+		6A8DC9161C2E2C3600E120C7 /* Flat */ = {
+			isa = PBXGroup;
+			children = (
+				6A8DC9211C2E426B00E120C7 /* chatlogs.png */,
+				6A8DC9221C2E426B00E120C7 /* chatsettings.png */,
+				6A8DC9231C2E426B00E120C7 /* chatting.png */,
+				6A8DC9241C2E426B00E120C7 /* edittemplate.png */,
+				6A8DC9251C2E426B00E120C7 /* fb.png */,
+				6A8DC9261C2E426B00E120C7 /* mailing.png */,
+				6A8DC9271C2E426B00E120C7 /* sharing.png */,
+				6A8DC9281C2E426B00E120C7 /* statistics.png */,
+				6A8DC91F1C2E2F4100E120C7 /* list.png */,
+				6A8DC9171C2E2C3600E120C7 /* sendBold.png */,
+				6A8DC9181C2E2C3600E120C7 /* sendLight.png */,
+				6A8DC9191C2E2C3600E120C7 /* templateBold.png */,
+				6A8DC91A1C2E2C3600E120C7 /* templateLight.png */,
+			);
+			path = Flat;
+			sourceTree = "<group>";
+		};
 		6AF31D7D1ACE8D9E00035887 /* custom */ = {
 			isa = PBXGroup;
 			children = (
@@ -884,6 +930,7 @@
 		6AF31D841ACE8D9E00035887 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				6A8DC9161C2E2C3600E120C7 /* Flat */,
 				6AF31D851ACE8D9E00035887 /* common */,
 				6AF31DE91ACE8D9E00035887 /* Login */,
 				6AF31DFF1ACE8D9E00035887 /* Menu */,
@@ -1204,10 +1251,10 @@
 		6AF31E651ACE8D9E00035887 /* facebook */ = {
 			isa = PBXGroup;
 			children = (
-				6AF31E661ACE8D9E00035887 /* FacebookView.h */,
-				6AF31E671ACE8D9E00035887 /* FacebookView.m */,
-				6AF31E681ACE8D9E00035887 /* FacebookViewController.h */,
-				6AF31E691ACE8D9E00035887 /* FacebookViewController.m */,
+				6AF31E661ACE8D9E00035887 /* BoringView.h */,
+				6AF31E671ACE8D9E00035887 /* BoringView.m */,
+				6AF31E681ACE8D9E00035887 /* BoringViewController.h */,
+				6AF31E691ACE8D9E00035887 /* BoringViewController.m */,
 			);
 			path = facebook;
 			sourceTree = "<group>";
@@ -1414,13 +1461,17 @@
 				6AF31F181ACE8D9E00035887 /* mnu_info@3x.png in Resources */,
 				6AF31ED51ACE8D9E00035887 /* icn_send.png in Resources */,
 				6AF31EEF1ACE8D9E00035887 /* callus.png in Resources */,
+				6A8DC91E1C2E2C3600E120C7 /* templateLight.png in Resources */,
 				6AF31ED81ACE8D9E00035887 /* moremenu.png in Resources */,
 				6AF31F071ACE8D9E00035887 /* mnu_portfolio@2x.png in Resources */,
+				6A8DC92F1C2E426B00E120C7 /* sharing.png in Resources */,
 				6AF31F481ACE8D9E00035887 /* mnu_stockfundamentals.png in Resources */,
 				6AF31EEE1ACE8D9E00035887 /* userpass_bg@3x.png in Resources */,
 				6AF31F4C1ACE8D9E00035887 /* mnu_tradesettlement_disabled.png in Resources */,
 				6AF31E8B1ACE8D9E00035887 /* checkbox_selected_disabled@2x.png in Resources */,
+				6A8DC9291C2E426B00E120C7 /* chatlogs.png in Resources */,
 				6AF31F351ACE8D9E00035887 /* mnu_currenices.png in Resources */,
+				6A8DC91C1C2E2C3600E120C7 /* sendLight.png in Resources */,
 				6AF31EA01ACE8D9E00035887 /* uparrow_interchange@2x.png in Resources */,
 				6AF31E811ACE8D9E00035887 /* add@2x.png in Resources */,
 				6AF31E851ACE8D9E00035887 /* chart_crosshair_normal@2x.png in Resources */,
@@ -1433,6 +1484,7 @@
 				6AF31F3A1ACE8D9E00035887 /* mnu_marketindices.png in Resources */,
 				6AF31E891ACE8D9E00035887 /* checkbox_normal_disabled@2x.png in Resources */,
 				6AF31EB11ACE8D9E00035887 /* dropdowndarkbg_normal@3x.png in Resources */,
+				6A8DC92A1C2E426B00E120C7 /* chatsettings.png in Resources */,
 				6AF31F2A1ACE8D9E00035887 /* mnu_stockfundamentals@3x.png in Resources */,
 				6AF31F061ACE8D9E00035887 /* mnu_orderstatus_disabled@2x.png in Resources */,
 				6AF31F021ACE8D9E00035887 /* mnu_news@2x.png in Resources */,
@@ -1450,6 +1502,7 @@
 				6AF31F381ACE8D9E00035887 /* mnu_livetrade.png in Resources */,
 				6AF31F391ACE8D9E00035887 /* mnu_logout.png in Resources */,
 				6AF31F4B1ACE8D9E00035887 /* mnu_tradesettlement.png in Resources */,
+				6A8DC91B1C2E2C3600E120C7 /* sendBold.png in Resources */,
 				6AF31EC01ACE8D9E00035887 /* uparrow_interchange@3x.png in Resources */,
 				6AF31EFF1ACE8D9E00035887 /* mnu_marketindices@2x.png in Resources */,
 				6AF31EC31ACE8D9E00035887 /* btn_close.png in Resources */,
@@ -1473,15 +1526,18 @@
 				6AF31F301ACE8D9E00035887 /* menu.png in Resources */,
 				6A7931EC1AC998D5006E6345 /* Main.storyboard in Resources */,
 				6AF31F151ACE8D9E00035887 /* mnu_charts@3x.png in Resources */,
+				6A8DC92B1C2E426B00E120C7 /* chatting.png in Resources */,
 				6AF31ECA1ACE8D9E00035887 /* checkbox_selected.png in Resources */,
 				6AF31F3E1ACE8D9E00035887 /* mnu_orderpad.png in Resources */,
 				6AF31EDE1ACE8D9E00035887 /* switchoff.png in Resources */,
+				6A8DC91D1C2E2C3600E120C7 /* templateBold.png in Resources */,
 				6AF31EC41ACE8D9E00035887 /* chart_close_btn.png in Resources */,
 				6AF31EBD1ACE8D9E00035887 /* switchon@3x.png in Resources */,
 				6AF31F1B1ACE8D9E00035887 /* mnu_logout@3x.png in Resources */,
 				6AF31F051ACE8D9E00035887 /* mnu_orderstatus@2x.png in Resources */,
 				6AF31F111ACE8D9E00035887 /* mnu_tradesettlement_disabled@2x.png in Resources */,
 				6AF31E821ACE8D9E00035887 /* back@2x.png in Resources */,
+				6A8DC92E1C2E426B00E120C7 /* mailing.png in Resources */,
 				6AF31F281ACE8D9E00035887 /* mnu_settings@3x.png in Resources */,
 				6AF31EB71ACE8D9E00035887 /* popover_witharrow_patch@2x.png in Resources */,
 				6AF31F041ACE8D9E00035887 /* mnu_orderpad_disabled@2x.png in Resources */,
@@ -1510,6 +1566,7 @@
 				6AF31EE21ACE8D9E00035887 /* callus@2x.png in Resources */,
 				6AF31EDD1ACE8D9E00035887 /* success.png in Resources */,
 				6AF31EAE1ACE8D9E00035887 /* downarrow@3x.png in Resources */,
+				6A8DC92C1C2E426B00E120C7 /* edittemplate.png in Resources */,
 				6AF31F421ACE8D9E00035887 /* mnu_portfolio.png in Resources */,
 				6AF31ED61ACE8D9E00035887 /* info.png in Resources */,
 				6AF31ECD1ACE8D9E00035887 /* delete.png in Resources */,
@@ -1526,6 +1583,7 @@
 				6AF31F0D1ACE8D9E00035887 /* mnu_stockfundamentals@2x.png in Resources */,
 				6AF31EFB1ACE8D9E00035887 /* mnu_info@2x.png in Resources */,
 				6AF31F331ACE8D9E00035887 /* mnu_charts.png in Resources */,
+				6A8DC9301C2E426B00E120C7 /* statistics.png in Resources */,
 				6AF31F101ACE8D9E00035887 /* mnu_tradesettlement@2x.png in Resources */,
 				6AF31F411ACE8D9E00035887 /* mnu_orderstatus_disabled.png in Resources */,
 				6AF31EF31ACE8D9E00035887 /* logout.png in Resources */,
@@ -1567,6 +1625,7 @@
 				6AF31ECF1ACE8D9E00035887 /* downarrow.png in Resources */,
 				6AF31EDF1ACE8D9E00035887 /* switchon.png in Resources */,
 				6AF31EF01ACE8D9E00035887 /* forgetpassword.png in Resources */,
+				6A8DC92D1C2E426B00E120C7 /* fb.png in Resources */,
 				6AF31F0E1ACE8D9E00035887 /* mnu_topstocks@2x.png in Resources */,
 				6AF31F2F1ACE8D9E00035887 /* Thumbs.db in Resources */,
 				6AF31EFA1ACE8D9E00035887 /* mnu_currenices@2x.png in Resources */,
@@ -1583,6 +1642,7 @@
 				6AF31ED31ACE8D9E00035887 /* greenbulb.png in Resources */,
 				6AF31EC71ACE8D9E00035887 /* settings.png in Resources */,
 				6AF31EC21ACE8D9E00035887 /* back.png in Resources */,
+				6A8DC9201C2E2F4100E120C7 /* list.png in Resources */,
 				6AF31F031ACE8D9E00035887 /* mnu_orderpad@2x.png in Resources */,
 				6AF31F311ACE8D9E00035887 /* mnu_cashwithdrawal.png in Resources */,
 				6AF31E921ACE8D9E00035887 /* dropdownlight@2x.png in Resources */,
@@ -1654,7 +1714,7 @@
 				6A7932511AC999C0006E6345 /* CCBaseViewController.m in Sources */,
 				6AF31F581ACE8D9E00035887 /* StatisticsViewController.m in Sources */,
 				6AF31F571ACE8D9E00035887 /* StatisticsView.m in Sources */,
-				6AF31F511ACE8D9E00035887 /* FacebookView.m in Sources */,
+				6AF31F511ACE8D9E00035887 /* BoringView.m in Sources */,
 				6AF31F551ACE8D9E00035887 /* ShareView.m in Sources */,
 				6AF31D641ACE6C9D00035887 /* OmegleTextBox.m in Sources */,
 				6A7931E61AC998D5006E6345 /* AppDelegate.m in Sources */,
@@ -1663,7 +1723,7 @@
 				6AF31E7E1ACE8D9E00035887 /* AppData.m in Sources */,
 				6A7932521AC999C0006E6345 /* CCWindow.m in Sources */,
 				6AF31E7F1ACE8D9E00035887 /* MenuList.m in Sources */,
-				6AF31F521ACE8D9E00035887 /* FacebookViewController.m in Sources */,
+				6AF31F521ACE8D9E00035887 /* BoringViewController.m in Sources */,
 				6AF31F541ACE8D9E00035887 /* SettingsViewController.m in Sources */,
 				6AF31F5A1ACE8D9E00035887 /* SuggestionViewController.m in Sources */,
 				6A7931E31AC998D5006E6345 /* main.m in Sources */,
