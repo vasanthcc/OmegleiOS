@@ -76,7 +76,6 @@
 		6A8DC92A1C2E426B00E120C7 /* chatsettings.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A8DC9221C2E426B00E120C7 /* chatsettings.png */; };
 		6A8DC92B1C2E426B00E120C7 /* chatting.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A8DC9231C2E426B00E120C7 /* chatting.png */; };
 		6A8DC92C1C2E426B00E120C7 /* edittemplate.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A8DC9241C2E426B00E120C7 /* edittemplate.png */; };
-		6A8DC92D1C2E426B00E120C7 /* fb.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A8DC9251C2E426B00E120C7 /* fb.png */; };
 		6A8DC92E1C2E426B00E120C7 /* mailing.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A8DC9261C2E426B00E120C7 /* mailing.png */; };
 		6A8DC92F1C2E426B00E120C7 /* sharing.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A8DC9271C2E426B00E120C7 /* sharing.png */; };
 		6A8DC9301C2E426B00E120C7 /* statistics.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A8DC9281C2E426B00E120C7 /* statistics.png */; };
@@ -84,6 +83,7 @@
 		6ACB41F41AD1501B00A917D6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ACB41F31AD1501B00A917D6 /* UIKit.framework */; };
 		6ACB422B1AD1521100A917D6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ACB422A1AD1521100A917D6 /* ViewController.m */; };
 		6ACB42331AD1A7AE00A917D6 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ACB42321AD1A7AE00A917D6 /* MessageUI.framework */; };
+		6AE712871C31E00C005BF72D /* boring.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AE712861C31E00C005BF72D /* boring.png */; };
 		6AF31D641ACE6C9D00035887 /* OmegleTextBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF31D631ACE6C9D00035887 /* OmegleTextBox.m */; };
 		6AF31E7E1ACE8D9E00035887 /* AppData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF31D7F1ACE8D9E00035887 /* AppData.m */; };
 		6AF31E7F1ACE8D9E00035887 /* MenuList.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF31D811ACE8D9E00035887 /* MenuList.m */; };
@@ -406,7 +406,6 @@
 		6A8DC9221C2E426B00E120C7 /* chatsettings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chatsettings.png; sourceTree = "<group>"; };
 		6A8DC9231C2E426B00E120C7 /* chatting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chatting.png; sourceTree = "<group>"; };
 		6A8DC9241C2E426B00E120C7 /* edittemplate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = edittemplate.png; sourceTree = "<group>"; };
-		6A8DC9251C2E426B00E120C7 /* fb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fb.png; sourceTree = "<group>"; };
 		6A8DC9261C2E426B00E120C7 /* mailing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mailing.png; sourceTree = "<group>"; };
 		6A8DC9271C2E426B00E120C7 /* sharing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sharing.png; sourceTree = "<group>"; };
 		6A8DC9281C2E426B00E120C7 /* statistics.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = statistics.png; sourceTree = "<group>"; };
@@ -427,6 +426,7 @@
 		6ACB42291AD1521100A917D6 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		6ACB422A1AD1521100A917D6 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		6ACB42321AD1A7AE00A917D6 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		6AE712861C31E00C005BF72D /* boring.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = boring.png; sourceTree = "<group>"; };
 		6AF31D621ACE6C9D00035887 /* OmegleTextBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OmegleTextBox.h; sourceTree = "<group>"; };
 		6AF31D631ACE6C9D00035887 /* OmegleTextBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OmegleTextBox.m; sourceTree = "<group>"; };
 		6AF31D7E1ACE8D9E00035887 /* AppData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppData.h; sourceTree = "<group>"; };
@@ -897,11 +897,11 @@
 		6A8DC9161C2E2C3600E120C7 /* Flat */ = {
 			isa = PBXGroup;
 			children = (
+				6AE712861C31E00C005BF72D /* boring.png */,
 				6A8DC9211C2E426B00E120C7 /* chatlogs.png */,
 				6A8DC9221C2E426B00E120C7 /* chatsettings.png */,
 				6A8DC9231C2E426B00E120C7 /* chatting.png */,
 				6A8DC9241C2E426B00E120C7 /* edittemplate.png */,
-				6A8DC9251C2E426B00E120C7 /* fb.png */,
 				6A8DC9261C2E426B00E120C7 /* mailing.png */,
 				6A8DC9271C2E426B00E120C7 /* sharing.png */,
 				6A8DC9281C2E426B00E120C7 /* statistics.png */,
@@ -1473,6 +1473,7 @@
 				6AF31F351ACE8D9E00035887 /* mnu_currenices.png in Resources */,
 				6A8DC91C1C2E2C3600E120C7 /* sendLight.png in Resources */,
 				6AF31EA01ACE8D9E00035887 /* uparrow_interchange@2x.png in Resources */,
+				6AE712871C31E00C005BF72D /* boring.png in Resources */,
 				6AF31E811ACE8D9E00035887 /* add@2x.png in Resources */,
 				6AF31E851ACE8D9E00035887 /* chart_crosshair_normal@2x.png in Resources */,
 				6AF31F441ACE8D9E00035887 /* mnu_quickquotes.png in Resources */,
@@ -1625,7 +1626,6 @@
 				6AF31ECF1ACE8D9E00035887 /* downarrow.png in Resources */,
 				6AF31EDF1ACE8D9E00035887 /* switchon.png in Resources */,
 				6AF31EF01ACE8D9E00035887 /* forgetpassword.png in Resources */,
-				6A8DC92D1C2E426B00E120C7 /* fb.png in Resources */,
 				6AF31F0E1ACE8D9E00035887 /* mnu_topstocks@2x.png in Resources */,
 				6AF31F2F1ACE8D9E00035887 /* Thumbs.db in Resources */,
 				6AF31EFA1ACE8D9E00035887 /* mnu_currenices@2x.png in Resources */,

@@ -95,7 +95,7 @@ static MenuView *menuView;
     MenuList *mainMenuList=[[MenuList alloc] init];
     mainMenuList.menuItems=[[NSMutableArray alloc] initWithObjects:@"Chat",@"Edit Templates",@"Chat Settings",@"Boring",@"Statistics",@"Chat Logs",@"Share to Friends",@"Issues/Suggestions",nil];
     
-    mainMenuList.menuImages=[[NSMutableArray alloc] initWithObjects:@"chatting",@"edittemplate",@"chatsettings",@"fb",@"statistics",@"chatlogs",@"sharing",@"mailing",nil];
+    mainMenuList.menuImages=[[NSMutableArray alloc] initWithObjects:@"chatting",@"edittemplate",@"chatsettings",@"boring",@"statistics",@"chatlogs",@"sharing",@"mailing",nil];
     
     mainMenuList.viewControllers=[[NSMutableArray alloc] initWithObjects:@"ChatHomeViewController",@"TemplateViewController",@"SettingsViewController",@"BoringViewController",@"StatisticsViewController",@"ChatLogsViewController",@"ShareViewController",@"SuggestionViewController",nil];
     
