@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '032C1E0099BFC3E355C4312F'
+               BlueprintIdentifier = '1C3D3381909598BBEA8D5119'
                BlueprintName = 'Pods-AutoOmegle'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libPods-AutoOmegle.a'>

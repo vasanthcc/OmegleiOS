@@ -11,6 +11,7 @@
 #import "MainViewController.h"
 #import "CCWindow.h"
 #import "AppData.h"
+#import "GAI.h"
 @interface AppDelegate()
 {
     
@@ -26,8 +27,6 @@
     
     [self.applicationWindow makeKeyAndVisible];
     
-    //[self setupGoogleAnalytics];
-    //[self setupParse];
     [self loadStaticDataFromDB];
     
     BaseViewController *homeViewController=[[ChatHomeViewController alloc] init];
@@ -37,7 +36,23 @@
     self.mainNavigationController.navigationBarHidden = YES;
     self.applicationWindow.rootViewController = mainNavigationController;
     
+    [self initiateGoogleAnalytics];
+    
     return YES;
+}
+-(void)initiateGoogleAnalytics
+{
+    // 1
+    [GAI sharedInstance].trackUncaughtExceptions = YES;
+    
+    // 2
+    [[GAI sharedInstance].logger setLogLevel:kGAILogLevelVerbose];
+    
+    // 3
+    [GAI sharedInstance].dispatchInterval = 20;
+    
+    // 4
+    id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:@"UA-XXXXXXX-Y"];
 }
 -(void)loadStaticDataFromDB
 {
@@ -46,26 +61,6 @@
 -(void)loadDBFromStaticData
 {
     [[AppData getAppData] synchUserDefaultWithAppDataBeforeExit];
-}
--(void)setupGoogleAnalytics
-{
-    //    [GAI sharedInstance].trackUncaughtExceptions = YES;
-    //
-    //    [[GAI sharedInstance].logger setLogLevel:kGAILogLevelVerbose];
-    //
-    //    [GAI sharedInstance].dispatchInterval = 20;
-    //
-    //    id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:@"UA-XXXXXXX-Y"];
-    
-    //    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
-    //    [tracker set:kGAIScreenName value:@"Stopwatch"];
-    //    [tracker send:[[GAIDictionaryBuilder createAppView] build]];
-    
-}
--(void)setupParse
-{
-//    [Parse setApplicationId:@"parseAppId" clientKey:@"parseClientKey"];
-//    [PFFacebookUtils initializeFacebook];
 }
 - (void)applicationWillResignActive:(UIApplication *)application
 {
@@ -90,17 +85,8 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
-    //[FBAppCall handleDidBecomeActiveWithSession:[PFFacebookUtils session]];
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 }
-//- (BOOL)application:(UIApplication *)application
-//            openURL:(NSURL *)url
-//  sourceApplication:(NSString *)sourceApplication
-//         annotation:(id)annotation {
-//    return [FBAppCall handleOpenURL:url
-//                  sourceApplication:sourceApplication
-//                        withSession:[PFFacebookUtils session]];
-//}
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
