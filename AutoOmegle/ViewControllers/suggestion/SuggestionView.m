@@ -134,7 +134,7 @@
         mail.mailComposeDelegate = self;
         [mail setSubject:txtSubject.text];
         [mail setMessageBody:txtBody.text isHTML:NO];
-        [mail setToRecipients:@[@"testingEmail@example.com"]];
+        [mail setToRecipients:@[@"anjanna.cc@gmail.com"]];
         
         [self.viewControllerDelegate presentViewController:mail animated:YES completion:NULL];
     }

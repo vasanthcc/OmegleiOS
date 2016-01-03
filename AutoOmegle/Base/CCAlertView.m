@@ -50,7 +50,7 @@
         if(content.frame.size.height>0)
         {
         CGFloat height=content.frame.size.height+41;
-        contentContainer.frame=CGRectMake((self.frame.size.width-CONTENT_WIDTH)/2,((self.frame.size.height-height)/2)-60 , CONTENT_WIDTH, height);//width-60 for overall txtbox keyboard
+        contentContainer.frame=CGRectMake((self.frame.size.width-CONTENT_WIDTH)/2,((self.frame.size.height-height)/2)-20 , CONTENT_WIDTH, height);//width-60 for overall txtbox keyboard
         }
         if(lbl_header)
         {
@@ -66,8 +66,8 @@
             alertBtn.layer.borderWidth=1;
             alertBtn.layer.borderColor=UIColorFromRGB(0x5A5650).CGColor;
             alertBtn.backgroundColor=BLUE_COLOR_THEME;
-            [alertBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-            [alertBtn setTitleColor:[UIColor blackColor] forState:UIControlStateSelected];
+            [alertBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+            [alertBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
             [alertBtn addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchDown];
             [alertBtn setTitle:title forState:UIControlStateNormal];
             alertBtn.titleLabel.font=[UIFont fontWithName:@"Helvetica" size:13];

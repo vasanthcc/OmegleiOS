@@ -24,6 +24,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
 }
 
 - (void)onCreate
@@ -38,6 +39,15 @@
 - (NSString*)identifier
 {
     return @"ShareVC";
+}
+-(void)shareAppWithThisViewController
+{
+    NSArray * shareItems = @[@"Auto Omegle App for iPhone",[UIImage imageNamed:@"add.png"]];
+    
+    UIActivityViewController * avc = [[UIActivityViewController alloc] initWithActivityItems:shareItems applicationActivities:nil];
+    
+    
+    [self presentViewController:avc animated:YES completion:nil];
 }
 /*
  #pragma mark - Navigation

@@ -32,5 +32,4 @@ typedef enum
 -(void) composeMessage;
 -(void) composeMail;
 -(void)sendMail:(NSString*)emailID;
--(void) shareWithFriends;
 @end

@@ -80,7 +80,7 @@ static iToastSettings *sharedSettings = nil;
     iToast *toast = [[iToast alloc] initWithText:text];
     [toast setFontSize:15];
     [toast setGravity:iToastGravityCenter];
-    [toast setDuration:iToastDurationShort];
+    [toast setDuration:iToastDurationNormal];//iToastDurationShort
     [toast setCornerRadius:10];
     [toast show];
 }

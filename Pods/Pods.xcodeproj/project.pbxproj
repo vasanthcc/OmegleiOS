@@ -1,1152 +1,524 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-	<key>archiveVersion</key>
-	<string>1</string>
-	<key>classes</key>
-	<dict/>
-	<key>objectVersion</key>
-	<string>46</string>
-	<key>objects</key>
-	<dict>
-		<key>042E25CC79B72B6C4C5E491F</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>Foundation.framework</string>
-			<key>path</key>
-			<string>Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Foundation.framework</string>
-			<key>sourceTree</key>
-			<string>DEVELOPER_DIR</string>
-		</dict>
-		<key>08E1475E995D87637724C663</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>CoreGraphics.framework</string>
-			<key>path</key>
-			<string>Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/CoreGraphics.framework</string>
-			<key>sourceTree</key>
-			<string>DEVELOPER_DIR</string>
-		</dict>
-		<key>09F428D280369FDFEAC040F6</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text</string>
-			<key>path</key>
-			<string>Pods-AutoOmegle-acknowledgements.markdown</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>10C1B48A703281BF338BDDD2</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>969B2B33D4C2289BB503E573</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>YES</string>
-				<key>DSTROOT</key>
-				<string>/tmp/xcodeproj.dst</string>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>INSTALL_PATH</key>
-				<string>$(BUILT_PRODUCTS_DIR)</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>7.0</string>
-				<key>OTHER_CFLAGS</key>
-				<array>
-					<string>-DNS_BLOCK_ASSERTIONS=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>OTHER_CPLUSPLUSFLAGS</key>
-				<array>
-					<string>-DNS_BLOCK_ASSERTIONS=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>OTHER_LDFLAGS</key>
-				<string></string>
-				<key>OTHER_LIBTOOLFLAGS</key>
-				<string></string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>PUBLIC_HEADERS_FOLDER_PATH</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-				<key>VALIDATE_PRODUCT</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>154F895BDB4281B327712DC4</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>6A069BF7F665471BFD84E0FC</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Frameworks</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>179EC8C7C5160AE37B62052D</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>NO</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>YES</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_DYNAMIC_NO_PIC</key>
-				<string>NO</string>
-				<key>GCC_OPTIMIZATION_LEVEL</key>
-				<string>0</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
-				<string>NO</string>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>7.0</string>
-				<key>ONLY_ACTIVE_ARCH</key>
-				<string>YES</string>
-				<key>STRIP_INSTALLED_PRODUCT</key>
-				<string>NO</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>1A0F8BAD36C799D0AEC11173</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>E6FE7F065AB5E30393EE0F6B</string>
-			<key>buildPhases</key>
-			<array>
-				<string>5EC28F9B9BBE4B67877074FB</string>
-				<string>EC0E4FFC24331A3C1B3B8030</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>Pods-AutoOmegle-Google-Mobile-Ads-SDK</string>
-			<key>productName</key>
-			<string>Pods-AutoOmegle-Google-Mobile-Ads-SDK</string>
-			<key>productReference</key>
-			<string>EB041500811A42EB1B3DD4D1</string>
-			<key>productType</key>
-			<string>com.apple.product-type.library.static</string>
-		</dict>
-		<key>1CF5230539546DFDCE234334</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>09F428D280369FDFEAC040F6</string>
-				<string>3B483B73AE7D77980AF8BC99</string>
-				<string>CC57280EA7A2D4E9F662BF45</string>
-				<string>45DCD0CAF573F9ED79B9AF3B</string>
-				<string>3FB1994A00AC37F9DAE1D545</string>
-				<string>2A8F13AAAA9D6F88E3754253</string>
-				<string>969B2B33D4C2289BB503E573</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Pods-AutoOmegle</string>
-			<key>path</key>
-			<string>Target Support Files/Pods-AutoOmegle</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>1D6B37350024B0EC31C133EC</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>6B70BA8BCD52211EE0942866</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Pods</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>23871F27D1539B41D5D73B95</key>
-		<dict>
-			<key>fileRef</key>
-			<string>CC57280EA7A2D4E9F662BF45</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>266DEB1323F10BBB0CDE0AB4</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>1CF5230539546DFDCE234334</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Targets Support Files</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>29363AF92DDDA7664F3D1D57</key>
-		<dict>
-			<key>containerPortal</key>
-			<string>D60581BB91BD30E2F3E36F23</string>
-			<key>isa</key>
-			<string>PBXContainerItemProxy</string>
-			<key>proxyType</key>
-			<string>1</string>
-			<key>remoteGlobalIDString</key>
-			<string>1A0F8BAD36C799D0AEC11173</string>
-			<key>remoteInfo</key>
-			<string>Pods-AutoOmegle-Google-Mobile-Ads-SDK</string>
-		</dict>
-		<key>2A8F13AAAA9D6F88E3754253</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>path</key>
-			<string>Pods-AutoOmegle.debug.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>31196C39AC1BA1DCCA81364F</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXTargetDependency</string>
-			<key>target</key>
-			<string>1A0F8BAD36C799D0AEC11173</string>
-			<key>targetProxy</key>
-			<string>29363AF92DDDA7664F3D1D57</string>
-		</dict>
-		<key>3B483B73AE7D77980AF8BC99</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Pods-AutoOmegle-acknowledgements.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>3D805A24AA883D38CB9BB7F8</key>
-		<dict>
-			<key>fileRef</key>
-			<string>CE7B313AA82AEDF46F405631</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>3FB1994A00AC37F9DAE1D545</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.script.sh</string>
-			<key>path</key>
-			<string>Pods-AutoOmegle-resources.sh</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>45DCD0CAF573F9ED79B9AF3B</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>Pods-AutoOmegle-environment.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4B523F25CCB833CD4AB8F709</key>
-		<dict>
-			<key>fileRef</key>
-			<string>DF976C274391E825DA73906F</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>4CDAC8F85096C2E700BD82A4</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>D3C79C60C693991A71122E01</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>4F599C477DA3143ECDF61A2F</key>
-		<dict>
-			<key>fileRef</key>
-			<string>042E25CC79B72B6C4C5E491F</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>51A82CC7617EF48B02C6D816</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>179EC8C7C5160AE37B62052D</string>
-				<string>F2C463E5A146B130041D385E</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>5427308BB09A95189F669DF7</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>path</key>
-			<string>Pods-AutoOmegle-Google-Mobile-Ads-SDK.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>562B6C24F9EEB9D9156B9662</key>
-		<dict>
-			<key>fileRef</key>
-			<string>AE585BC6AC35FBEFA1E7086B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>588763542FAC790E5D70591C</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>EventKit.framework</string>
-			<key>path</key>
-			<string>Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/EventKit.framework</string>
-			<key>sourceTree</key>
-			<string>DEVELOPER_DIR</string>
-		</dict>
-		<key>5C4A37BAD0F172873014386A</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>path</key>
-			<string>Pods-AutoOmegle-Google-Mobile-Ads-SDK-Private.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>5EC28F9B9BBE4B67877074FB</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>4B523F25CCB833CD4AB8F709</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>687C4EF75968227801A7715A</key>
-		<dict>
-			<key>fileRef</key>
-			<string>E134B4368AE6282C008D7F5D</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>6A069BF7F665471BFD84E0FC</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>CE7B313AA82AEDF46F405631</string>
-				<string>8DB4CEC1CFAAD3835433A58D</string>
-				<string>08E1475E995D87637724C663</string>
-				<string>E134B4368AE6282C008D7F5D</string>
-				<string>8632FE930882321350B6A14E</string>
-				<string>588763542FAC790E5D70591C</string>
-				<string>CC5A5F280B659F920BA610C6</string>
-				<string>042E25CC79B72B6C4C5E491F</string>
-				<string>71ABC4222C82E36EE7E61BE0</string>
-				<string>AE585BC6AC35FBEFA1E7086B</string>
-				<string>CA8E25CC97C23490D4A8C651</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>iOS</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>6B58523D1683E833D33D1C9C</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>23871F27D1539B41D5D73B95</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>6B70BA8BCD52211EE0942866</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>FD2B820DA7977BF49ED539FC</string>
-				<string>7B5384EE83B98B65B1AE1179</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Google-Mobile-Ads-SDK</string>
-			<key>path</key>
-			<string>Google-Mobile-Ads-SDK</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>71ABC4222C82E36EE7E61BE0</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>MessageUI.framework</string>
-			<key>path</key>
-			<string>Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/MessageUI.framework</string>
-			<key>sourceTree</key>
-			<string>DEVELOPER_DIR</string>
-		</dict>
-		<key>79683301494AD148D333B0C8</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>C4280CF7F80954046A31E943</string>
-				<string>10C1B48A703281BF338BDDD2</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>7B5384EE83B98B65B1AE1179</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>5427308BB09A95189F669DF7</string>
-				<string>5C4A37BAD0F172873014386A</string>
-				<string>DF976C274391E825DA73906F</string>
-				<string>DAE3F6459902021242FCAFB2</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Support Files</string>
-			<key>path</key>
-			<string>../Target Support Files/Pods-AutoOmegle-Google-Mobile-Ads-SDK</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>80EEE2A7168896061223CC7A</key>
-		<dict>
-			<key>fileRef</key>
-			<string>588763542FAC790E5D70591C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>850F921A7EC5A718E8B900EA</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>79683301494AD148D333B0C8</string>
-			<key>buildPhases</key>
-			<array>
-				<string>6B58523D1683E833D33D1C9C</string>
-				<string>4CDAC8F85096C2E700BD82A4</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array>
-				<string>31196C39AC1BA1DCCA81364F</string>
-			</array>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>Pods-AutoOmegle</string>
-			<key>productName</key>
-			<string>Pods-AutoOmegle</string>
-			<key>productReference</key>
-			<string>969E15743FBC4B538AF78694</string>
-			<key>productType</key>
-			<string>com.apple.product-type.library.static</string>
-		</dict>
-		<key>8632FE930882321350B6A14E</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>CoreTelephony.framework</string>
-			<key>path</key>
-			<string>Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/CoreTelephony.framework</string>
-			<key>sourceTree</key>
-			<string>DEVELOPER_DIR</string>
-		</dict>
-		<key>8AAC483E45338FA23954EF9B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>08E1475E995D87637724C663</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>8C603429C5581BB874B6D8D7</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>5C4A37BAD0F172873014386A</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>YES</string>
-				<key>DSTROOT</key>
-				<string>/tmp/xcodeproj.dst</string>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>Target Support Files/Pods-AutoOmegle-Google-Mobile-Ads-SDK/Pods-AutoOmegle-Google-Mobile-Ads-SDK-prefix.pch</string>
-				<key>INSTALL_PATH</key>
-				<string>$(BUILT_PRODUCTS_DIR)</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>7.0</string>
-				<key>OTHER_CFLAGS</key>
-				<array>
-					<string>-DNS_BLOCK_ASSERTIONS=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>OTHER_CPLUSPLUSFLAGS</key>
-				<array>
-					<string>-DNS_BLOCK_ASSERTIONS=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>OTHER_LDFLAGS</key>
-				<string></string>
-				<key>OTHER_LIBTOOLFLAGS</key>
-				<string></string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>PUBLIC_HEADERS_FOLDER_PATH</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-				<key>VALIDATE_PRODUCT</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>8DB4CEC1CFAAD3835433A58D</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>AudioToolbox.framework</string>
-			<key>path</key>
-			<string>Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/AudioToolbox.framework</string>
-			<key>sourceTree</key>
-			<string>DEVELOPER_DIR</string>
-		</dict>
-		<key>94BE8A6EB3A9BF8F014AD572</key>
-		<dict>
-			<key>fileRef</key>
-			<string>CA8E25CC97C23490D4A8C651</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>969B2B33D4C2289BB503E573</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>path</key>
-			<string>Pods-AutoOmegle.release.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>969E15743FBC4B538AF78694</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>archive.ar</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>libPods-AutoOmegle.a</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>99803D0F735210279858D964</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>CAD9D810DFD12CB8213C2A6B</string>
-				<string>154F895BDB4281B327712DC4</string>
-				<string>1D6B37350024B0EC31C133EC</string>
-				<string>F8CAFE721EAD1372CD0E6BF1</string>
-				<string>266DEB1323F10BBB0CDE0AB4</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>99E6DD1F2CB4EBDFB5848308</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>GoogleMobileAds.framework</string>
-			<key>path</key>
-			<string>GoogleMobileAdsSdkiOS-7.2.2/GoogleMobileAds.framework</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>9B207A1B96C2AF2BD26BFF9F</key>
-		<dict>
-			<key>fileRef</key>
-			<string>8DB4CEC1CFAAD3835433A58D</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>AE585BC6AC35FBEFA1E7086B</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>StoreKit.framework</string>
-			<key>path</key>
-			<string>Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/StoreKit.framework</string>
-			<key>sourceTree</key>
-			<string>DEVELOPER_DIR</string>
-		</dict>
-		<key>B701EFF76870BDF45C1AAA41</key>
-		<dict>
-			<key>fileRef</key>
-			<string>8632FE930882321350B6A14E</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>C4280CF7F80954046A31E943</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>2A8F13AAAA9D6F88E3754253</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>NO</string>
-				<key>DSTROOT</key>
-				<string>/tmp/xcodeproj.dst</string>
-				<key>GCC_DYNAMIC_NO_PIC</key>
-				<string>NO</string>
-				<key>GCC_OPTIMIZATION_LEVEL</key>
-				<string>0</string>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
-				<string>NO</string>
-				<key>INSTALL_PATH</key>
-				<string>$(BUILT_PRODUCTS_DIR)</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>7.0</string>
-				<key>OTHER_LDFLAGS</key>
-				<string></string>
-				<key>OTHER_LIBTOOLFLAGS</key>
-				<string></string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>PUBLIC_HEADERS_FOLDER_PATH</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>C9EFDD5913BB737D5CE276AE</key>
-		<dict>
-			<key>fileRef</key>
-			<string>CC5A5F280B659F920BA610C6</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>CA8E25CC97C23490D4A8C651</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>SystemConfiguration.framework</string>
-			<key>path</key>
-			<string>Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/SystemConfiguration.framework</string>
-			<key>sourceTree</key>
-			<string>DEVELOPER_DIR</string>
-		</dict>
-		<key>CAD9D810DFD12CB8213C2A6B</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text</string>
-			<key>name</key>
-			<string>Podfile</string>
-			<key>path</key>
-			<string>../Podfile</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-			<key>xcLanguageSpecificationIdentifier</key>
-			<string>xcode.lang.ruby</string>
-		</dict>
-		<key>CC57280EA7A2D4E9F662BF45</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>Pods-AutoOmegle-dummy.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>CC5A5F280B659F920BA610C6</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>EventKitUI.framework</string>
-			<key>path</key>
-			<string>Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/EventKitUI.framework</string>
-			<key>sourceTree</key>
-			<string>DEVELOPER_DIR</string>
-		</dict>
-		<key>CE7B313AA82AEDF46F405631</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>AVFoundation.framework</string>
-			<key>path</key>
-			<string>Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/AVFoundation.framework</string>
-			<key>sourceTree</key>
-			<string>DEVELOPER_DIR</string>
-		</dict>
-		<key>D3C79C60C693991A71122E01</key>
-		<dict>
-			<key>fileRef</key>
-			<string>042E25CC79B72B6C4C5E491F</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D60581BB91BD30E2F3E36F23</key>
-		<dict>
-			<key>attributes</key>
-			<dict>
-				<key>LastUpgradeCheck</key>
-				<string>0510</string>
-			</dict>
-			<key>buildConfigurationList</key>
-			<string>51A82CC7617EF48B02C6D816</string>
-			<key>compatibilityVersion</key>
-			<string>Xcode 3.2</string>
-			<key>developmentRegion</key>
-			<string>English</string>
-			<key>hasScannedForEncodings</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXProject</string>
-			<key>knownRegions</key>
-			<array>
-				<string>en</string>
-			</array>
-			<key>mainGroup</key>
-			<string>99803D0F735210279858D964</string>
-			<key>productRefGroup</key>
-			<string>F8CAFE721EAD1372CD0E6BF1</string>
-			<key>projectDirPath</key>
-			<string></string>
-			<key>projectReferences</key>
-			<array/>
-			<key>projectRoot</key>
-			<string></string>
-			<key>targets</key>
-			<array>
-				<string>850F921A7EC5A718E8B900EA</string>
-				<string>1A0F8BAD36C799D0AEC11173</string>
-			</array>
-		</dict>
-		<key>DAE3F6459902021242FCAFB2</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>Pods-AutoOmegle-Google-Mobile-Ads-SDK-prefix.pch</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>DB75665C64E7C872A4D90F00</key>
-		<dict>
-			<key>fileRef</key>
-			<string>71ABC4222C82E36EE7E61BE0</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>DF976C274391E825DA73906F</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>Pods-AutoOmegle-Google-Mobile-Ads-SDK-dummy.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E134B4368AE6282C008D7F5D</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>CoreMedia.framework</string>
-			<key>path</key>
-			<string>Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/CoreMedia.framework</string>
-			<key>sourceTree</key>
-			<string>DEVELOPER_DIR</string>
-		</dict>
-		<key>E6FE7F065AB5E30393EE0F6B</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>F1C6F3A86B8A14510CFAB1EA</string>
-				<string>8C603429C5581BB874B6D8D7</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>EB041500811A42EB1B3DD4D1</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>archive.ar</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>libPods-AutoOmegle-Google-Mobile-Ads-SDK.a</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>EC0E4FFC24331A3C1B3B8030</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>3D805A24AA883D38CB9BB7F8</string>
-				<string>9B207A1B96C2AF2BD26BFF9F</string>
-				<string>8AAC483E45338FA23954EF9B</string>
-				<string>687C4EF75968227801A7715A</string>
-				<string>B701EFF76870BDF45C1AAA41</string>
-				<string>80EEE2A7168896061223CC7A</string>
-				<string>C9EFDD5913BB737D5CE276AE</string>
-				<string>4F599C477DA3143ECDF61A2F</string>
-				<string>DB75665C64E7C872A4D90F00</string>
-				<string>562B6C24F9EEB9D9156B9662</string>
-				<string>94BE8A6EB3A9BF8F014AD572</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>F1C6F3A86B8A14510CFAB1EA</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>5C4A37BAD0F172873014386A</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>NO</string>
-				<key>DSTROOT</key>
-				<string>/tmp/xcodeproj.dst</string>
-				<key>GCC_DYNAMIC_NO_PIC</key>
-				<string>NO</string>
-				<key>GCC_OPTIMIZATION_LEVEL</key>
-				<string>0</string>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>Target Support Files/Pods-AutoOmegle-Google-Mobile-Ads-SDK/Pods-AutoOmegle-Google-Mobile-Ads-SDK-prefix.pch</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
-				<string>NO</string>
-				<key>INSTALL_PATH</key>
-				<string>$(BUILT_PRODUCTS_DIR)</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>7.0</string>
-				<key>OTHER_LDFLAGS</key>
-				<string></string>
-				<key>OTHER_LIBTOOLFLAGS</key>
-				<string></string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>PUBLIC_HEADERS_FOLDER_PATH</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>F2C463E5A146B130041D385E</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>NO</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>NO</string>
-				<key>ENABLE_NS_ASSERTIONS</key>
-				<string>NO</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>RELEASE=1</string>
-				</array>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>7.0</string>
-				<key>STRIP_INSTALLED_PRODUCT</key>
-				<string>NO</string>
-				<key>VALIDATE_PRODUCT</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>F8CAFE721EAD1372CD0E6BF1</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>969E15743FBC4B538AF78694</string>
-				<string>EB041500811A42EB1B3DD4D1</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Products</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>FD2B820DA7977BF49ED539FC</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>99E6DD1F2CB4EBDFB5848308</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Frameworks</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-	</dict>
-	<key>rootObject</key>
-	<string>D60581BB91BD30E2F3E36F23</string>
-</dict>
-</plist>
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0F777CC6896AEB731B5CF42C9BD80E73 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
+		48453D069F0E75243164FEA13C70F852 /* Pods-AutoOmegle-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 753EF6E14DA1042183F6C18A7520A14E /* Pods-AutoOmegle-dummy.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		02D8A19DE7156879D712DAD59BADEDAA /* libGTM_KVO.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTM_KVO.a; path = Libraries/libGTM_KVO.a; sourceTree = "<group>"; };
+		07100EC9B25DC7F069226688D68DE815 /* Pods-AutoOmegle-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AutoOmegle-acknowledgements.plist"; sourceTree = "<group>"; };
+		0CC8A043130D49D1C010FE726B9EC02A /* GAIEcommerceProductAction.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAIEcommerceProductAction.h; path = Headers/Public/GAIEcommerceProductAction.h; sourceTree = "<group>"; };
+		0D48C78C14C99124484B335FFB0D0B04 /* Core.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Core.h; path = Headers/GGLCore/Public/Core.h; sourceTree = "<group>"; };
+		16646FF83E987D59E20BB934EDD422C2 /* Analytics-Module.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Analytics-Module.h"; path = "Headers/ModuleHeaders/Analytics-Module.h"; sourceTree = "<group>"; };
+		1A41AEF8E9D7F446C11939E822752E26 /* libGoogleAnalytics.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGoogleAnalytics.a; path = Libraries/libGoogleAnalytics.a; sourceTree = "<group>"; };
+		1A71C0A7A6CF4724C9F1ED789AAA14FB /* GAIEcommerceFields.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAIEcommerceFields.h; path = Headers/Public/GAIEcommerceFields.h; sourceTree = "<group>"; };
+		1BA6DE3D61263F96EAB2ADA4F1D99A87 /* GGLConfiguration.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GGLConfiguration.h; path = Headers/GGLCore/Public/GGLConfiguration.h; sourceTree = "<group>"; };
+		1BCA14A35C4E2EF5BDFA2D343E98C146 /* libGTM_NSStringXML.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTM_NSStringXML.a; path = Libraries/libGTM_NSStringXML.a; sourceTree = "<group>"; };
+		2ADBDA7FD79636580E5A39DD6CECEF62 /* Pods-AutoOmegle-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AutoOmegle-frameworks.sh"; sourceTree = "<group>"; };
+		2E9F26E971260FF1B333429B43D0FADE /* GAITracker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAITracker.h; path = Headers/Public/GAITracker.h; sourceTree = "<group>"; };
+		3364AF52A22D024BDE94AFD0648B1B61 /* libProtocolBuffers.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libProtocolBuffers.a; path = Libraries/libProtocolBuffers.a; sourceTree = "<group>"; };
+		3AE0AE58EB9CD3C3BD219B243428A2BF /* GAIFields.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAIFields.h; path = Headers/Public/GAIFields.h; sourceTree = "<group>"; };
+		3D51609C0EB67E7C020B30B40DFDB28A /* libGTM_NSDictionary+URLArguments.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = "libGTM_NSDictionary+URLArguments.a"; path = "Libraries/libGTM_NSDictionary+URLArguments.a"; sourceTree = "<group>"; };
+		3E3E3A73CB11017B3F7AD47D8B0F2601 /* GGLContext+Analytics.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "GGLContext+Analytics.h"; path = "Headers/GGLAnalytics/Public/GGLContext+Analytics.h"; sourceTree = "<group>"; };
+		3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		55B62F7FDDE8CE49A321DE483A463231 /* GGLContext.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GGLContext.h; path = Headers/GGLCore/Public/GGLContext.h; sourceTree = "<group>"; };
+		5F76486B5697001B623EC81DAD172F1A /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAIDictionaryBuilder.h; path = Headers/Public/GAIDictionaryBuilder.h; sourceTree = "<group>"; };
+		623D75B904E5A0DC1291E702D0CEFDF7 /* SignIn-Module.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "SignIn-Module.h"; path = "Headers/ModuleHeaders/SignIn-Module.h"; sourceTree = "<group>"; };
+		64E6A5DD4A0FF2E41A5CAF833E04852B /* libGTM_UIFont+LineHeight.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = "libGTM_UIFont+LineHeight.a"; path = "Libraries/libGTM_UIFont+LineHeight.a"; sourceTree = "<group>"; };
+		6702498FBC27E40EA617E170651FB807 /* GAITrackedViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAITrackedViewController.h; path = Headers/Public/GAITrackedViewController.h; sourceTree = "<group>"; };
+		679468BDD4FF58F3D3F3D0036704A5BA /* libGTM_NSScannerJSON.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTM_NSScannerJSON.a; path = Libraries/libGTM_NSScannerJSON.a; sourceTree = "<group>"; };
+		67C5D0E190716C9860835FD3BA1AA98D /* AdMob-Module.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "AdMob-Module.h"; path = "Headers/ModuleHeaders/AdMob-Module.h"; sourceTree = "<group>"; };
+		6A753815DA93BBFA41FA0CFBC6AE253D /* libGTMSessionFetcher_full.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTMSessionFetcher_full.a; path = Libraries/libGTMSessionFetcher_full.a; sourceTree = "<group>"; };
+		6DB99F6228DFE0CF6E21D2E15EB1B9F7 /* Pods-AutoOmegle-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-AutoOmegle-acknowledgements.markdown"; sourceTree = "<group>"; };
+		6E622C4592CD7973E47832E0D4C3446B /* libGGLAnalytics.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGGLAnalytics.a; path = Libraries/libGGLAnalytics.a; sourceTree = "<group>"; };
+		6F008BA075E58B1C9DA17258C2C7BDC5 /* GMRConfiguration.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GMRConfiguration.h; path = Headers/GGLCore/Public/GMRConfiguration.h; sourceTree = "<group>"; };
+		753EF6E14DA1042183F6C18A7520A14E /* Pods-AutoOmegle-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-AutoOmegle-dummy.m"; sourceTree = "<group>"; };
+		76E4A3EA535610061C2947F7E41E4313 /* libGTMSessionFetcher_core.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTMSessionFetcher_core.a; path = Libraries/libGTMSessionFetcher_core.a; sourceTree = "<group>"; };
+		83962660044BAF287E1AEFC4AEBF0ACB /* libGTM_NSData+zlib.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = "libGTM_NSData+zlib.a"; path = "Libraries/libGTM_NSData+zlib.a"; sourceTree = "<group>"; };
+		83AD2D3110D1E0DBC54074707E6FE12D /* libGTM_AddressBook.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTM_AddressBook.a; path = Libraries/libGTM_AddressBook.a; sourceTree = "<group>"; };
+		855060C11CC405C635AAF7A71F7ED50B /* libGSDK_Overload.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGSDK_Overload.a; path = Libraries/libGSDK_Overload.a; sourceTree = "<group>"; };
+		8AD395474EA766E88D93E1ACAF98CB46 /* libGTM_DebugUtils.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTM_DebugUtils.a; path = Libraries/libGTM_DebugUtils.a; sourceTree = "<group>"; };
+		90D29D96E708BF78B1E94C12587C4631 /* GAIEcommerceProduct.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAIEcommerceProduct.h; path = Headers/Public/GAIEcommerceProduct.h; sourceTree = "<group>"; };
+		925A482B2BFAEF20922E588530585025 /* libGTM_SystemVersion.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTM_SystemVersion.a; path = Libraries/libGTM_SystemVersion.a; sourceTree = "<group>"; };
+		99FB5037C2982697ACB65A846D108C19 /* libPods-AutoOmegle.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AutoOmegle.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A08D837EF397E8BCFD469528CD083464 /* libGGLCore.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGGLCore.a; path = Libraries/libGGLCore.a; sourceTree = "<group>"; };
+		A2BBE876F002137BDFD5E3145DEAAA52 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMobileAds.framework; path = "GoogleMobileAdsSdkiOS-7.2.2/GoogleMobileAds.framework"; sourceTree = "<group>"; };
+		A7071E895C8608BBAE1DCBD708DDD56E /* libGTM_GTMURLBuilder.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTM_GTMURLBuilder.a; path = Libraries/libGTM_GTMURLBuilder.a; sourceTree = "<group>"; };
+		A8C405B1C480E2981B2984C5AD52C905 /* libGTMStackTrace.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTMStackTrace.a; path = Libraries/libGTMStackTrace.a; sourceTree = "<group>"; };
+		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		C61C4144C7AABEFAA7CD8A591724C67D /* GAI.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAI.h; path = Headers/Public/GAI.h; sourceTree = "<group>"; };
+		C82295C765DF06EA49C79FF3BA647818 /* libGTM_RoundedRectPath.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTM_RoundedRectPath.a; path = Libraries/libGTM_RoundedRectPath.a; sourceTree = "<group>"; };
+		C998FAD702A8F6EEDED7789A314D94C3 /* libGTM_core.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTM_core.a; path = Libraries/libGTM_core.a; sourceTree = "<group>"; };
+		CEA7CD38D10A8C4BA44AA1277024191F /* Analytics.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Analytics.h; path = Headers/GGLAnalytics/Public/Analytics.h; sourceTree = "<group>"; };
+		D46AA83DD3B2D315F9CE2169457BACA5 /* libGTM_NSStringHTML.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTM_NSStringHTML.a; path = Libraries/libGTM_NSStringHTML.a; sourceTree = "<group>"; };
+		D55AFAC9057C18EDFD7C37AD84E387DA /* GAILogger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAILogger.h; path = Headers/Public/GAILogger.h; sourceTree = "<group>"; };
+		DACE99E8305F025C959847DF56DDD29F /* CloudMessaging-Module.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "CloudMessaging-Module.h"; path = "Headers/ModuleHeaders/CloudMessaging-Module.h"; sourceTree = "<group>"; };
+		DD4632F17959B4D7A36CAB6B99C2DEE0 /* libGTM_iPhone.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTM_iPhone.a; path = Libraries/libGTM_iPhone.a; sourceTree = "<group>"; };
+		E24FFC93C8B454CC2EF48E094480FA44 /* Core-Module.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Core-Module.h"; path = "Headers/ModuleHeaders/Core-Module.h"; sourceTree = "<group>"; };
+		E3F14F14613ADFA946E5EB6F1DE84F4E /* Pods-AutoOmegle.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AutoOmegle.debug.xcconfig"; sourceTree = "<group>"; };
+		E47E0B8C0C6C0294B1C776C232236DB9 /* AppInvite-Module.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "AppInvite-Module.h"; path = "Headers/ModuleHeaders/AppInvite-Module.h"; sourceTree = "<group>"; };
+		E4DCA77222C73D3EC5D1E496F4256D91 /* GAIEcommercePromotion.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAIEcommercePromotion.h; path = Headers/Public/GAIEcommercePromotion.h; sourceTree = "<group>"; };
+		E800675609A95E4221FFC7A97E584B12 /* libGTM_Regex.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTM_Regex.a; path = Libraries/libGTM_Regex.a; sourceTree = "<group>"; };
+		EBBED94EFB3422D653765460F5BA8EDA /* Pods-AutoOmegle-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AutoOmegle-resources.sh"; sourceTree = "<group>"; };
+		ED4D753CF3616548647E2A1731B48D39 /* libGTM_StringEncoding.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTM_StringEncoding.a; path = Libraries/libGTM_StringEncoding.a; sourceTree = "<group>"; };
+		F6358A863F102BF14DF5C8E8632BE812 /* Pods-AutoOmegle.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AutoOmegle.release.xcconfig"; sourceTree = "<group>"; };
+		F74283C7EE39E78E083291898983BCE2 /* GGLErrorCode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GGLErrorCode.h; path = Headers/GGLCore/Public/GGLErrorCode.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9D7C2A0FD3D5CA813F3783E5D4DB708C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0F777CC6896AEB731B5CF42C9BD80E73 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		055433375B7FE8606A32720EBFE4B895 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				76E4A3EA535610061C2947F7E41E4313 /* libGTMSessionFetcher_core.a */,
+				6A753815DA93BBFA41FA0CFBC6AE253D /* libGTMSessionFetcher_full.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0F52427AF8DF69063B07C17779612E84 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6E622C4592CD7973E47832E0D4C3446B /* libGGLAnalytics.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		16D03EE160A9895270B7FD121F8061F7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				99FB5037C2982697ACB65A846D108C19 /* libPods-AutoOmegle.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1B3B8E384F68076498ED4226F78BE5E3 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				67C5D0E190716C9860835FD3BA1AA98D /* AdMob-Module.h */,
+				16646FF83E987D59E20BB934EDD422C2 /* Analytics-Module.h */,
+				E47E0B8C0C6C0294B1C776C232236DB9 /* AppInvite-Module.h */,
+				DACE99E8305F025C959847DF56DDD29F /* CloudMessaging-Module.h */,
+				0D48C78C14C99124484B335FFB0D0B04 /* Core.h */,
+				E24FFC93C8B454CC2EF48E094480FA44 /* Core-Module.h */,
+				1BA6DE3D61263F96EAB2ADA4F1D99A87 /* GGLConfiguration.h */,
+				55B62F7FDDE8CE49A321DE483A463231 /* GGLContext.h */,
+				F74283C7EE39E78E083291898983BCE2 /* GGLErrorCode.h */,
+				6F008BA075E58B1C9DA17258C2C7BDC5 /* GMRConfiguration.h */,
+				623D75B904E5A0DC1291E702D0CEFDF7 /* SignIn-Module.h */,
+				4808D00F979BD6B04E9EB87E6AFB1786 /* Frameworks */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		1B941E4C4E1D88C537B583D501118457 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				83AD2D3110D1E0DBC54074707E6FE12D /* libGTM_AddressBook.a */,
+				C998FAD702A8F6EEDED7789A314D94C3 /* libGTM_core.a */,
+				8AD395474EA766E88D93E1ACAF98CB46 /* libGTM_DebugUtils.a */,
+				A7071E895C8608BBAE1DCBD708DDD56E /* libGTM_GTMURLBuilder.a */,
+				DD4632F17959B4D7A36CAB6B99C2DEE0 /* libGTM_iPhone.a */,
+				02D8A19DE7156879D712DAD59BADEDAA /* libGTM_KVO.a */,
+				83962660044BAF287E1AEFC4AEBF0ACB /* libGTM_NSData+zlib.a */,
+				3D51609C0EB67E7C020B30B40DFDB28A /* libGTM_NSDictionary+URLArguments.a */,
+				679468BDD4FF58F3D3F3D0036704A5BA /* libGTM_NSScannerJSON.a */,
+				D46AA83DD3B2D315F9CE2169457BACA5 /* libGTM_NSStringHTML.a */,
+				1BCA14A35C4E2EF5BDFA2D343E98C146 /* libGTM_NSStringXML.a */,
+				E800675609A95E4221FFC7A97E584B12 /* libGTM_Regex.a */,
+				C82295C765DF06EA49C79FF3BA647818 /* libGTM_RoundedRectPath.a */,
+				ED4D753CF3616548647E2A1731B48D39 /* libGTM_StringEncoding.a */,
+				925A482B2BFAEF20922E588530585025 /* libGTM_SystemVersion.a */,
+				64E6A5DD4A0FF2E41A5CAF833E04852B /* libGTM_UIFont+LineHeight.a */,
+				A8C405B1C480E2981B2984C5AD52C905 /* libGTMStackTrace.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		331137934F561AFED794E5110E393854 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				A40EFDB67FA874CA32FBD3E2CBCA9A3C /* Pods-AutoOmegle */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		478F8DD806B206B3273A3D03A6EBAD31 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A2BBE876F002137BDFD5E3145DEAAA52 /* GoogleMobileAds.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4808D00F979BD6B04E9EB87E6AFB1786 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A08D837EF397E8BCFD469528CD083464 /* libGGLCore.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		52D03F859F7A95463F8C7F7CC91CB35C /* GoogleSymbolUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				5C37112B9A0EE3C1C993C68D21E840EC /* Frameworks */,
+			);
+			path = GoogleSymbolUtilities;
+			sourceTree = "<group>";
+		};
+		5C37112B9A0EE3C1C993C68D21E840EC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				855060C11CC405C635AAF7A71F7ED50B /* libGSDK_Overload.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		624052D06106390BCDF49CF108610167 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AD4DA18B2E7765BBDD94E9D77AB3CFEE /* Google */,
+				C340645482DBD43239D33A2B9EB24C35 /* Google-Mobile-Ads-SDK */,
+				B87605FD0739453FE0E38A1F1FC4873F /* GoogleAnalytics */,
+				627E7DB1626B1E60D8CDA9E2D1A669C1 /* GoogleInterchangeUtilities */,
+				B0B7B2286167E32C52D1FA6E76EE7B3A /* GoogleNetworkingUtilities */,
+				52D03F859F7A95463F8C7F7CC91CB35C /* GoogleSymbolUtilities */,
+				AC8F97E73F044A8A302B2BAD452514D4 /* GoogleUtilities */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		627E7DB1626B1E60D8CDA9E2D1A669C1 /* GoogleInterchangeUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				AEA44C301245EACB292E4604D9226737 /* Frameworks */,
+			);
+			path = GoogleInterchangeUtilities;
+			sourceTree = "<group>";
+		};
+		63F095C666F7A3F005C3BF332E9C2D9A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1A41AEF8E9D7F446C11939E822752E26 /* libGoogleAnalytics.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				624052D06106390BCDF49CF108610167 /* Pods */,
+				16D03EE160A9895270B7FD121F8061F7 /* Products */,
+				331137934F561AFED794E5110E393854 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		9C99ABD422FC63CB3DE88A52DDCDF446 /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				CEA7CD38D10A8C4BA44AA1277024191F /* Analytics.h */,
+				3E3E3A73CB11017B3F7AD47D8B0F2601 /* GGLContext+Analytics.h */,
+				0F52427AF8DF69063B07C17779612E84 /* Frameworks */,
+			);
+			name = Analytics;
+			sourceTree = "<group>";
+		};
+		A40EFDB67FA874CA32FBD3E2CBCA9A3C /* Pods-AutoOmegle */ = {
+			isa = PBXGroup;
+			children = (
+				6DB99F6228DFE0CF6E21D2E15EB1B9F7 /* Pods-AutoOmegle-acknowledgements.markdown */,
+				07100EC9B25DC7F069226688D68DE815 /* Pods-AutoOmegle-acknowledgements.plist */,
+				753EF6E14DA1042183F6C18A7520A14E /* Pods-AutoOmegle-dummy.m */,
+				2ADBDA7FD79636580E5A39DD6CECEF62 /* Pods-AutoOmegle-frameworks.sh */,
+				EBBED94EFB3422D653765460F5BA8EDA /* Pods-AutoOmegle-resources.sh */,
+				E3F14F14613ADFA946E5EB6F1DE84F4E /* Pods-AutoOmegle.debug.xcconfig */,
+				F6358A863F102BF14DF5C8E8632BE812 /* Pods-AutoOmegle.release.xcconfig */,
+			);
+			name = "Pods-AutoOmegle";
+			path = "Target Support Files/Pods-AutoOmegle";
+			sourceTree = "<group>";
+		};
+		AC8F97E73F044A8A302B2BAD452514D4 /* GoogleUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				1B941E4C4E1D88C537B583D501118457 /* Frameworks */,
+			);
+			path = GoogleUtilities;
+			sourceTree = "<group>";
+		};
+		AD4DA18B2E7765BBDD94E9D77AB3CFEE /* Google */ = {
+			isa = PBXGroup;
+			children = (
+				9C99ABD422FC63CB3DE88A52DDCDF446 /* Analytics */,
+				1B3B8E384F68076498ED4226F78BE5E3 /* Core */,
+			);
+			path = Google;
+			sourceTree = "<group>";
+		};
+		AEA44C301245EACB292E4604D9226737 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3364AF52A22D024BDE94AFD0648B1B61 /* libProtocolBuffers.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B0B7B2286167E32C52D1FA6E76EE7B3A /* GoogleNetworkingUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				055433375B7FE8606A32720EBFE4B895 /* Frameworks */,
+			);
+			path = GoogleNetworkingUtilities;
+			sourceTree = "<group>";
+		};
+		B87605FD0739453FE0E38A1F1FC4873F /* GoogleAnalytics */ = {
+			isa = PBXGroup;
+			children = (
+				C61C4144C7AABEFAA7CD8A591724C67D /* GAI.h */,
+				5F76486B5697001B623EC81DAD172F1A /* GAIDictionaryBuilder.h */,
+				1A71C0A7A6CF4724C9F1ED789AAA14FB /* GAIEcommerceFields.h */,
+				90D29D96E708BF78B1E94C12587C4631 /* GAIEcommerceProduct.h */,
+				0CC8A043130D49D1C010FE726B9EC02A /* GAIEcommerceProductAction.h */,
+				E4DCA77222C73D3EC5D1E496F4256D91 /* GAIEcommercePromotion.h */,
+				3AE0AE58EB9CD3C3BD219B243428A2BF /* GAIFields.h */,
+				D55AFAC9057C18EDFD7C37AD84E387DA /* GAILogger.h */,
+				6702498FBC27E40EA617E170651FB807 /* GAITrackedViewController.h */,
+				2E9F26E971260FF1B333429B43D0FADE /* GAITracker.h */,
+				63F095C666F7A3F005C3BF332E9C2D9A /* Frameworks */,
+			);
+			path = GoogleAnalytics;
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BF6342C8B29F4CEEA088EFF7AB4DE362 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BF6342C8B29F4CEEA088EFF7AB4DE362 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		C340645482DBD43239D33A2B9EB24C35 /* Google-Mobile-Ads-SDK */ = {
+			isa = PBXGroup;
+			children = (
+				478F8DD806B206B3273A3D03A6EBAD31 /* Frameworks */,
+			);
+			path = "Google-Mobile-Ads-SDK";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6177D65FCFBC17F2E2DAA26031AF3E6D /* Pods-AutoOmegle */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 705E738CB63E62DAF82C479FAC0DA74A /* Build configuration list for PBXNativeTarget "Pods-AutoOmegle" */;
+			buildPhases = (
+				4732757BDE20748EE2F466DAA0372133 /* Sources */,
+				9D7C2A0FD3D5CA813F3783E5D4DB708C /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-AutoOmegle";
+			productName = "Pods-AutoOmegle";
+			productReference = 99FB5037C2982697ACB65A846D108C19 /* libPods-AutoOmegle.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 16D03EE160A9895270B7FD121F8061F7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6177D65FCFBC17F2E2DAA26031AF3E6D /* Pods-AutoOmegle */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4732757BDE20748EE2F466DAA0372133 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				48453D069F0E75243164FEA13C70F852 /* Pods-AutoOmegle-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		03CA91998D6773EC5D02B3DB87B8353E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0B57334D6C23DADAA4F7D802A5760EB2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		4F106C1D94111FEEB9C98E125FF1AEEF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E3F14F14613ADFA946E5EB6F1DE84F4E /* Pods-AutoOmegle.debug.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		DFE3FC515D537FA47AA1F7F71CEAA7B3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F6358A863F102BF14DF5C8E8632BE812 /* Pods-AutoOmegle.release.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0B57334D6C23DADAA4F7D802A5760EB2 /* Debug */,
+				03CA91998D6773EC5D02B3DB87B8353E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		705E738CB63E62DAF82C479FAC0DA74A /* Build configuration list for PBXNativeTarget "Pods-AutoOmegle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4F106C1D94111FEEB9C98E125FF1AEEF /* Debug */,
+				DFE3FC515D537FA47AA1F7F71CEAA7B3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

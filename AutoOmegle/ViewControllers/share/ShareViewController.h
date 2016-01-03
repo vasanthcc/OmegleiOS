@@ -9,5 +9,5 @@
 #import "CCBaseViewController.h"
 
 @interface ShareViewController : CCBaseViewController
-
+-(void)shareAppWithThisViewController;
 @end

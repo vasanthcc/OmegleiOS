@@ -413,40 +413,40 @@
         [((CCBaseViewController*)self.viewControllerDelegate).navigationController popToViewController:controllerToNavigate animated:NO];
     }
 }
--(void)shareApp
-{
-    NSArray * shareItems = @[@"Auto Omegle",[UIImage imageNamed:IMG_MENU]];
-    
-    UIActivityViewController * avc = [[UIActivityViewController alloc] initWithActivityItems:shareItems applicationActivities:nil];
-    
-    //[(CCBaseViewController*)self.viewControllerDelegate presentViewController:avc animated:YES completion:nil];
-    
-    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:avc];
-    nav.view.backgroundColor=[UIColor whiteColor];
-    nav.view.frame = CGRectMake(0, 0, self.contentContainer.frame.size.width,self.contentContainer.frame.size.height/2);
-    [nav setNavigationBarHidden:TRUE];
-    
-    UIButton *btnDone=[UIButton buttonWithType:UIButtonTypeCustom];
-    btnDone.frame=CGRectMake(0,nav.view.frame.size.height-40,nav.view.frame.size.width,40);
-    [btnDone setTitle:@"BACK" forState:UIControlStateNormal];
-    [btnDone setTitle:@"BACK" forState:UIControlStateSelected];
-    [btnDone addTarget:self action:@selector(backPress) forControlEvents:UIControlEventTouchUpInside];
-    [btnDone setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    btnDone.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
-    btnDone.backgroundColor=BLUE_COLOR_THEME;
-    btnDone.titleLabel.font=[UIFont fontWithName:@"Helvetica" size:13];
-    btnDone.titleLabel.backgroundColor=[UIColor clearColor];
-    btnDone.imageView.backgroundColor=[UIColor clearColor];
-    
-    [nav.view addSubview:btnDone];
-    
-    [[(BaseViewController*)self.viewControllerDelegate navigationController] presentViewController:nav animated:YES completion:nil];
-
-}
--(void)backPress
-{
-    [[(BaseViewController*)self.viewControllerDelegate navigationController] dismissViewControllerAnimated:YES completion:nil];
-}
+//-(void)shareApp
+//{
+//    NSArray * shareItems = @[@"Auto Omegle",[UIImage imageNamed:IMG_MENU]];
+//    
+//    UIActivityViewController * avc = [[UIActivityViewController alloc] initWithActivityItems:shareItems applicationActivities:nil];
+//    
+//    //[(CCBaseViewController*)self.viewControllerDelegate presentViewController:avc animated:YES completion:nil];
+//    
+//    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:avc];
+//    nav.view.backgroundColor=[UIColor whiteColor];
+//    nav.view.frame = CGRectMake(0, 0, self.contentContainer.frame.size.width,self.contentContainer.frame.size.height/2);
+//    [nav setNavigationBarHidden:TRUE];
+//    
+//    UIButton *btnDone=[UIButton buttonWithType:UIButtonTypeCustom];
+//    btnDone.frame=CGRectMake(0,nav.view.frame.size.height-40,nav.view.frame.size.width,40);
+//    [btnDone setTitle:@"BACK" forState:UIControlStateNormal];
+//    [btnDone setTitle:@"BACK" forState:UIControlStateSelected];
+//    [btnDone addTarget:self action:@selector(backPress) forControlEvents:UIControlEventTouchUpInside];
+//    [btnDone setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+//    btnDone.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+//    btnDone.backgroundColor=BLUE_COLOR_THEME;
+//    btnDone.titleLabel.font=[UIFont fontWithName:@"Helvetica" size:13];
+//    btnDone.titleLabel.backgroundColor=[UIColor clearColor];
+//    btnDone.imageView.backgroundColor=[UIColor clearColor];
+//    
+//    [nav.view addSubview:btnDone];
+//    
+//    [[(BaseViewController*)self.viewControllerDelegate navigationController] presentViewController:nav animated:YES completion:nil];
+//
+//}
+//-(void)backPress
+//{
+//    [[(BaseViewController*)self.viewControllerDelegate navigationController] dismissViewControllerAnimated:YES completion:nil];
+//}
 -(CCBaseViewController *)getViewControllerToNavigate
 {
     if([self respondsToSelector:@selector(getAssociatedMainController)])

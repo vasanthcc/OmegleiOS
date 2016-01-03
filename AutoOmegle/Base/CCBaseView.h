@@ -34,7 +34,7 @@
 -(void) logOutRequest;
 -(void) setMenuViewIdentifier:(NSString*)identifier;
 -(void)gotoThisViewController:(NSString*)strViewController;
--(void)shareApp;
+//-(void)shareApp;
 -(void) createMenu;
 -(void) hideMenu;
 -(BOOL)isNetworkON;

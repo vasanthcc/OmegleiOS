@@ -8,6 +8,7 @@
 
 #import "ShareView.h"
 #import "AppMacros.h"
+#import "ShareViewController.h"
 @interface ShareView()
 {
     
@@ -28,6 +29,11 @@
 {
     [self setTitle:@"Share to Friends"];
     
+    UIImageView *imgBG = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.contentContainer.frame.size.width, self.contentContainer.frame.size.height-40)];
+    [self.contentContainer addSubview:imgBG];
+    
+    imgBG.image = [UIImage imageNamed:@"add.png"];
+    
     UIButton *btnDone=[UIButton buttonWithType:UIButtonTypeCustom];
     btnDone.frame=CGRectMake(0,self.contentContainer.frame.size.height-40,self.contentContainer.frame.size.width,40);
     [btnDone setTitle:@"SHARE" forState:UIControlStateNormal];
@@ -39,7 +45,6 @@
     btnDone.titleLabel.font=[UIFont fontWithName:@"Helvetica" size:13];
     btnDone.titleLabel.backgroundColor=[UIColor clearColor];
     btnDone.imageView.backgroundColor=[UIColor clearColor];
-
     [self.contentContainer addSubview:btnDone];
 }
 -(void)showing
@@ -48,7 +53,7 @@
 }
 -(void)sharePress
 {
-    [self shareApp];
+    [(ShareViewController*)self.viewControllerDelegate shareAppWithThisViewController];
 }
 
 @end
