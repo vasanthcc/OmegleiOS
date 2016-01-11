@@ -11,7 +11,9 @@
 #import "MenuList.h"
 #import "CCBaseView.h"
 #import "AppMacros.h"
-
+#import "GAIFields.h"
+#import "GAIDictionaryBuilder.h"
+#import "GAI.h"
 static MenuView *menuView;
 
 @interface MenuView ()
@@ -93,7 +95,7 @@ static MenuView *menuView;
 {
     
     MenuList *mainMenuList=[[MenuList alloc] init];
-    mainMenuList.menuItems=[[NSMutableArray alloc] initWithObjects:@"Chat",@"Edit Templates",@"Chat Settings",@"Boring",@"Statistics",@"Chat Logs",@"Share to Friends",@"Issues/Suggestions",nil];
+    mainMenuList.menuItems=[[NSMutableArray alloc] initWithObjects:@"Chat",@"Edit Templates",@"Settings",@"Boring",@"Statistics",@"Chat Logs",@"Share to Friends",@"Issues/Suggestions",nil];
     
     mainMenuList.menuImages=[[NSMutableArray alloc] initWithObjects:@"chatting",@"edittemplate",@"chatsettings",@"boring",@"statistics",@"chatlogs",@"sharing",@"mailing",nil];
     
@@ -196,6 +198,12 @@ static MenuView *menuView;
 {
     MenuList *menuList=[self.items objectAtIndex:indexPath.section];
     NSString *strSelectedController = menuList.viewControllers[indexPath.row];
+    
+    
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker set:kGAIScreenName value:menuList.viewKeys[indexPath.row]];
+    [tracker send:[[GAIDictionaryBuilder createAppView] build]];
+    
     
     CCBaseViewController *baseController=(CCBaseViewController*)self.delegate;
     

@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		6A023E041C39A15700318CA2 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A023E031C39A15700318CA2 /* libz.dylib */; };
 		6A023E051C39A16800318CA2 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ACB41D11AD14DC700A917D6 /* libsqlite3.0.dylib */; };
+		6A14E8091C3A8A2100BAD6C5 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A14E8081C3A8A2100BAD6C5 /* menu.png */; };
+		6A14E80B1C3A8A2B00BAD6C5 /* menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A14E80A1C3A8A2B00BAD6C5 /* menu@2x.png */; };
+		6A14E80D1C3A8A3500BAD6C5 /* menu@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A14E80C1C3A8A3500BAD6C5 /* menu@3x.png */; };
+		6A22D0801C4437CC00749A1F /* sharingOmegle.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A22D07F1C4437CC00749A1F /* sharingOmegle.png */; };
 		6A22D9EC1C281AA800B462CD /* iToast.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A22D9EB1C281AA800B462CD /* iToast.m */; };
 		6A3760AE1C39B35200466433 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A3760AD1C39B35200466433 /* CoreData.framework */; };
 		6A3760B01C39B36F00466433 /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A3760AF1C39B36F00466433 /* libGoogleAnalyticsServices.a */; };
@@ -146,6 +150,10 @@
 
 /* Begin PBXFileReference section */
 		6A023E031C39A15700318CA2 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		6A14E8081C3A8A2100BAD6C5 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
+		6A14E80A1C3A8A2B00BAD6C5 /* menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu@2x.png"; sourceTree = "<group>"; };
+		6A14E80C1C3A8A3500BAD6C5 /* menu@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu@3x.png"; sourceTree = "<group>"; };
+		6A22D07F1C4437CC00749A1F /* sharingOmegle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sharingOmegle.png; sourceTree = "<group>"; };
 		6A22D9EA1C281AA800B462CD /* iToast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iToast.h; sourceTree = "<group>"; };
 		6A22D9EB1C281AA800B462CD /* iToast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iToast.m; sourceTree = "<group>"; };
 		6A3760A31C39B2FB00466433 /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAI.h; path = GoogleAnalytics/Library/GAI.h; sourceTree = SOURCE_ROOT; };
@@ -604,6 +612,8 @@
 		6AF31D851ACE8D9E00035887 /* common */ = {
 			isa = PBXGroup;
 			children = (
+				6A22D07F1C4437CC00749A1F /* sharingOmegle.png */,
+				6A14E8081C3A8A2100BAD6C5 /* menu.png */,
 				6AF31D861ACE8D9E00035887 /* 2X */,
 				6AF31DA71ACE8D9E00035887 /* 3x */,
 				6AF31DC81ACE8D9E00035887 /* add.png */,
@@ -628,6 +638,7 @@
 		6AF31D861ACE8D9E00035887 /* 2X */ = {
 			isa = PBXGroup;
 			children = (
+				6A14E80A1C3A8A2B00BAD6C5 /* menu@2x.png */,
 				6AF31D871ACE8D9E00035887 /* add@2x.png */,
 				6AF31D881ACE8D9E00035887 /* back@2x.png */,
 				6AF31D891ACE8D9E00035887 /* btn_close@2x.png */,
@@ -648,6 +659,7 @@
 		6AF31DA71ACE8D9E00035887 /* 3x */ = {
 			isa = PBXGroup;
 			children = (
+				6A14E80C1C3A8A3500BAD6C5 /* menu@3x.png */,
 				6AF31DA81ACE8D9E00035887 /* add@3x.png */,
 				6AF31DA91ACE8D9E00035887 /* back@3x.png */,
 				6AF31DAA1ACE8D9E00035887 /* btn_close@3x.png */,
@@ -909,6 +921,7 @@
 				6AF31EB91ACE8D9E00035887 /* refresh@3x.png in Resources */,
 				6AF31E871ACE8D9E00035887 /* settings@2x.png in Resources */,
 				6A7931EC1AC998D5006E6345 /* Main.storyboard in Resources */,
+				6A22D0801C4437CC00749A1F /* sharingOmegle.png in Resources */,
 				6A8DC92B1C2E426B00E120C7 /* chatting.png in Resources */,
 				6A8DC91D1C2E2C3600E120C7 /* templateBold.png in Resources */,
 				6AF31E821ACE8D9E00035887 /* back@2x.png in Resources */,
@@ -916,9 +929,11 @@
 				6AF31ECE1ACE8D9E00035887 /* detail_arrow_white.png in Resources */,
 				6AF31EDC1ACE8D9E00035887 /* search.png in Resources */,
 				6A7931F11AC998D5006E6345 /* LaunchScreen.xib in Resources */,
+				6A14E80D1C3A8A3500BAD6C5 /* menu@3x.png in Resources */,
 				6AF31E831ACE8D9E00035887 /* btn_close@2x.png in Resources */,
 				6AF31E951ACE8D9E00035887 /* info@2x.png in Resources */,
 				6AF31EDD1ACE8D9E00035887 /* success.png in Resources */,
+				6A14E80B1C3A8A2B00BAD6C5 /* menu@2x.png in Resources */,
 				6A8DC92C1C2E426B00E120C7 /* edittemplate.png in Resources */,
 				6AF31ED61ACE8D9E00035887 /* info.png in Resources */,
 				6AF31ECD1ACE8D9E00035887 /* delete.png in Resources */,
@@ -934,6 +949,7 @@
 				6AF31EDB1ACE8D9E00035887 /* refresh.png in Resources */,
 				6AF31ED71ACE8D9E00035887 /* more_arrow.png in Resources */,
 				6AF31E961ACE8D9E00035887 /* more_arrow@2x.png in Resources */,
+				6A14E8091C3A8A2100BAD6C5 /* menu.png in Resources */,
 				6AF31EC71ACE8D9E00035887 /* settings.png in Resources */,
 				6AF31EC21ACE8D9E00035887 /* back.png in Resources */,
 				6A8DC9201C2E2F4100E120C7 /* list.png in Resources */,
@@ -1160,8 +1176,8 @@
 			baseConfigurationReference = 76867A45F80BFA885DFE9764 /* Pods-AutoOmegle.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Market Simplified Inc";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Market Simplified Inc";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Krithika Harishankar (85598Q4KG7)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Krithika Harishankar (85598Q4KG7)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1177,7 +1193,7 @@
 				);
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "f00535f1-6744-4dcb-be22-2c7e53b0d1be";
+				PROVISIONING_PROFILE = "248681e4-5106-421e-96c1-2744fad48a62";
 				VALID_ARCHS = "arm64 armv7s armv7";
 			};
 			name = Debug;
@@ -1187,8 +1203,8 @@
 			baseConfigurationReference = A2ED1A3C74108A8068E5C11C /* Pods-AutoOmegle.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Market Simplified Inc";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Market Simplified Inc";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Krithika Harishankar (85598Q4KG7)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Krithika Harishankar (85598Q4KG7)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1204,7 +1220,7 @@
 				);
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "f00535f1-6744-4dcb-be22-2c7e53b0d1be";
+				PROVISIONING_PROFILE = "248681e4-5106-421e-96c1-2744fad48a62";
 				VALID_ARCHS = "arm64 armv7s armv7";
 			};
 			name = Release;

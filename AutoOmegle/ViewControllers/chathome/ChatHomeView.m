@@ -19,6 +19,11 @@
 #define ALIGNMENT_LEFT @"LEFT"
 #define ALIGNMENT_RIGHT @"RIGHT"
 #define BASE_URL @"http://front3.omegle.com/"
+
+#define CHAT_INITIATING @"initiating chat"
+#define LOOKING_FOR_STRANGERS @"looking for strangers"
+#define STRANGERS_CONNECTED @"stranger connected."
+
 @interface ChatHomeView()
 {
     UITableView *tableChat;
@@ -187,7 +192,7 @@
     txtCommonLikes.delegate=self;
     txtCommonLikes.borderStyle=UITextBorderStyleNone;
     txtCommonLikes.autocapitalizationType=UITextAutocapitalizationTypeNone;
-    txtCommonLikes.placeholder=@"    should be sperated by comma(,)";
+    txtCommonLikes.placeholder=@"    interest (eg:kik,love)";
     [txtCommonLikes addTarget:self action:@selector(doneWithTextField:) forControlEvents:UIControlEventEditingDidEndOnExit];
     //[txtCommonLikes addTarget:self action:@selector(gotFocus) forControlEvents:UIControlEventEditingDidBegin];
     [viewSettings addSubview:txtCommonLikes];
@@ -274,16 +279,10 @@
     [switchDoubleTapON setOn:YES animated:YES];
     [switchWelcomeMessage setOn:[AppData getAppData].boolWelcomeMsg_ON_OFF animated:YES];
     
-    //    if(![[AppData getAppData].getWelcomeMessage isEqualToString:@""] && [AppData getAppData].getWelcomeMessage != nil)
-    //        txtWelcomeMessage.text =[AppData getAppData].getWelcomeMessage;
-    //
-    //    if(![[AppData getAppData].getCommonLikes isEqualToString:@""] && [AppData getAppData].getCommonLikes != nil)
-    //        txtCommonLikes.text =[AppData getAppData].getCommonLikes;
-    
-    if(![[AppData getAppData].strWelcomeMsg isEqualToString:@""] && [AppData getAppData].strWelcomeMsg != nil)
+    if([AppData getAppData].strWelcomeMsg != nil && ![[AppData getAppData].strWelcomeMsg isEqualToString:@""] && txtWelcomeMessage !=nil)
         txtWelcomeMessage.text =[AppData getAppData].strWelcomeMsg;
     
-    if(![[AppData getAppData].strCommonLikes isEqualToString:@""] && [AppData getAppData].strCommonLikes != nil)
+    if([AppData getAppData].strCommonLikes != nil && ![[AppData getAppData].strCommonLikes isEqualToString:@""] && txtCommonLikes !=nil)
         txtCommonLikes.text =[AppData getAppData].strCommonLikes;
     
     
@@ -475,7 +474,7 @@
 -(void)sendMessageIfWelcomeMessageOn
 {
     //if([AppData getAppData].isWelcomeMessageOn && [[AppData getAppData] getWelcomeMessage] != nil && ![[[AppData getAppData] getWelcomeMessage] isEqualToString:@""])
-    if([AppData getAppData].boolWelcomeMsg_ON_OFF && [[AppData getAppData] strWelcomeMsg] != nil && ![[[AppData getAppData] strWelcomeMsg] isEqualToString:@""])
+    if([AppData getAppData].boolWelcomeMsg_ON_OFF && [[AppData getAppData] strWelcomeMsg] != nil && ![[[AppData getAppData] strWelcomeMsg] isEqualToString:@""] && arrayChat.count==0)
     {
         [self AddChatAndSendMessage:[AppData getAppData].strWelcomeMsg];//[[AppData getAppData] getWelcomeMessage]];
     }
@@ -609,7 +608,7 @@
     } else if (gestureRecognizer.state == UIGestureRecognizerStateBegan)
     {
         //NSLog(@"long press on table view at row %ld", (long)indexPath.row);
-        NSLog(@"Selected Item %@",[arrayChat objectAtIndex:indexPath.row]);
+        //NSLog(@"Selected Item %@",[arrayChat objectAtIndex:indexPath.row]);
         //[self showLongPressPopup];
     }
     else {
@@ -685,6 +684,10 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
+ if([self getRowHeightBaseOnThisText:[[[arrayChat objectAtIndex:indexPath.row] componentsSeparatedByString:@"|"] objectAtIndex:0]] > 50)
+ {
+     [self showErrorAlertWithMessage:[[[arrayChat objectAtIndex:indexPath.row] componentsSeparatedByString:@"|"] objectAtIndex:0]];
+ }
 }
 
 #pragma mark Chat Code
@@ -716,11 +719,6 @@
     {
         NSString *dat = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
         
-        //{events:[[waiting],[connected],[commonLikes,[Kik]],[identDigests,bd254d344b3fb9ddff9884be05b5461a,2ac2f44c3ea3b8578fe95311b141a0b4,a08b4f3056dc709f6ea0c157bfb0dd7e,2ac2f44c3ea3b8578fe95311b141a0b4]],clientID:central2:v4suj35l7flmxn7n2x5tfrtf0dckb6}
-        
-        //shard2:rm56d344znmmpz2f40agfx8reslm5w
-        
-        [self showLiveStatus:@"---chat initiating---"];
         if ([dat rangeOfString:@"events"].location == NSNotFound)
         {//Yes
             if([dat isEqualToString:@"{}"])
@@ -728,10 +726,14 @@
                 
             }
             else
+            {
+                [self showLiveStatus:CHAT_INITIATING];
                 [self chatBeganWithID:dat];
+            }
         }
         else
         {//Doesnt have
+            [self showLiveStatus:STRANGERS_CONNECTED];
             NSDictionary *likesResp =[NSJSONSerialization JSONObjectWithData:[dat dataUsingEncoding:NSUTF8StringEncoding] options:0 error:nil];
             
             if([dat rangeOfString:@"commonLikes"].location != NSNotFound)
@@ -746,7 +748,12 @@
                     if(arrayCurItems.count==2)
                     {
                         if([[arrayCurItems objectAtIndex:0] isEqualToString:@"commonLikes"])
-                            [self showToast:[NSString stringWithFormat:@"You both liked : %@",[arrayCurItems objectAtIndex:1]]];
+                        {
+                            NSString *strToast = [[NSString stringWithFormat:@"Both Likes : %@",[arrayCurItems objectAtIndex:1]] stringByReplacingOccurrencesOfString:@"(" withString:@""];
+                            
+
+                            [self showToast:[strToast stringByReplacingOccurrencesOfString:@")" withString:@""]];
+                        }
                     }
                 }
             }
@@ -775,18 +782,22 @@
     }
     else if (connection == disconnectConnection)
     {
-        [self newChat];
-        [self showLiveStatus:@"you disconnected."];
-        connectionON = NO;
-        
-        if([AppData getAppData].boolReconnect_ON_OFF)
-            [self clickDoConnect];
+        //[self doAfterDisconnected];put disconnected time
     }
     //else if(connection == stoplookingforcommonlikes)
     else
     {
         [self eventsDidReceiveData:mat];
     }
+}
+-(void)doAfterDisconnected
+{
+    [self newChat];
+    [self showLiveStatus:@"you disconnected."];
+    connectionON = NO;
+    
+    if([AppData getAppData].boolReconnect_ON_OFF)
+        [self clickDoConnect];
 }
 //waiting
 //connected
@@ -836,14 +847,19 @@
             }
             if ([[[response objectAtIndex: array] objectAtIndex:0] isEqualToString:@"connected"])
             {
-                [self showLiveStatus:@"stranger connected."];
-                NSLog(@"USER_CONNECTED");
-                [self sendMessageIfWelcomeMessageOn];
+                [self showLiveStatus:STRANGERS_CONNECTED];
+[self sendMessageIfWelcomeMessageOn];
             }
             if ([[[response objectAtIndex: array] objectAtIndex:0] isEqualToString:@"commonLikes"])
             {
-                [self showLiveStatus:@"stranger connected."];
-                [self showToast:[NSString stringWithFormat:@"Both likes : %@",[[response objectAtIndex: array] objectAtIndex:1]]];
+                [self showLiveStatus:STRANGERS_CONNECTED];
+                [self sendMessageIfWelcomeMessageOn];
+                
+                NSString *strToast = [[NSString stringWithFormat:@"Both likes : %@",[[response objectAtIndex: array] objectAtIndex:1]]stringByReplacingOccurrencesOfString:@"(" withString:@""];
+                
+                
+                [self showToast:[strToast stringByReplacingOccurrencesOfString:@")" withString:@""]];
+                
             }
             if ([[[response objectAtIndex: array] objectAtIndex:0] isEqualToString:@"waiting"])
             {
@@ -900,7 +916,7 @@
     else
     {
                 waitingTime = waitingTime+1;
-                if(waitingTime > 5*frequency)
+                if(waitingTime > 5*frequency && arrayChat.count==0)
                     if([AppData getAppData].boolLikes_ON_OFF)
                         [self showToast:@"Omegle couldn't find anyone who shares interests with you, Try adding more interests!"];
     }
@@ -958,13 +974,13 @@
     //    vars.put("rcs", "1"); vars.put("firstevents", firstEvents ? "1" : "0"); if(topics!=null){ System.out.println("Topics: "+topics); vars.put("topics", topics); } vars.put("m","1"); if(language!=null){ vars.put("lang",language);
     
     
-    [self showLiveStatus:@"looking for strangers..."];
+    [self showLiveStatus:LOOKING_FOR_STRANGERS];
     
     NSString *events = [NSString stringWithFormat:@"%@start",baseChatURL];
     
     NSString *webString=@"";
     
-    if([AppData getAppData].boolLikes_ON_OFF)
+    if([AppData getAppData].boolLikes_ON_OFF && txtCommonLikes != nil && ![txtCommonLikes.text isEqualToString:@""])
         webString =[events stringByAppendingString:[@"?rcs=1&firstevents=1&m=1&topics=" stringByAppendingString:[self getLikes]]];
     else
         webString =[events stringByAppendingString:@"?rcs=1&firstevents=1&m=1"];
@@ -972,44 +988,6 @@
     NSMutableURLRequest *eventsRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:webString]];
     
     startConnection = [[NSURLConnection alloc] initWithRequest:eventsRequest delegate:self];
-}
--(void)startChatWithLikes
-{
-    //    vars.put("rcs", "1"); vars.put("firstevents", firstEvents ? "1" : "0"); if(topics!=null){ System.out.println("Topics: "+topics); vars.put("topics", topics); } vars.put("m","1"); if(language!=null){ vars.put("lang",language);
-    
-    
-    [self showLiveStatus:@"looking for strangers..."];
-    // yay now we actually start the chat.
-    NSString *events = [NSString stringWithFormat:@"%@start",baseChatURL];
-    // NSLog(@"connection to: %@, starting chat.", complete);
-    NSMutableURLRequest *eventsRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:events]];
-    [eventsRequest setHTTPMethod:@"POST"];
-    
-    if([AppData getAppData].boolLikes_ON_OFF)
-    {
-        //NSString *strLikes = @"rcs=1&firstevents=1&m=1&topics=%5B%22love%22%5D";
-        NSString *strLikes = [@"rcs=1&firstevents=1&m=1&topics=" stringByAppendingString:[self getLikes]];
-        [eventsRequest setHTTPBody:[strLikes dataUsingEncoding:NSUTF8StringEncoding]];
-    }
-    else
-        [eventsRequest setHTTPBody:[@"rcs=1&firstevents=1&m=1" dataUsingEncoding:NSUTF8StringEncoding]];
-    
-    
-    //NSString *webstring =
-    
-    NSLog(@"Request HTTP ::: %@\n",[[NSString alloc] initWithData:[eventsRequest HTTPBody] encoding:NSUTF8StringEncoding]);
-    startConnection = [[NSURLConnection alloc] initWithRequest:eventsRequest delegate:self];
-}
--(void)testLikes
-{
-    [self showLiveStatus:@"looking for test likes..."];
-    NSString *events = [NSString stringWithFormat:@"%@start",baseChatURL];
-    NSString *webString =[events stringByAppendingString:[@"?rcs=1&firstevents=1&m=1&topics=" stringByAppendingString:[self getLikes]]];//@"http://front5.omegle.com/start?rcs=1&firstevents=1&topics=%5B%22love%22%5D";
-    
-    NSMutableURLRequest *eventsRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:webString]];
-    
-    startConnection = [[NSURLConnection alloc] initWithRequest:eventsRequest delegate:self];
-    
 }
 -(void)disconnectChat
 {
@@ -1024,6 +1002,7 @@
     [eventsRequest setHTTPBody:[postString dataUsingEncoding:NSUTF8StringEncoding]];
     disconnectConnection = [[NSURLConnection alloc] initWithRequest:eventsRequest delegate:self];
     
+    [self doAfterDisconnected];
 }
 -(void)stopLookingForCommonLikes
 {
@@ -1246,7 +1225,14 @@
 {
     return @"By using the Omegle Web site, and/or related products and/or services ('Omegle', provided by Omegle.com LLC), you agree to the following terms: Do not use Omegle if you are under 13. If you are under 18, use it only with a parent/guardian's permission. Do not transmit nudity, sexually harass anyone, publicize other peoples' private information, make statements that defame or libel anyone, violate intellectual property rights, use automated programs to start chats, or behave in any other inappropriate or illegal way on Omegle. Understand that human behavior is fundamentally uncontrollable, that the people you encounter on Omegle may not behave appropriately, and that they are solely responsible for their own behavior. Use Omegle at your own peril. Disconnect if anyone makes you feel uncomfortable. You may be denied access to Omegle for inappropriate behavior, or for any other reason.\n\n \
     OMEGLE IS PROVIDED AS IS, AND TO THE MAXIMUM EXTENT ALLOWED BY APPLICABLE LAW, IT IS PROVIDED WITHOUT ANY WARRANTY, EXPRESS OR IMPLIED, NOT EVEN A WARRANTY OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE. TO THE MAXIMUM EXTENT ALLOWED BY APPLICABLE LAW, THE PROVIDER OF OMEGLE, AND ANY OTHER PERSON OR ENTITY ASSOCIATED WITH OMEGLE'S OPERATION, SHALL NOT BE HELD LIABLE FOR ANY DIRECT OR INDIRECT DAMAGES ARISING FROM THE USE OF OMEGLE, OR ANY OTHER DAMAGES RELATED TO OMEGLE OF ANY KIND WHATSOEVER.\n\n \
-    By using Omegle, you accept the practices outlined in Omegle's PRIVACY POLICY and INFORMATION ABOUT THE USE OF COOKIES (updated 2014-06-03 – contains important information about video chat monitoring). Parental control protections (such as computer hardware, software, or filtering services) are commercially available that may assist you in limiting access to material that is harmful to minors. If you are interested in learning more about these protections, information is available at www.kids.getnetwise.org/tools/ as well as a number of other Internet sites that provide information on this form of protection.";
+    By using Omegle, you accept the practices outlined in Omegle's PRIVACY POLICY and INFORMATION ABOUT THE USE OF COOKIES.";
+}
+-(int)getRowHeightBaseOnThisText:(NSString*)strText
+{
+    UIFont *cellFont = [UIFont fontWithName:@"Helvetica" size:15];
+    CGSize constraintSize = CGSizeMake(280.0f, MAXFLOAT);
+    CGSize labelSize =[strText sizeWithFont:cellFont constrainedToSize:constraintSize lineBreakMode:UILineBreakModeCharacterWrap];
+   return labelSize.height+5;
 }
 @end
 

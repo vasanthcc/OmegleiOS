@@ -27,6 +27,8 @@
     
     [self.applicationWindow makeKeyAndVisible];
     
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    
     [self loadStaticDataFromDB];
     
     BaseViewController *homeViewController=[[ChatHomeViewController alloc] init];
