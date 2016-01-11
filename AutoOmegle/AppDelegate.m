@@ -54,7 +54,7 @@
     [GAI sharedInstance].dispatchInterval = 20;
     
     // 4
-    id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:@"UA-XXXXXXX-Y"];
+    id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:@"UA-71953355-2"];
 }
 -(void)loadStaticDataFromDB
 {

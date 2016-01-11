@@ -202,7 +202,7 @@ static MenuView *menuView;
     
     id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
     [tracker set:kGAIScreenName value:menuList.viewKeys[indexPath.row]];
-    [tracker send:[[GAIDictionaryBuilder createAppView] build]];
+    [tracker send:[[GAIDictionaryBuilder createScreenView] build]];
     
     
     CCBaseViewController *baseController=(CCBaseViewController*)self.delegate;

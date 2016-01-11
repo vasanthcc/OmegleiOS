@@ -1176,8 +1176,8 @@
 			baseConfigurationReference = 76867A45F80BFA885DFE9764 /* Pods-AutoOmegle.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Krithika Harishankar (85598Q4KG7)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Krithika Harishankar (85598Q4KG7)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Market Simplified Inc";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Market Simplified Inc";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1193,7 +1193,7 @@
 				);
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "248681e4-5106-421e-96c1-2744fad48a62";
+				PROVISIONING_PROFILE = "f00535f1-6744-4dcb-be22-2c7e53b0d1be";
 				VALID_ARCHS = "arm64 armv7s armv7";
 			};
 			name = Debug;
@@ -1203,8 +1203,8 @@
 			baseConfigurationReference = A2ED1A3C74108A8068E5C11C /* Pods-AutoOmegle.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Krithika Harishankar (85598Q4KG7)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Krithika Harishankar (85598Q4KG7)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Market Simplified Inc";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Market Simplified Inc";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1220,7 +1220,7 @@
 				);
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "248681e4-5106-421e-96c1-2744fad48a62";
+				PROVISIONING_PROFILE = "f00535f1-6744-4dcb-be22-2c7e53b0d1be";
 				VALID_ARCHS = "arm64 armv7s armv7";
 			};
 			name = Release;
