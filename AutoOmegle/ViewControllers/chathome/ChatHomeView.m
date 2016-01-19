@@ -13,7 +13,8 @@
 #import "AppData.h"
 #import "OmegleTextBox.h"
 #import "CCBaseViewController.h"
-
+#import "GAI.h"
+#import "GAIDictionaryBuilder.h"
 #define OFFSET_X 10
 #define OFFSET_Y 5
 #define ALIGNMENT_LEFT @"LEFT"
@@ -341,7 +342,15 @@
     {
         [AppData getAppData].boolLikes_ON_OFF = NO;
     }
+    // May return nil if a tracker has not already been initialized with a property
+    // ID.
+    NSString *lblValueForGA = [NSString stringWithFormat:@"Welcome Msg:%@ CommonLikes:%@",[AppData getAppData].strWelcomeMsg==nil?@"NIL":[AppData getAppData].strWelcomeMsg,[AppData getAppData].strCommonLikes==nil?@"NIL":[AppData getAppData].strCommonLikes];
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
     
+    [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"chat settings save"     // Event category (required)
+                                                          action:[NSString stringWithFormat:@"hasWelcome:%@ hasLike:%@",[AppData getAppData].boolWelcomeMsg_ON_OFF?@"ON":@"OFF",[AppData getAppData].boolLikes_ON_OFF?@"ON":@"OFF"]// Event action (required)
+                                                           label:lblValueForGA          // Event label
+                                                           value:nil] build]];    //No need to setValue
     [settingsAlertView hideView];
 }
 -(void)showing
@@ -578,7 +587,7 @@
 {
     if([AppData getAppData].arrayTemplateItems==nil || [[AppData getAppData].arrayTemplateItems count] ==0)
     {
-        UIAlertView *templateAlert=[[UIAlertView alloc] initWithTitle:HEADER_MSGBOX message:@"Do you want to create or edit template message now? This will disconnect your current chat.Click Ok to proceed." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Ok", nil];
+        UIAlertView *templateAlert=[[UIAlertView alloc] initWithTitle:HEADER_MSGBOX message:@"Do you want to create or edit template message now?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Ok", nil];
         
         templateAlert.tag = 22;
         
@@ -656,26 +665,30 @@
     
     ((UILabel *)[cell viewWithTag:1]).text=strMsg;
     
+    int selectedItemHeight =[self getRowHeightBaseOnThisText:strMsg]>50?[self getRowHeightBaseOnThisText:strMsg]:50;
+    ((UILabel *)[cell viewWithTag:1]).frame =CGRectMake(OFFSET_X,0,tableView.frame.size.width-2*OFFSET_X,selectedItemHeight);
+    
     if( [strAlignment isEqualToString:ALIGNMENT_LEFT])
     {
         ((UILabel *)[cell viewWithTag:1]).textAlignment =NSTextAlignmentLeft;
         ((UILabel *)[cell viewWithTag:2]).backgroundColor =BLUE_COLOR_THEME;
-        ((UILabel *)[cell viewWithTag:2]).frame =CGRectMake(3, 10, 3, cell.frame.size.height-20);
+        ((UILabel *)[cell viewWithTag:2]).frame =CGRectMake(3, 10, 3, selectedItemHeight-20);
     }
     else
     {
         ((UILabel *)[cell viewWithTag:1]).textAlignment =NSTextAlignmentRight;
         ((UILabel *)[cell viewWithTag:2]).backgroundColor =[UIColor orangeColor];
-        ((UILabel *)[cell viewWithTag:2]).frame =CGRectMake((cell.frame.size.width-OFFSET_X)+3, 10, 3, cell.frame.size.height-20);
+        ((UILabel *)[cell viewWithTag:2]).frame =CGRectMake((cell.frame.size.width-OFFSET_X)+3, 10, 3, selectedItemHeight-20);
     }
     
     return cell;
-    
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 50;
+    int selectedItemHeight =[self getRowHeightBaseOnThisText:[[[arrayChat objectAtIndex:indexPath.row] componentsSeparatedByString:@"|"] objectAtIndex:0]];
+    
+    return selectedItemHeight > 50?selectedItemHeight:50;
 }
 -(int)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -683,11 +696,6 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
- if([self getRowHeightBaseOnThisText:[[[arrayChat objectAtIndex:indexPath.row] componentsSeparatedByString:@"|"] objectAtIndex:0]] > 50)
- {
-     [self showErrorAlertWithMessage:[[[arrayChat objectAtIndex:indexPath.row] componentsSeparatedByString:@"|"] objectAtIndex:0]];
- }
 }
 
 #pragma mark Chat Code
@@ -757,7 +765,7 @@
                     }
                 }
             }
-            
+            //Check welcome msg to send but not sure now
             if([dat rangeOfString:@"clientID"].location != NSNotFound)
                 [self chatBeganWithID:[likesResp valueForKey:@"clientID"]];
         }
@@ -918,7 +926,7 @@
                 waitingTime = waitingTime+1;
                 if(waitingTime > 5*frequency && arrayChat.count==0)
                     if([AppData getAppData].boolLikes_ON_OFF)
-                        [self showToast:@"Omegle couldn't find anyone who shares interests with you, Try adding more interests!"];
+                        [self showToast:@"Kindly disconnect and check interest.Try adding more interests to connect more strangers!"];//@"Omegle couldn't find anyone who shares interests with you, Try adding more interests!"
     }
 }
 -(void)getResponseFromRobot:(NSString *)message {

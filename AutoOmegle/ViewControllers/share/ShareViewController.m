@@ -42,7 +42,7 @@
 }
 -(void)shareAppWithThisViewController
 {
-    NSArray * shareItems = @[@"Auto Omegle App for iPhone",[UIImage imageNamed:@"shareOmegle"]];
+    NSArray * shareItems = @[@"Auto Omegle App for iPhone",[UIImage imageNamed:@"sharingOmegle"]];
     
     UIActivityViewController * avc = [[UIActivityViewController alloc] initWithActivityItems:shareItems applicationActivities:nil];
     

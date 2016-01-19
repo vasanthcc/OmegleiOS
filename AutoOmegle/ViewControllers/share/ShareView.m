@@ -28,11 +28,11 @@
 -(void)createView
 {
     [self setTitle:@"Share to Friends"];
-    
-    UIImageView *imgBG = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.contentContainer.frame.size.width, self.contentContainer.frame.size.height-40)];
+
+    UIImageView *imgBG = [[UIImageView alloc]initWithFrame:CGRectMake(50, 50, self.contentContainer.frame.size.width-100, self.contentContainer.frame.size.height-140)];
     [self.contentContainer addSubview:imgBG];
     
-    imgBG.image = [UIImage imageNamed:@"add.png"];
+    imgBG.image = [UIImage imageNamed:@"sharingOmegle"];
     
     UIButton *btnDone=[UIButton buttonWithType:UIButtonTypeCustom];
     btnDone.frame=CGRectMake(0,self.contentContainer.frame.size.height-40,self.contentContainer.frame.size.width,40);

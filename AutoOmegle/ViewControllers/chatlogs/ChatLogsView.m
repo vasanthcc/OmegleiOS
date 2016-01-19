@@ -35,7 +35,7 @@
     lblUnderDevelopment.textAlignment=NSTextAlignmentCenter;
     lblUnderDevelopment.font=[UIFont fontWithName:FONT_STATUS_BOLD size:18];
     lblUnderDevelopment.numberOfLines=0;
-    lblUnderDevelopment.text=@"Hopefully You can get this feature in the next updates";
+    lblUnderDevelopment.text=@"You will get this feature in the next updates";
     [self.contentContainer addSubview:lblUnderDevelopment];
     [self setTitle:@"Saved/Public Logs"];
 }
